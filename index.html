@@ -1,9 +1,13 @@
 <!DOCTYPE html>
+<!-- Hreflang por defecto, cambiado dinámicamente por JS -->
 <html lang="es" dir="ltr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- ========================================== -->
+    <!-- ULTRA SEO & META TAGS                      -->
+    <!-- ========================================== -->
     <title>NeuralFocus IA | Consultoría IA y Marketing Digital por Lucas Guzmán</title>
     <meta name="description" content="Agencia global de Inteligencia Artificial y Marketing Digital. Soluciones Micro-SaaS, ecosistemas ultra-premium y automatización de procesos liderados por Lucas Guzmán.">
     <meta name="keywords" content="Inteligencia Artificial, IA, Marketing Digital, Consultoría IA, Automatización de procesos, Desarrollo Micro-SaaS, Agencias de IA, Machine Learning, SEO, NeuralFocus IA, Lucas Guzmán, Ecosistemas Digitales">
@@ -11,6 +15,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://www.neuralfocusia.com/">
     
+    <!-- Etiquetas Hreflang para SEO Internacional Multilingüe -->
     <link rel="alternate" hreflang="es" href="https://www.neuralfocusia.com/" />
     <link rel="alternate" hreflang="en" href="https://www.neuralfocusia.com/en" />
     <link rel="alternate" hreflang="it" href="https://www.neuralfocusia.com/it" />
@@ -19,20 +24,23 @@
     <link rel="alternate" hreflang="ar" href="https://www.neuralfocusia.com/ar" />
     <link rel="alternate" hreflang="x-default" href="https://www.neuralfocusia.com/" />
 
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:title" content="NeuralFocus IA | Automatiza y Escala con IA">
     <meta property="og:description" content="Domina tu sector con integraciones de IA, análisis de datos y desarrollo web avanzado.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop">
     <meta property="og:url" content="https://www.neuralfocusia.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NeuralFocus IA">
     <meta property="og:locale" content="es_ES">
 
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NeuralFocus IA | Consultoría IA por Lucas Guzmán">
     <meta name="twitter:description" content="Transformación digital para empresas que no se conforman con lo básico.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop">
     <meta name="twitter:creator" content="@neuralfocusia">
 
+    <!-- ========================================== -->
+    <!-- STRUCTURED DATA (JSON-LD) PARA GOOGLE      -->
+    <!-- ========================================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,14 +50,11 @@
           "@id": "https://www.neuralfocusia.com/#organization",
           "name": "NeuralFocus IA",
           "url": "https://www.neuralfocusia.com",
-          "logo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop",
-          "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop",
           "description": "Agencia especializada en integración de Inteligencia Artificial, automatización de procesos empresariales y marketing digital avanzado.",
           "founder": {
             "@type": "Person",
             "name": "Lucas Guzmán",
-            "jobTitle": "CEO & AI Expert",
-            "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop"
+            "jobTitle": "CEO & AI Expert"
           },
           "areaServed": "Worldwide",
           "priceRange": "$$$"
@@ -79,8 +84,10 @@
     }
     </script>
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -108,6 +115,7 @@
         }
     </script>
 
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
@@ -142,6 +150,7 @@
 </head>
 <body class="antialiased font-sans selection:bg-primary selection:text-white">
 
+    <!-- Navbar -->
     <header>
         <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar" aria-label="Navegación principal">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -158,6 +167,7 @@
                         <a href="#sobre-mi" class="hover:text-white transition" data-translate="nav_about">Acerca de Mí</a>
                         <a href="#servicios" class="hover:text-white transition" data-translate="nav_services">Servicios SEO</a>
                         
+                        <!-- Selector de Idiomas -->
                         <div class="relative inline-block text-left group">
                             <button class="inline-flex justify-center items-center gap-2 rounded-full border border-slate-600 px-4 py-2 bg-slate-800 text-sm font-medium text-white hover:bg-slate-700 transition" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa-solid fa-globe" aria-hidden="true"></i> <span id="current-lang">ES</span>
@@ -174,6 +184,7 @@
                             </div>
                         </div>
 
+                        <!-- Botón SEO optimizado a mailto: -->
                         <a href="mailto:neuralfocusai@gmail.com?subject=Solicitud%20de%20Consultoría%20IA" class="bg-white text-darkbg px-6 py-2.5 rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(14,165,233,0.6)]" data-translate="nav_consulting" aria-label="Enviar correo para agendar consultoría">
                             Agendar Consultoría
                         </a>
@@ -184,6 +195,7 @@
     </header>
 
     <main>
+        <!-- SEO Hero Section -->
         <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden" aria-labelledby="hero-heading">
             <div id="bg-1" class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2000&auto=format&fit=crop');" aria-hidden="true"></div>
             <div id="bg-2" class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');" aria-hidden="true"></div>
@@ -213,7 +225,6 @@
 
                 <div class="hidden lg:block relative" data-aos="fade-left" data-aos-duration="1200">
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] -z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop" alt="Representación 3D de Inteligencia Artificial y Machine Learning" class="w-full h-auto object-contain rounded-[3rem] animate-float" loading="lazy">
                     
                     <div class="absolute top-10 -left-10 glass-card p-4 rounded-2xl animate-float-delayed" aria-hidden="true">
                         <i class="fa-solid fa-code text-2xl text-primary"></i>
@@ -225,6 +236,7 @@
             </div>
         </section>
 
+        <!-- SEO Carrusel Infinito: Palabras clave en Alt text -->
         <section class="py-12 bg-[#05080f] border-y border-slate-800 overflow-hidden relative" aria-label="Galería de tecnologías e Inteligencia Artificial">
             <h2 class="sr-only">Galería de Tecnologías de Marketing y Datos</h2>
             <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#05080f] to-transparent z-10 pointer-events-none"></div>
@@ -235,17 +247,19 @@
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Análisis de Datos y Posicionamiento SEO web" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
                 <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="Redes Neuronales y Machine Learning Avanzado" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="Dashboard de Marketing Digital B2B" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
+                <!-- Duplicados para el efecto visual loop -->
                 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop" alt="Integración de Inteligencia Artificial y Robótica" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Análisis de Datos y Posicionamiento SEO web" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
             </div>
         </section>
 
+        <!-- Sobre Mí - Optimizado con Microdatos implícitos -->
         <section id="sobre-mi" class="py-24 bg-[#0d131f] relative" aria-labelledby="about-heading">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-5 relative" data-aos="fade-right">
-                        <div class="relative rounded-3xl overflow-hidden border border-slate-800">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" alt="Lucas Guzmán - CEO y Experto en Consultoría IA, Marketing Digital y Desarrollo de Software" class="w-full h-auto transition-all duration-700 shadow-[0_0_30px_rgba(14,165,233,0.15)]" loading="lazy">
+                        <div class="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-800/30 aspect-square flex items-center justify-center">
+                            <i class="fa-solid fa-microchip text-9xl text-primary/20"></i>
                             <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent"></div>
                         </div>
                         <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-2xl shadow-2xl">
@@ -277,6 +291,7 @@
             </div>
         </section>
 
+        <!-- Nueva Sección de Servicios (Crucial para Ranking SEO) -->
         <section id="servicios" class="py-24 bg-darkbg relative border-t border-slate-800" aria-labelledby="services-heading">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16" data-aos="fade-up">
@@ -284,6 +299,7 @@
                     <p class="text-xl text-slate-400 max-w-2xl mx-auto" data-translate="serv_subtitle">Soluciones tecnológicas de alto nivel para indexar mejor, vender más y operar inteligentemente.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Servicio 1 -->
                     <article class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6 border border-primary/50">
                             <i class="fa-solid fa-robot text-2xl text-primary"></i>
@@ -291,6 +307,7 @@
                         <h3 class="text-xl font-bold text-white mb-3" data-translate="serv_1_t">Desarrollo e Integración IA</h3>
                         <p class="text-slate-400 text-sm leading-relaxed" data-translate="serv_1_p">Implementamos chatbots inteligentes, análisis predictivo y agentes conversacionales para atención al cliente y ventas automáticas 24/7.</p>
                     </article>
+                    <!-- Servicio 2 -->
                     <article class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-14 h-14 bg-secondary/20 rounded-xl flex items-center justify-center mb-6 border border-secondary/50">
                             <i class="fa-solid fa-chart-simple text-2xl text-secondary"></i>
@@ -298,6 +315,7 @@
                         <h3 class="text-xl font-bold text-white mb-3" data-translate="serv_2_t">SEO & Marketing Digital</h3>
                         <p class="text-slate-400 text-sm leading-relaxed" data-translate="serv_2_p">Auditorías técnicas, estrategias de contenido semántico, link building y campañas Ads enfocadas en el Retorno de Inversión (ROI).</p>
                     </article>
+                    <!-- Servicio 3 -->
                     <article class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
                         <div class="w-14 h-14 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/50">
                             <i class="fa-solid fa-cloud text-2xl text-cyan-400"></i>
@@ -309,6 +327,7 @@
             </div>
         </section>
 
+        <!-- FAQ SEO Oculto Visualmente (Mejora el texto para bots sin romper diseño) -->
         <section class="sr-only" aria-labelledby="faq-heading">
             <h2 id="faq-heading">Preguntas Frecuentes sobre Consultoría IA y Marketing</h2>
             <dl>
@@ -320,6 +339,7 @@
         </section>
     </main>
 
+    <!-- Footer SEO Estructurado -->
     <footer class="bg-[#05080f] py-12 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -345,10 +365,12 @@
         </div>
     </footer>
 
+    <!-- Botón Flotante WhatsApp -->
     <a href="https://wa.me/5492257550650" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="fixed bottom-8 right-8 z-40 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl animate-pulse-glow hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300">
         <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     </a>
 
+    <!-- Scripts de Animación, Idiomas y Lógica Multilingüe -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Iniciar Animaciones
@@ -409,7 +431,7 @@
                 hero_badge: "Lucas Guzmán | Consulenza SEO e IA", hero_title_1: "Automatizza.", hero_title_2: "Scala.", hero_title_3: "Domina il Web.",
                 hero_desc: "Ecosistemi digitali, SEO avanzata, integrazioni IA (Machine Learning) e sviluppo SaaS.",
                 btn_contact: "Contatto Diretto", about_focus: "Orientato al SEO & ROI", about_subtitle: "Su di Me",
-                about_p1: "Guido la transformación digitale integrale delle aziende che cercano di distinguersi nei motori di ricerca...",
+                about_p1: "Guido la trasformazione digitale integrale delle aziende che cercano di distinguersi nei motori di ricerca...",
                 about_card1_t: "Espansione SEO Globale", about_card1_p: "Servizi per LATAM, Europa e MENA.", about_card2_t: "Consulenza IA Avanzata", about_card2_p: "Flussi di dati, automazione CRM e Machine Learning.",
                 serv_title_1: "Servizi", serv_title_2: "Agenzia Digitale", serv_subtitle: "Soluzioni per indicizzare meglio, vendere di più e operare in modo intelligente.",
                 serv_1_t: "Sviluppo IA", serv_1_p: "Implementiamo chatbot intelligenti, analisi predittiva...",
