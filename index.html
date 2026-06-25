@@ -3,126 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surina | Premium Dental Concierge</title>
+    <title>Zobozdravstvo Surina | Premium Concierge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #003366; --gold: #c5a059; --bg: #f4f7f9; --text: #333; --green: #25D366; }
-        * { box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { margin: 0; background: var(--bg); color: var(--text); padding-bottom: 80px; }
-        header { background: var(--primary); color: white; padding: 25px 20px; text-align: center; border-bottom: 4px solid var(--gold); }
-        header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; }
-        header p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
+        :root { 
+            --primary: #0A192F; 
+            --gold: #D4AF37; 
+            --light-bg: #F8F9FA; 
+            --white: #FFFFFF;
+            --text: #333333;
+        }
+        * { box-sizing: border-box; font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; }
+        body { background-color: var(--light-bg); color: var(--text); padding-bottom: 90px; }
         
-        .container { padding: 20px; max-width: 600px; margin: auto; }
+        header { background: var(--primary); color: var(--white); padding: 25px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 100; }
+        .logo-area h1 { font-size: 18px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+        .logo-area span { color: var(--gold); font-weight: 300; font-size: 12px; letter-spacing: 2px; }
         
-        .lang-switch { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
-        .lang-btn { background: white; border: 1px solid #ccc; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; color: var(--primary); transition: 0.3s; }
-        .lang-btn:hover, .lang-btn:focus { background: var(--primary); color: white; border-color: var(--primary); }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 5px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; transition: all 0.3s ease; }
+        .lang-btn:hover, .lang-btn.active { background: var(--gold); color: var(--primary); font-weight: bold; }
+
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
         
-        .card { background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h2 { color: var(--primary); margin-top: 0; font-size: 20px; }
+        .card { background: var(--white); border-radius: 16px; padding: 25px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.02); }
+        .card-header { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         
-        .badges { display: flex; justify-content: space-around; margin: 20px 0; font-size: 12px; font-weight: bold; text-align: center; color: var(--primary); }
-        .badge-item { background: #eef2f5; padding: 10px; border-radius: 8px; width: 45%; border: 1px solid #d1d9e0; }
+        .hero { text-align: center; }
+        .hero h2 { font-size: 22px; color: var(--primary); margin-bottom: 10px; }
+        .hero p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; }
         
-        .price-compare { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
-        .price-compare th, .price-compare td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
-        .price-compare th { color: #888; font-weight: normal; }
-        .price-compare .our-price { font-weight: bold; color: var(--primary); font-size: 16px; }
-        .price-compare .eu-price { text-decoration: line-through; color: #aaa; }
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .service-item { background: var(--light-bg); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #eee; transition: transform 0.3s; }
+        .service-icon { font-size: 24px; margin-bottom: 8px; }
+        .service-title { font-size: 12px; font-weight: 600; color: var(--primary); }
         
-        .btn { display: block; width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 8px; text-align: center; font-weight: bold; margin-top: 12px; cursor: pointer; font-size: 15px; transition: 0.3s; }
-        .btn-gold { background: var(--gold); color: #fff; }
+        .price-compare { width: 100%; border-collapse: collapse; }
+        .price-compare th, .price-compare td { padding: 15px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }
+        .price-compare th { color: #888; font-weight: 400; text-transform: uppercase; font-size: 11px; }
+        .our-price { font-weight: 700; color: var(--gold); font-size: 15px; }
+        .eu-price { text-decoration: line-through; color: #aaa; }
         
-        .floating-wa { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: white; padding: 15px 20px; border-radius: 30px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; z-index: 1000; display: flex; align-items: center; gap: 10px; }
+        /* Enlaces estilizados como botones */
+        .btn-link { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
+        .btn-primary { background: var(--primary); color: var(--white); }
+        .btn-gold { background: var(--gold); color: var(--primary); }
+        
+        .floating-action { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); padding: 15px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); display: flex; justify-content: center; z-index: 100; }
+        .btn-whatsapp { background: #25D366; color: white; border: none; padding: 15px 30px; border-radius: 30px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; max-width: 600px; display: flex; justify-content: center; align-items: center; gap: 10px; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3); }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>ZOBOZDRAVSTVO SURINA</h1>
-    <p id="subtitle">Premium Dental Implants & 3D Surgery</p>
+    <div class="logo-area">
+        <h1>SURINA</h1>
+        <span>Dental Clinic</span>
+    </div>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn" onclick="setLang('de')">DE</button>
+    </div>
 </header>
 
 <div class="container">
-    <div class="lang-switch">
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('it')">IT</button>
-        <button class="lang-btn" onclick="setLang('de')">DE</button>
-        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    <div class="card hero">
+        <h2 id="hero-title">Excellence in Digital Dentistry</h2>
+        <p id="hero-desc">Advanced implantology and 3D diagnostics in Ilirska Bistrica. Premium dental care at a fraction of Western European costs.</p>
     </div>
 
     <div class="card">
-        <h2 id="hero-title">Exclusive Dental Care, Just Hours Away</h2>
-        <p id="hero-desc">Experience top-tier Swiss implants (Straumann) and 3D digital dentistry at a fraction of the cost in Western Europe. Fully organized travel and premium treatment in Slovenia.</p>
-        
-        <div class="badges">
-            <div class="badge-item">🥇 Straumann Partner</div>
-            <div class="badge-item">🔬 3D CBCT Technology</div>
+        <div class="card-header" id="services-title">Our Expertise</div>
+        <div class="services-grid">
+            <div class="service-item"><div class="service-icon">💎</div><div class="service-title" id="srv-1">Straumann Implants</div></div>
+            <div class="service-item"><div class="service-icon">🔬</div><div class="service-title" id="srv-2">3D CBCT Diagnostics</div></div>
+            <div class="service-item"><div class="service-icon">🦷</div><div class="service-title" id="srv-3">Oral Surgery</div></div>
+            <div class="service-item"><div class="service-icon">✨</div><div class="service-title" id="srv-4">Aesthetic Prosthetics</div></div>
         </div>
     </div>
 
     <div class="card">
-        <h2 id="price-title">Why Travel? The Real Value</h2>
+        <div class="card-header" id="price-title">Transparent Value</div>
         <table class="price-compare">
-            <tr>
-                <th id="th-treatment">Treatment</th>
-                <th id="th-eu">Avg. in EU</th>
-                <th id="th-surina">Surina Price</th>
-            </tr>
-            <tr>
-                <td id="td-implant">Premium Implant (Straumann)</td>
-                <td class="eu-price">€ 2,500+</td>
-                <td class="our-price">Up to 50% Less</td>
-            </tr>
-            <tr>
-                <td id="td-allon4">All-on-4 / Full Arch</td>
-                <td class="eu-price">€ 15,000+</td>
-                <td class="our-price">Up to 60% Less</td>
-            </tr>
+            <tr><th id="th-treatment">Treatment</th><th id="th-eu">Avg. Europe</th><th id="th-clinic">Our Clinic</th></tr>
+            <tr><td id="td-implant">Premium Implant (Straumann)</td><td class="eu-price">€ 2,500+</td><td class="our-price" id="td-save1">Save up to 50%</td></tr>
+            <tr><td id="td-allon4">Full Arch Reconstruction</td><td class="eu-price">€ 15,000+</td><td class="our-price" id="td-save2">Save up to 60%</td></tr>
         </table>
     </div>
 
     <div class="card">
-        <button class="btn btn-gold" id="btn-upload" onclick="alert('Module: Securely upload CBCT/Panoramic X-ray for Dr. Surina to evaluate.')">📥 Upload X-Ray for Free Quote</button>
-        <button class="btn" id="btn-travel" onclick="alert('Module: Interactive map, hotel partners, and transport coordination.')">✈️ View Travel & Hotel Guide</button>
+        <div class="card-header" id="travel-title">Your Trip to Ilirska Bistrica</div>
+        
+        <!-- FUNCIONAL: Abre el cliente de correo del usuario para enviar la radiografía -->
+        <a href="mailto:AQUI_CORREO_REAL?subject=3D Scan / X-Ray Upload - Consultation&body=Hello Dr. Surina, attached is my X-Ray for evaluation." class="btn-link btn-gold" id="link-upload">
+            <span>📥</span> <span id="btn-upload">Upload 3D Scan / X-Ray</span>
+        </a>
+        
+        <!-- FUNCIONAL: Abre Google Maps con la ubicación exacta de la clínica -->
+        <a href="https://maps.google.com/?q=Zobozdravstvo+Surina,+Ilirska+Bistrica" target="_blank" class="btn-link btn-primary" id="link-route">
+            <span>🗺️</span> <span id="btn-route">View Route & Accommodations</span>
+        </a>
     </div>
 </div>
 
-<div class="floating-wa" onclick="alert('Opens WhatsApp API pre-filled with the selected language message.')">
-    💬 <span id="wa-text">Chat with our Concierge</span>
+<!-- FUNCIONAL: Abre WhatsApp directamente con un mensaje predeterminado -->
+<div class="floating-action">
+    <a href="https://wa.me/AQUI_NUMERO_REAL?text=Hello,%20I%20am%20interested%20in%20a%20dental%20consultation." target="_blank" class="btn-whatsapp" id="link-wa">
+        <span>💬</span> <span id="wa-text">Chat with our Coordinator</span>
+    </a>
 </div>
 
 <script>
-    const content = {
+    // Variables para que insertes los datos reales fácilmente
+    const CLINIC_EMAIL = "correo@zobozdravstvosurina.si"; // REEMPLAZAR AQUÍ
+    const CLINIC_PHONE = "386XXXXXXXX"; // REEMPLAZAR AQUÍ (Código de país + número, sin el símbolo +)
+
+    const dictionary = {
         en: {
-            subtitle: "Premium Dental Implants & 3D Surgery", heroTitle: "Exclusive Dental Care, Just Hours Away", heroDesc: "Experience top-tier Swiss implants (Straumann) and 3D digital dentistry at a fraction of the cost in Western Europe. Fully organized travel and premium treatment in Slovenia.", priceTitle: "Why Travel? The Real Value", thTreatment: "Treatment", thEu: "Avg. in EU", thSurina: "Surina Price", tdImplant: "Premium Implant (Straumann)", tdAllon4: "All-on-4 / Full Arch", btnUpload: "📥 Upload X-Ray for Free Quote", btnTravel: "✈️ View Travel & Hotel Guide", waText: "Chat with our Concierge"
+            heroTitle: "Excellence in Digital Dentistry", heroDesc: "Advanced implantology and 3D diagnostics in Ilirska Bistrica. Premium dental care at a fraction of Western European costs.", servicesTitle: "Our Expertise", srv1: "Straumann Implants", srv2: "3D CBCT Diagnostics", srv3: "Oral Surgery", srv4: "Aesthetic Prosthetics", priceTitle: "Transparent Value", thTreatment: "Treatment", thEu: "Avg. Europe", thClinic: "Our Clinic", tdImplant: "Premium Implant (Straumann)", tdSave1: "Save up to 50%", tdAllon4: "Full Arch Reconstruction", tdSave2: "Save up to 60%", travelTitle: "Your Trip to Ilirska Bistrica", btnUpload: "Upload 3D Scan / X-Ray", btnRoute: "View Route & Accommodations", waText: "Chat with our Coordinator",
+            waMsg: "Hello, I am interested in a dental consultation.", mailSubject: "3D Scan / X-Ray Upload - Consultation"
         },
         it: {
-            subtitle: "Implantologia Premium e Chirurgia 3D", heroTitle: "Cure dentali esclusive, a poche ore da te", heroDesc: "Prova gli impianti svizzeri di alta gamma (Straumann) e l'odontoiatria digitale 3D a una frazione del costo italiano. Viaggio organizzato e trattamento premium in Slovenia.", priceTitle: "Perché viaggiare? Il vero risparmio", thTreatment: "Trattamento", thEu: "Media in Italia", thSurina: "Prezzo Surina", tdImplant: "Impianto Premium (Straumann)", tdAllon4: "All-on-4 / Arcata Completa", btnUpload: "📥 Carica Panoramica per Preventivo", btnTravel: "✈️ Guida Viaggio e Hotel", waText: "Parla con noi"
-        },
-        de: {
-            subtitle: "Premium-Zahnimplantate & 3D-Chirurgie", heroTitle: "Exklusive Zahnpflege, nur wenige Stunden entfernt", heroDesc: "Erleben Sie erstklassige Schweizer Implantate (Straumann) und digitale 3D-Zahnmedizin zu einem Bruchteil der Kosten in Deutschland/Österreich. Organisierte Reise nach Slowenien.", priceTitle: "Warum reisen? Der echte Preisvorteil", thTreatment: "Behandlung", thEu: "Durchschnitt DE/AT", thSurina: "Surina Preis", tdImplant: "Premium Implantat (Straumann)", tdAllon4: "All-on-4 / Kompletter Kiefer", btnUpload: "📥 Röntgenbild hochladen", btnTravel: "✈️ Reise- & Hotelguide ansehen", waText: "Chatten Sie mit uns"
+            heroTitle: "Eccellenza nell'Odontoiatria Digitale", heroDesc: "Implantologia avanzata e diagnostica 3D a Ilirska Bistrica. Cure dentistiche premium a una frazione dei costi italiani.", servicesTitle: "Le Nostre Specialità", srv1: "Impianti Straumann", srv2: "Diagnostica 3D CBCT", srv3: "Chirurgia Orale", srv4: "Protesi Estetica", priceTitle: "Valore Trasparente", thTreatment: "Trattamento", thEu: "Media in Italia", thClinic: "Nostra Clinica", tdImplant: "Impianto Premium (Straumann)", tdSave1: "Risparmia fino al 50%", tdAllon4: "Ricostruzione Arcata Completa", tdSave2: "Risparmia fino al 60%", travelTitle: "Il Tuo Viaggio a Ilirska Bistrica", btnUpload: "Carica Panoramica / TAC 3D", btnRoute: "Vedi Percorso e Alloggi", waText: "Parla con il Coordinatore",
+            waMsg: "Salve, sono interessato a una consulenza dentistica.", mailSubject: "Invio Panoramica / TAC 3D - Consulenza"
         },
         fr: {
-            subtitle: "Implants Dentaires Premium & Chirurgie 3D", heroTitle: "Soins dentaires exclusifs, à quelques heures", heroDesc: "Profitez d'implants suisses haut de gamme (Straumann) et de la dentisterie numérique 3D à une fraction du coût en France. Voyage organisé et soins premium en Slovénie.", priceTitle: "Pourquoi voyager ? La vraie valeur", thTreatment: "Traitement", thEu: "Moyenne en France", thSurina: "Prix Surina", tdImplant: "Implant Premium (Straumann)", tdAllon4: "All-on-4 / Arcade Complète", btnUpload: "📥 Charger Radio pour Devis", btnTravel: "✈️ Guide Voyage et Hôtel", waText: "Discutez avec nous"
+            heroTitle: "L'Excellence en Dentisterie Numérique", heroDesc: "Implantologie avancée et diagnostic 3D à Ilirska Bistrica. Des soins premium à une fraction des coûts français.", servicesTitle: "Notre Expertise", srv1: "Implants Straumann", srv2: "Diagnostic 3D CBCT", srv3: "Chirurgie Buccale", srv4: "Prothèses Esthétiques", priceTitle: "Valeur Transparente", thTreatment: "Traitement", thEu: "Moyenne en France", thClinic: "Notre Clinique", tdImplant: "Implant Premium (Straumann)", tdSave1: "Économisez jusqu'à 50%", tdAllon4: "Reconstruction Arcade Complète", tdSave2: "Économisez jusqu'à 60%", travelTitle: "Votre Voyage à Ilirska Bistrica", btnUpload: "Charger Radio / Scanner 3D", btnRoute: "Voir Itinéraire & Hôtels", waText: "Discutez avec le Coordinateur",
+            waMsg: "Bonjour, je suis intéressé par une consultation dentaire.", mailSubject: "Envoi Radio / Scanner 3D - Consultation"
+        },
+        de: {
+            heroTitle: "Exzellenz in der digitalen Zahnmedizin", heroDesc: "Fortschrittliche Implantologie und 3D-Diagnostik in Ilirska Bistrica. Premium-Zahnpflege zu einem Bruchteil der westeuropäischen Kosten.", servicesTitle: "Unsere Expertise", srv1: "Straumann Implantate", srv2: "3D CBCT Diagnostik", srv3: "Oralchirurgie", srv4: "Ästhetische Prothetik", priceTitle: "Transparente Preise", thTreatment: "Behandlung", thEu: "Durchschnitt DE/AT", thClinic: "Unsere Klinik", tdImplant: "Premium Implantat (Straumann)", tdSave1: "Bis zu 50% sparen", tdAllon4: "Komplette Kieferrekonstruktion", tdSave2: "Bis zu 60% sparen", travelTitle: "Ihre Reise nach Ilirska Bistrica", btnUpload: "3D-Scan / Röntgenbild hochladen", btnRoute: "Route & Unterkünfte ansehen", waText: "Mit Koordinator chatten",
+            waMsg: "Hallo, ich bin an einer zahnärztlichen Beratung interessiert.", mailSubject: "3D-Scan / Röntgenbild hochladen - Beratung"
         }
     };
 
     function setLang(lang) {
-        document.getElementById('subtitle').innerText = content[lang].subtitle;
-        document.getElementById('hero-title').innerText = content[lang].heroTitle;
-        document.getElementById('hero-desc').innerText = content[lang].heroDesc;
-        document.getElementById('price-title').innerText = content[lang].priceTitle;
-        document.getElementById('th-treatment').innerText = content[lang].thTreatment;
-        document.getElementById('th-eu').innerText = content[lang].thEu;
-        document.getElementById('th-surina').innerText = content[lang].thSurina;
-        document.getElementById('td-implant').innerText = content[lang].tdImplant;
-        document.getElementById('td-allon4').innerText = content[lang].tdAllon4;
-        document.getElementById('btn-upload').innerText = content[lang].btnUpload;
-        document.getElementById('btn-travel').innerText = content[lang].btnTravel;
-        document.getElementById('wa-text').innerText = content[lang].waText;
-    }
-</script>
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
 
-</body>
-</html>
+        const t = dictionary[lang];
+        
+        // Actualizar textos
+        document.getElementById('hero-title').innerText = t.heroTitle;
+        document.getElementById('hero-desc').innerText = t.heroDesc;
+        document.getElementById('services-title').innerText = t.servicesTitle;
+        document.getElementById('srv-1').innerText = t.srv1;
+        document.getElementById('srv-2').innerText = t.srv2;
+        document.getElementById('srv-3').innerText = t.srv3;
+        document.getElementById('srvNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
