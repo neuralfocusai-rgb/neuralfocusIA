@@ -1,469 +1,128 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Guzmán | Servicios de Marketing Digital e IA</title>
-    <meta name="description" content="Freelancer de Argentina ofreciendo servicios simples y efectivos de Marketing Digital e Inteligencia Artificial para todo el mundo.">
-    
-    <!-- Tailwind CSS para los estilos -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuración personalizada de Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563eb',    /* Azul profesional y confiable */
-                        secondary: '#10b981',  /* Verde para el éxito y crecimiento */
-                        darkbg: '#0f172a',     /* Fondo oscuro elegante */
-                        lightbg: '#f8fafc',    /* Fondo claro limpio */
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'scroll': 'scroll 30s linear infinite',
-                        'bounce-slow': 'bounce 3s infinite',
-                    },
-                    keyframes: {
-                        scroll: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(calc(-300px * 5))' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Fuentes y Recursos de Iconos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Librería de Animaciones AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- CSS Personalizado Adicional -->
+    <title>Surina | Premium Dental Concierge</title>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f1f5f9;
-            overflow-x: hidden;
-        }
+        :root { --primary: #003366; --gold: #c5a059; --bg: #f4f7f9; --text: #333; --green: #25D366; }
+        * { box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { margin: 0; background: var(--bg); color: var(--text); padding-bottom: 80px; }
+        header { background: var(--primary); color: white; padding: 25px 20px; text-align: center; border-bottom: 4px solid var(--gold); }
+        header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; }
+        header p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
         
-        /* Fondos con gradientes suaves, sin fotos */
-        .gradient-hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-        }
+        .container { padding: 20px; max-width: 600px; margin: auto; }
         
-        .gradient-card {
-            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
+        .lang-switch { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
+        .lang-btn { background: white; border: 1px solid #ccc; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; color: var(--primary); transition: 0.3s; }
+        .lang-btn:hover, .lang-btn:focus { background: var(--primary); color: white; border-color: var(--primary); }
         
-        .gradient-card:hover {
-            transform: translateY(-5px);
-            border-color: #3b82f6;
-        }
-
-        /* Ocultar barra de desplazamiento en el carrusel */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Toast de notificación turco */
-        #turkish-toast {
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 9999;
-        }
+        .card { background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); margin-top: 0; font-size: 20px; }
+        
+        .badges { display: flex; justify-content: space-around; margin: 20px 0; font-size: 12px; font-weight: bold; text-align: center; color: var(--primary); }
+        .badge-item { background: #eef2f5; padding: 10px; border-radius: 8px; width: 45%; border: 1px solid #d1d9e0; }
+        
+        .price-compare { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .price-compare th, .price-compare td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+        .price-compare th { color: #888; font-weight: normal; }
+        .price-compare .our-price { font-weight: bold; color: var(--primary); font-size: 16px; }
+        .price-compare .eu-price { text-decoration: line-through; color: #aaa; }
+        
+        .btn { display: block; width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 8px; text-align: center; font-weight: bold; margin-top: 12px; cursor: pointer; font-size: 15px; transition: 0.3s; }
+        .btn-gold { background: var(--gold); color: #fff; }
+        
+        .floating-wa { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: white; padding: 15px 20px; border-radius: 30px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; z-index: 1000; display: flex; align-items: center; gap: 10px; }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- ========================================== -->
-    <!-- NOTIFICACIÓN DE SALUDO AUTOMÁTICO          -->
-    <!-- ========================================== -->
-    <div id="turkish-toast" class="fixed top-6 left-1/2 transform -translate-x-1/2 -translate-y-[150%] opacity-0 bg-white text-slate-800 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 border-l-4 border-primary">
-        <div class="bg-primary/10 p-3 rounded-full text-primary">
-            <i class="fa-solid fa-clock"></i>
-        </div>
-        <div>
-            <h4 id="toast-title" class="font-bold text-lg"></h4>
-            <p id="toast-sub" class="text-sm text-slate-600"></p>
-        </div>
-        <button onclick="closeToast()" class="ml-4 text-slate-400 hover:text-slate-800">
-            <i class="fa-solid fa-times"></i>
-        </button>
+<header>
+    <h1>ZOBOZDRAVSTVO SURINA</h1>
+    <p id="subtitle">Premium Dental Implants & 3D Surgery</p>
+</header>
+
+<div class="container">
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" onclick="setLang('de')">DE</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
     </div>
 
-    <!-- ========================================== -->
-    <!-- NAVEGACIÓN PRINCIPAL                       -->
-    <!-- ========================================== -->
-    <header class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo Simple -->
-                <a href="#inicio" class="flex items-center gap-2 cursor-pointer">
-                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                    <span class="font-bold text-xl text-white">Lucas Guzmán</span>
-                </a>
-                
-                <!-- Menú Desktop -->
-                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                    <a href="#inicio" class="text-slate-300 hover:text-white transition">Inicio</a>
-                    <a href="#sobre-mi" class="text-slate-300 hover:text-white transition">Sobre Mí</a>
-                    <a href="#marketing" class="text-slate-300 hover:text-white transition">Marketing</a>
-                    <a href="#inteligencia-artificial" class="text-slate-300 hover:text-white transition">Inteligencia Artificial</a>
-                    <a href="#contacto" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-blue-600 transition shadow-lg">Trabajemos Juntos</a>
-                </nav>
-            </div>
+    <div class="card">
+        <h2 id="hero-title">Exclusive Dental Care, Just Hours Away</h2>
+        <p id="hero-desc">Experience top-tier Swiss implants (Straumann) and 3D digital dentistry at a fraction of the cost in Western Europe. Fully organized travel and premium treatment in Slovenia.</p>
+        
+        <div class="badges">
+            <div class="badge-item">🥇 Straumann Partner</div>
+            <div class="badge-item">🔬 3D CBCT Technology</div>
         </div>
-    </header>
+    </div>
 
-    <main>
-        <!-- ========================================== -->
-        <!-- SECCIÓN HERO (INICIO) SIN FOTOS            -->
-        <!-- ========================================== -->
-        <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 gradient-hero flex items-center min-h-[90vh]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                
-                <div data-aos="fade-down" class="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-sm text-blue-300">
-                    <span class="relative flex h-3 w-3">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                    </span>
-                    Freelancer desde Argentina para el Mundo
-                </div>
+    <div class="card">
+        <h2 id="price-title">Why Travel? The Real Value</h2>
+        <table class="price-compare">
+            <tr>
+                <th id="th-treatment">Treatment</th>
+                <th id="th-eu">Avg. in EU</th>
+                <th id="th-surina">Surina Price</th>
+            </tr>
+            <tr>
+                <td id="td-implant">Premium Implant (Straumann)</td>
+                <td class="eu-price">€ 2,500+</td>
+                <td class="our-price">Up to 50% Less</td>
+            </tr>
+            <tr>
+                <td id="td-allon4">All-on-4 / Full Arch</td>
+                <td class="eu-price">€ 15,000+</td>
+                <td class="our-price">Up to 60% Less</td>
+            </tr>
+        </table>
+    </div>
 
-                <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-                    Marketing e Inteligencia Artificial <br class="hidden md:block">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Explicados de Forma Fácil.</span>
-                </h1>
-                
-                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-                    Ayudo a negocios de <strong>cualquier rubro</strong> a vender más y trabajar menos usando herramientas modernas. No importa en qué país estés ni qué idioma hables, yo me encargo de todo para que tú solo veas los resultados.
-                </p>
-                
-                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#prueba-gratis" class="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-100 transition shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                        <i class="fa-solid fa-gift text-primary mr-2"></i> Pedir Página Web Gratuita
-                    </a>
-                    <a href="https://wa.me/5492257550650" target="_blank" class="w-full sm:w-auto bg-transparent border-2 border-slate-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:border-white transition flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-green-400"></i> Hablemos por WhatsApp
-                    </a>
-                </div>
-            </div>
-        </section>
+    <div class="card">
+        <button class="btn btn-gold" id="btn-upload" onclick="alert('Module: Securely upload CBCT/Panoramic X-ray for Dr. Surina to evaluate.')">📥 Upload X-Ray for Free Quote</button>
+        <button class="btn" id="btn-travel" onclick="alert('Module: Interactive map, hotel partners, and transport coordination.')">✈️ View Travel & Hotel Guide</button>
+    </div>
+</div>
 
-        <!-- ========================================== -->
-        <!-- CARRUSEL DE IMÁGENES (Únicas fotos)         -->
-        <!-- ========================================== -->
-        <section class="py-10 bg-slate-950 border-y border-slate-800 overflow-hidden relative">
-            <div class="text-center mb-6">
-                <p class="text-sm text-slate-500 font-semibold uppercase tracking-widest">Ejemplos de tecnologías que utilizamos</p>
-            </div>
-            
-            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none mt-10"></div>
-            <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none mt-10"></div>
-            
-            <div class="flex space-x-6 animate-scroll w-max px-6">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop" alt="Inteligencia Artificial" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Análisis de Ventas" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="Tecnología" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="Marketing" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
-                <!-- Duplicados para el scroll infinito suave -->
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop" alt="Inteligencia Artificial" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Análisis de Ventas" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
-            </div>
-        </section>
+<div class="floating-wa" onclick="alert('Opens WhatsApp API pre-filled with the selected language message.')">
+    💬 <span id="wa-text">Chat with our Concierge</span>
+</div>
 
-        <!-- ========================================== -->
-        <!-- SECCIÓN SOBRE MÍ                           -->
-        <!-- ========================================== -->
-        <section id="sobre-mi" class="py-20 bg-slate-900">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-slate-800/50 rounded-3xl p-8 md:p-12 border border-slate-700 text-center" data-aos="fade-up">
-                    <div class="w-20 h-20 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-handshake text-4xl text-blue-400"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold text-white mb-4">¿Quién soy y cómo trabajo?</h2>
-                    <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
-                        Soy un <strong>trabajador independiente (freelancer)</strong> enfocado en hacer que la tecnología trabaje a tu favor. No uso palabras complicadas ni procesos lentos. Me destaco por mi <strong>velocidad de entrega y profesionalismo moderno</strong>. Puedes escribirme en el idioma que desees, respondo de inmediato y aplico soluciones adaptadas a cualquier país o industria.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mt-10">
-                        <div class="gradient-card p-6 rounded-2xl">
-                            <i class="fa-solid fa-globe text-2xl text-blue-400 mb-3"></i>
-                            <h3 class="text-xl font-bold text-white mb-2">Para Todo el Mundo</h3>
-                            <p class="text-slate-400 text-sm">Hablo tu idioma gracias a herramientas avanzadas. Sin importar dónde estés, tu proyecto será un éxito.</p>
-                        </div>
-                        <div class="gradient-card p-6 rounded-2xl">
-                            <i class="fa-solid fa-credit-card text-2xl text-emerald-400 mb-3"></i>
-                            <h3 class="text-xl font-bold text-white mb-2">Pagos Fáciles</h3>
-                            <p class="text-slate-400 text-sm">Acepto pagos internacionales de forma segura, principalmente en <strong>Dólares (USD)</strong> y <strong>Euros (EUR)</strong>.</p>
-                        </div>
-                        <div class="gradient-card p-6 rounded-2xl">
-                            <i class="fa-solid fa-bolt text-2xl text-yellow-400 mb-3"></i>
-                            <h3 class="text-xl font-bold text-white mb-2">Entregas Ultra Rápidas</h3>
-                            <p class="text-slate-400 text-sm">Al ser un profesional moderno, utilizo métodos que me permiten entregar resultados en tiempo récord.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================================== -->
-        <!-- SERVICIOS DE MARKETING DIGITAL             -->
-        <!-- ========================================== -->
-        <section id="marketing" class="py-20 bg-slate-950">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span class="text-blue-500 font-bold tracking-wider uppercase text-sm">Crecimiento para tu negocio</span>
-                    <h2 class="text-4xl font-bold text-white mt-2 mb-4">Servicios de Marketing Digital</h2>
-                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">Las 5 estrategias más buscadas en la actualidad para hacer que tu marca sea conocida y atraiga clientes constantemente.</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Marketing 1 -->
-                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-pink-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-mobile-screen text-2xl text-pink-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Videos Verticales (TikTok e Instagram)</h3>
-                        <p class="text-slate-400 text-sm">Creamos videos cortos y llamativos que atrapan la atención de la gente en redes sociales para que conozcan lo que ofreces.</p>
-                    </div>
-
-                    <!-- Marketing 2 -->
-                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                        <div class="bg-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-brands fa-google text-2xl text-blue-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Optimización SEO</h3>
-                        <p class="text-slate-400 text-sm">Ajustamos tu página en internet para que aparezcas de forma gratuita en los primeros resultados cuando alguien busca en Google.</p>
-                    </div>
-
-                    <!-- Marketing 3 -->
-                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
-                        <div class="bg-purple-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-bullhorn text-2xl text-purple-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Publicidad Directa (Ads)</h3>
-                        <p class="text-slate-400 text-sm">Ponemos anuncios de pago en redes sociales y buscadores para que le aparezcan exactamente a las personas que quieren comprar tus productos.</p>
-                    </div>
-
-                    <!-- Marketing 4 -->
-                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
-                        <div class="bg-emerald-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-users text-2xl text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Gestión de Redes Sociales</h3>
-                        <p class="text-slate-400 text-sm">Mantenemos tus perfiles de Facebook o Instagram activos, publicando cosas interesantes para generar confianza en tus clientes.</p>
-                    </div>
-
-                    <!-- Marketing 5 -->
-                    <div class="gradient-card p-8 rounded-2xl lg:col-span-2 lg:w-1/2 lg:mx-auto" data-aos="fade-up" data-aos-delay="500">
-                        <div class="bg-orange-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-envelope-open-text text-2xl text-orange-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Correos que Venden (Email Marketing)</h3>
-                        <p class="text-slate-400 text-sm">Enviamos correos electrónicos automáticos con promociones e información valiosa para que tus clientes te sigan comprando una y otra vez.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================================== -->
-        <!-- SERVICIOS DE INTELIGENCIA ARTIFICIAL       -->
-        <!-- ========================================== -->
-        <section id="inteligencia-artificial" class="py-20 bg-slate-900 border-t border-slate-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span class="text-emerald-500 font-bold tracking-wider uppercase text-sm">Ahorra tiempo y dinero</span>
-                    <h2 class="text-4xl font-bold text-white mt-2 mb-4">Servicios de Inteligencia Artificial</h2>
-                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">Las 5 soluciones más útiles en 2026 para que la tecnología haga el trabajo pesado de tu empresa por ti, explicadas sin palabras raras.</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- IA 1 -->
-                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-robot text-2xl text-blue-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Atención al Cliente Automática</h3>
-                        <p class="text-slate-400 text-sm">Instalamos un robot inteligente que responde las dudas de tus clientes por WhatsApp o en tu página web, a cualquier hora y de forma amable.</p>
-                    </div>
-
-                    <!-- IA 2 -->
-                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                        <div class="bg-indigo-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-pen-nib text-2xl text-indigo-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Creación de Contenidos Rápida</h3>
-                        <p class="text-slate-400 text-sm">Usamos programas que escriben textos perfectos o crean imágenes de alta calidad para tus publicidades en cuestión de segundos.</p>
-                    </div>
-
-                    <!-- IA 3 -->
-                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
-                        <div class="bg-yellow-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-chart-pie text-2xl text-yellow-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Organización de Datos Sencilla</h3>
-                        <p class="text-slate-400 text-sm">Sistemas que leen la información de tus ventas y te explican, de manera fácil de entender, qué cosas compran más tus clientes.</p>
-                    </div>
-
-                    <!-- IA 4 -->
-                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
-                        <div class="bg-red-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-gears text-2xl text-red-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Automatización de Tareas Aburridas</h3>
-                        <p class="text-slate-400 text-sm">Conectamos tus programas para que los trabajos repetitivos (como guardar números en una lista o enviar facturas) se hagan absolutamente solos.</p>
-                    </div>
-
-                    <!-- IA 5 -->
-                    <div class="gradient-card p-8 rounded-2xl lg:col-span-2 lg:w-1/2 lg:mx-auto" data-aos="fade-up" data-aos-delay="500">
-                        <div class="bg-teal-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-language text-2xl text-teal-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Traducción y Adaptación Global</h3>
-                        <p class="text-slate-400 text-sm">Herramientas que traducen lo que ofreces a cualquier idioma al instante, para que puedas venderle a personas de otros países sin saber su idioma.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================================== -->
-        <!-- LEAD MAGNET: PÁGINA WEB GRATUITA           -->
-        <!-- ========================================== -->
-        <section id="prueba-gratis" class="py-24 bg-gradient-to-b from-slate-900 to-blue-900/40 border-t border-slate-800 relative">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
-                <div class="inline-block bg-emerald-500/20 border border-emerald-500/50 text-emerald-400 px-6 py-2 rounded-full font-bold mb-6 text-sm">
-                    🎁 Regalo de Bienvenida
-                </div>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Te diseño una Página Web Gratuita.</h2>
-                <p class="text-xl text-slate-300 mb-10 leading-relaxed">
-                    Quiero demostrarte mi velocidad de trabajo y mi profesionalismo moderno, sin que tengas que gastar un centavo al inicio. Escríbeme pidiéndome tu página web en <strong>el idioma que desees</strong>. Yo te respondo de inmediato y, en cuestión de minutos, te entregaré un diseño listo para que aprecies mi trabajo. <strong>¡Sin compromisos ni letras pequeñas!</strong>
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <a href="https://wa.me/5492257550650?text=Hola%20Lucas,%20quiero%20mi%20página%20web%20gratuita" target="_blank" class="w-full sm:w-auto bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-500 transition shadow-[0_0_20px_rgba(37,211,102,0.4)] flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir Gratis por WhatsApp
-                    </a>
-                    <a href="mailto:tuemail@ejemplo.com?subject=Quiero%20mi%20web%20gratuita" class="w-full sm:w-auto bg-slate-800 border border-slate-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-700 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-envelope text-xl"></i> Pedir por Correo
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ========================================== -->
-    <!-- FOOTER SIMPLE Y LIMPIO                     -->
-    <!-- ========================================== -->
-    <footer id="contacto" class="bg-slate-950 py-12 border-t border-slate-800 text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-center gap-2 mb-6">
-                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs">
-                    <i class="fa-solid fa-user-astronaut"></i>
-                </div>
-                <span class="font-bold text-xl text-white">Lucas Guzmán</span>
-            </div>
-            <p class="text-slate-500 mb-6 text-sm">Freelancer Internacional desde Argentina.<br>Marketing Digital & Inteligencia Artificial para todos.</p>
-            <div class="flex justify-center gap-4 mb-8">
-                <span class="text-slate-400 text-sm"><i class="fa-solid fa-money-bill text-emerald-500 mr-1"></i> Acepto USD</span>
-                <span class="text-slate-400 text-sm"><i class="fa-solid fa-euro-sign text-blue-400 mr-1"></i> Acepto EUR</span>
-            </div>
-            <p class="text-xs text-slate-600">&copy; 2026 Lucas Guzmán. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- ========================================== -->
-    <!-- BOTONES FLOTANTES (WHATSAPP Y CORREO)      -->
-    <!-- ========================================== -->
-    
-    <!-- Botón Correo Electrónico -->
-    <a href="mailto:tuemail@ejemplo.com" aria-label="Escribir al Correo" class="fixed bottom-24 right-6 z-40 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-blue-500 hover:scale-110 transition-all duration-300 border-2 border-slate-900">
-        <i class="fa-solid fa-envelope"></i>
-    </a>
-
-    <!-- Botón WhatsApp -->
-    <a href="https://wa.me/5492257550650" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300 border-2 border-slate-900">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- ========================================== -->
-    <!-- SCRIPTS (Animaciones, Lógica y Saludos)    -->
-    <!-- ========================================== -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Iniciar Animaciones AOS para efectos suaves
-        AOS.init({ once: true, offset: 50, duration: 800 });
-
-        // Función para cerrar el Toast manualmente
-        function closeToast() {
-            const toast = document.getElementById('turkish-toast');
-            toast.classList.remove('translate-y-0', 'opacity-100');
-            toast.classList.add('-translate-y-[150%]', 'opacity-0');
+<script>
+    const content = {
+        en: {
+            subtitle: "Premium Dental Implants & 3D Surgery", heroTitle: "Exclusive Dental Care, Just Hours Away", heroDesc: "Experience top-tier Swiss implants (Straumann) and 3D digital dentistry at a fraction of the cost in Western Europe. Fully organized travel and premium treatment in Slovenia.", priceTitle: "Why Travel? The Real Value", thTreatment: "Treatment", thEu: "Avg. in EU", thSurina: "Surina Price", tdImplant: "Premium Implant (Straumann)", tdAllon4: "All-on-4 / Full Arch", btnUpload: "📥 Upload X-Ray for Free Quote", btnTravel: "✈️ View Travel & Hotel Guide", waText: "Chat with our Concierge"
+        },
+        it: {
+            subtitle: "Implantologia Premium e Chirurgia 3D", heroTitle: "Cure dentali esclusive, a poche ore da te", heroDesc: "Prova gli impianti svizzeri di alta gamma (Straumann) e l'odontoiatria digitale 3D a una frazione del costo italiano. Viaggio organizzato e trattamento premium in Slovenia.", priceTitle: "Perché viaggiare? Il vero risparmio", thTreatment: "Trattamento", thEu: "Media in Italia", thSurina: "Prezzo Surina", tdImplant: "Impianto Premium (Straumann)", tdAllon4: "All-on-4 / Arcata Completa", btnUpload: "📥 Carica Panoramica per Preventivo", btnTravel: "✈️ Guida Viaggio e Hotel", waText: "Parla con noi"
+        },
+        de: {
+            subtitle: "Premium-Zahnimplantate & 3D-Chirurgie", heroTitle: "Exklusive Zahnpflege, nur wenige Stunden entfernt", heroDesc: "Erleben Sie erstklassige Schweizer Implantate (Straumann) und digitale 3D-Zahnmedizin zu einem Bruchteil der Kosten in Deutschland/Österreich. Organisierte Reise nach Slowenien.", priceTitle: "Warum reisen? Der echte Preisvorteil", thTreatment: "Behandlung", thEu: "Durchschnitt DE/AT", thSurina: "Surina Preis", tdImplant: "Premium Implantat (Straumann)", tdAllon4: "All-on-4 / Kompletter Kiefer", btnUpload: "📥 Röntgenbild hochladen", btnTravel: "✈️ Reise- & Hotelguide ansehen", waText: "Chatten Sie mit uns"
+        },
+        fr: {
+            subtitle: "Implants Dentaires Premium & Chirurgie 3D", heroTitle: "Soins dentaires exclusifs, à quelques heures", heroDesc: "Profitez d'implants suisses haut de gamme (Straumann) et de la dentisterie numérique 3D à une fraction du coût en France. Voyage organisé et soins premium en Slovénie.", priceTitle: "Pourquoi voyager ? La vraie valeur", thTreatment: "Traitement", thEu: "Moyenne en France", thSurina: "Prix Surina", tdImplant: "Implant Premium (Straumann)", tdAllon4: "All-on-4 / Arcade Complète", btnUpload: "📥 Charger Radio pour Devis", btnTravel: "✈️ Guide Voyage et Hôtel", waText: "Discutez avec nous"
         }
+    };
 
-        // Lógica del Saludo Automático en Turco (Basado en la hora del día)
-        window.addEventListener('DOMContentLoaded', () => {
-            const hour = new Date().getHours();
-            let greeting = "";
-            let subGreeting = "";
+    function setLang(lang) {
+        document.getElementById('subtitle').innerText = content[lang].subtitle;
+        document.getElementById('hero-title').innerText = content[lang].heroTitle;
+        document.getElementById('hero-desc').innerText = content[lang].heroDesc;
+        document.getElementById('price-title').innerText = content[lang].priceTitle;
+        document.getElementById('th-treatment').innerText = content[lang].thTreatment;
+        document.getElementById('th-eu').innerText = content[lang].thEu;
+        document.getElementById('th-surina').innerText = content[lang].thSurina;
+        document.getElementById('td-implant').innerText = content[lang].tdImplant;
+        document.getElementById('td-allon4').innerText = content[lang].tdAllon4;
+        document.getElementById('btn-upload').innerText = content[lang].btnUpload;
+        document.getElementById('btn-travel').innerText = content[lang].btnTravel;
+        document.getElementById('wa-text').innerText = content[lang].waText;
+    }
+</script>
 
-            // Determinar la hora para el saludo correcto
-            if (hour >= 5 && hour < 12) {
-                greeting = "Günaydın!";
-                subGreeting = "¡Buenos días!";
-            } else if (hour >= 12 && hour < 18) {
-                greeting = "Tünaydın!";
-                subGreeting = "¡Buenas tardes!";
-            } else {
-                greeting = "İyi akşamlar!";
-                subGreeting = "¡Buenas noches!";
-            }
-
-            // Inyectar el texto
-            document.getElementById('toast-title').innerText = greeting;
-            document.getElementById('toast-sub').innerText = subGreeting + " Bienvenido a mi web.";
-
-            // Animación de entrada (Aparece a los 1.5 segundos)
-            setTimeout(() => {
-                const toast = document.getElementById('turkish-toast');
-                toast.classList.remove('-translate-y-[150%]', 'opacity-0');
-                toast.classList.add('translate-y-0', 'opacity-100');
-            }, 1500);
-
-            // Animación de salida (Se esconde a los 7 segundos automáticamente)
-            setTimeout(() => {
-                closeToast();
-            }, 7000);
-        });
-
-        // Efecto visual en la barra de navegación al hacer scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 10) {
-                header.classList.add('shadow-xl', 'bg-slate-900');
-                header.classList.remove('bg-slate-900/90');
-            } else {
-                header.classList.remove('shadow-xl', 'bg-slate-900');
-                header.classList.add('bg-slate-900/90');
-            }
-        });
-    </script>
 </body>
 </html>
