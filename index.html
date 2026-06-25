@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuralFocus IA | Agencia de IA y Desarrollo Global</title>
+    <meta name="description" content="Soluciones de Inteligencia Artificial, Desarrollo Web y Marketing Digital lideradas por Lucas Guzmán. Desde Argentina para el mundo.">
+    
+    <!-- Tailwind CSS (CDN para despliegue rápido) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuraciones personalizadas de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9', // Azul tech premium
+                        darkbg: '#0f172a',  // Slate 900
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Efecto Glassmorphism */
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-glass {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-glass:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.3);
+            border-color: rgba(14, 165, 233, 0.3);
+        }
+        /* Botón flotante pulso */
+        .pulse-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-slate-300 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-brain text-primary text-2xl"></i>
+                    <span class="font-bold text-2xl tracking-tighter text-white">Neural<span class="text-primary">Focus</span>IA</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#servicios" class="hover:text-primary transition">Servicios</a>
+                    <a href="#salud" class="hover:text-primary transition">Sector Salud</a>
+                    <a href="#tarifas" class="hover:text-primary transition">Tarifas</a>
+                    <!-- Botón de Sesión de Consultoría configurado para correo -->
+                    <a href="mailto:neuralfocusai@gmail.com?subject=Solicitud%20de%20Sesión%20de%20Consultoría" class="bg-white text-darkbg px-6 py-2 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(14,165,233,0.5)]">
+                        Sesión de Consultoría
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop" alt="AI Abstract Background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-darkbg"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="inline-block bg-slate-800/80 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium text-primary mb-6 border border-slate-700">
+                <i class="fa-solid fa-globe mr-2"></i>Desde Mar del Tuyú, Argentina para el Mundo
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
+                Evoluciona tu negocio con <br class="hidden md:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-300">Inteligencia Artificial</span>
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light">
+                Soy Lucas Guzmán. Diseñamos ecosistemas digitales ultra premium, apps y automatizaciones para empresas que buscan liderar su sector.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5492257550650" target="_blank" class="bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-sky-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)]">
+                    Iniciar Proyecto
+                </a>
+                <a href="#servicios" class="bg-slate-800 text-white border border-slate-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-700 transition-all">
+                    Ver Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidad: Sector Salud -->
+    <section id="salud" class="py-20 bg-slate-900 border-y border-slate-800/50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Especialistas en el <span class="text-primary">Sector Salud</span></h2>
+                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+                        Entendemos que los odontólogos, clínicas y profesionales de la salud necesitan herramientas precisas, estéticas y que transmitan confianza absoluta. Desarrollamos mini-apps, calculadoras de presupuestos interactivos y sistemas de agenda exclusivos para transformar la captación de pacientes.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-slate-300"><i class="fa-solid fa-check text-primary mr-3"></i> Visualizadores "Antes y Después" Premium</li>
+                        <li class="flex items-center text-slate-300"><i class="fa-solid fa-check text-primary mr-3"></i> Sitios web orientados a turismo médico</li>
+                        <li class="flex items-center text-slate-300"><i class="fa-solid fa-check text-primary mr-3"></i> Automatización de reseñas en Google Maps</li>
+                    </ul>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" alt="Tecnología en Salud" class="w-full h-auto rounded-2xl object-cover hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkbg/80 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grilla de Servicios -->
+    <section id="servicios" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-white mb-4">Soluciones Integrales</h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">Tecnología de vanguardia adaptada a cualquier rubro empresarial e industrial.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="card-glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-laptop-code text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Desarrollo Web & Apps</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Sitios corporativos, landing pages de alta conversión y aplicaciones móviles nativas o PWA. Arquitectura rápida, segura y escalable.</p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="card-glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-microchip text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Integración de IA</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Chatbots inteligentes, automatización de tareas repetitivas y análisis de datos mediante inteligencia artificial para potenciar tus ventas.</p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="card-glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-bullseye text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Marketing Digital</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Estrategias de posicionamiento global. Publicidad digital de precisión para negocios locales o empresas buscando clientes en el exterior.</p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="card-glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users-gear text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Consultoría Empresarial</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Asesoría directa para emprendedores y empresas. Evaluamos tu modelo de negocio y trazamos una hoja de ruta tecnológica clara.</p>
+                </div>
+                
+                <!-- Imagen decorativa en grilla -->
+                <div class="card-glass rounded-2xl overflow-hidden col-span-1 md:col-span-2 lg:col-span-2 relative group" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Análisis de Datos" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+                    <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-darkbg w-full">
+                        <h3 class="text-2xl font-bold text-white">Diseños que convierten visitantes en clientes.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Tarifas Globales -->
+    <section id="tarifas" class="py-20 bg-slate-900 border-t border-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Precios Competitivos a Nivel Global</h2>
+            <p class="text-xl text-slate-400 mb-8">
+                Operamos con una estructura digital ágil que nos permite ofrecer los mejores precios del mercado internacional sin comprometer la calidad premium.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <span class="px-6 py-2 bg-slate-800 rounded-full text-white font-semibold border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-dollar-sign text-green-400"></i> USD Dólares</span>
+                <span class="px-6 py-2 bg-slate-800 rounded-full text-white font-semibold border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-euro-sign text-blue-400"></i> EUR Euros</span>
+                <span class="px-6 py-2 bg-slate-800 rounded-full text-white font-semibold border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-money-bill-wave text-primary"></i> ARS Pesos Argentinos</span>
+            </div>
+            <p class="text-slate-500 text-sm">Facilidades de pago internacionales y presupuestos a medida según la envergadura del proyecto.</p>
+        </div>
+    </section>
+
+    <!-- Footer y Contacto -->
+    <footer class="bg-[#0b1121] py-12 border-t border-slate-800 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center gap-2 justify-center md:justify-start mb-4">
+                        <i class="fa-solid fa-brain text-primary text-xl"></i>
+                        <span class="font-bold text-xl text-white">Neural<span class="text-primary">Focus</span>IA</span>
+                    </div>
+                    <p class="text-slate-500 text-sm">© 2026 Lucas Guzmán. Todos los derechos reservados.</p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-center gap-6 text-slate-400">
+                    <a href="mailto:neuralfocusai@gmail.com" class="hover:text-white transition flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i> neuralfocusai@gmail.com
+                    </a>
+                    <a href="https://wa.me/5492257550650" target="_blank" class="hover:text-white transition flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp"></i> +54 9 2257 55-0650
+                    </a>
+                    <a href="https://tiktok.com/search?q=%23neuralfocusia" target="_blank" class="hover:text-white transition flex items-center gap-2">
+                        <i class="fa-brands fa-tiktok"></i> #neuralfocusia
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/5492257550650" target="_blank" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl pulse-btn hover:bg-[#20bd5a] transition-colors">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts para Animaciones -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar animaciones de scroll
+        AOS.init({
+            once: true,
+            offset: 100,
+        });
+
+        // Efecto de fondo en el navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-lg');
+                nav.classList.replace('glass', 'bg-darkbg/95');
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.classList.replace('bg-darkbg/95', 'glass');
+            }
+        });
+    </script>
+</body>
+</html>
