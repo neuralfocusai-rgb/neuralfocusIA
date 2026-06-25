@@ -3,23 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuralFocus IA | Agencia de IA y Desarrollo Global</title>
-    <meta name="description" content="Soluciones de Inteligencia Artificial, Desarrollo Web y Marketing Digital lideradas por Lucas Guzmán. Desde Argentina para el mundo.">
+    <title>NeuralFocus IA | Lucas Guzmán - Agencia Global</title>
+    <meta name="description" content="Soluciones de Inteligencia Artificial, Desarrollo Web y Marketing Digital lideradas por Lucas Guzmán.">
     
-    <!-- Tailwind CSS (CDN para despliegue rápido) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Configuraciones personalizadas de Tailwind -->
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0ea5e9', // Azul tech premium
-                        darkbg: '#0f172a',  // Slate 900
+                        primary: '#0ea5e9',
+                        secondary: '#8b5cf6',
+                        darkbg: '#090e17',
+                        glass: 'rgba(15, 23, 42, 0.6)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'pulse-glow': 'pulse-glow 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                            '50%': { transform: 'translateY(-20px) scale(1.02)' },
+                        },
+                        'pulse-glow': {
+                            '0%': { boxShadow: '0 0 0 0 rgba(14, 165, 233, 0.7)' },
+                            '70%': { boxShadow: '0 0 0 15px rgba(14, 165, 233, 0)' },
+                            '100%': { boxShadow: '0 0 0 0 rgba(14, 165, 233, 0)' },
+                        }
                     }
                 }
             }
@@ -27,242 +45,360 @@
     </script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome para Íconos -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- AOS Animation Library -->
+    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* Efecto Glassmorphism */
-        .glass {
-            background: rgba(15, 23, 42, 0.7);
+        body { background-color: #090e17; color: #cbd5e1; overflow-x: hidden; }
+        
+        /* Efectos Glassmorphism */
+        .glass-nav {
+            background: rgba(9, 14, 23, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.4) 100%);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
         }
-        .card-glass {
-            background: rgba(30, 41, 59, 0.5);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(14, 165, 233, 0.4);
+            box-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.2);
         }
-        .card-glass:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.3);
-            border-color: rgba(14, 165, 233, 0.3);
+
+        /* Carrusel de Fondo en Hero */
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            z-index: 0;
         }
-        /* Botón flotante pulso */
-        .pulse-btn {
-            animation: pulse 2s infinite;
+        .hero-bg.active { opacity: 0.3; }
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(9, 14, 23, 0.3), #090e17);
+            z-index: 1;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+
+        /* Avatar 3D Wrapper */
+        .avatar-3d-wrapper {
+            perspective: 1000px;
+        }
+        .avatar-3d {
+            transform-style: preserve-3d;
+            filter: drop-shadow(0 0 30px rgba(14, 165, 233, 0.3));
         }
     </style>
 </head>
-<body class="bg-darkbg text-slate-300 font-sans antialiased overflow-x-hidden">
+<body class="antialiased font-sans selection:bg-primary selection:text-white">
 
     <!-- Navegación -->
-    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-brain text-primary text-2xl"></i>
-                    <span class="font-bold text-2xl tracking-tighter text-white">Neural<span class="text-primary">Focus</span>IA</span>
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/30">
+                        <i class="fa-solid fa-brain text-white text-xl"></i>
+                    </div>
+                    <span class="font-extrabold text-2xl tracking-tighter text-white">Neural<span class="text-primary">Focus</span>IA</span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#servicios" class="hover:text-primary transition">Servicios</a>
-                    <a href="#salud" class="hover:text-primary transition">Sector Salud</a>
-                    <a href="#tarifas" class="hover:text-primary transition">Tarifas</a>
-                    <!-- Botón de Sesión de Consultoría configurado para correo -->
-                    <a href="mailto:neuralfocusai@gmail.com?subject=Solicitud%20de%20Sesión%20de%20Consultoría" class="bg-white text-darkbg px-6 py-2 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(14,165,233,0.5)]">
-                        Sesión de Consultoría
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#inicio" class="hover:text-white transition">Inicio</a>
+                    <a href="#sobre-mi" class="hover:text-white transition">Acerca de Mí</a>
+                    <a href="#servicios" class="hover:text-white transition">Servicios</a>
+                    <a href="#casos" class="hover:text-white transition">Casos de Éxito</a>
+                    <a href="mailto:neuralfocusai@gmail.com?subject=Solicitud%20de%20Consultoría" class="bg-white text-darkbg px-6 py-2.5 rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(14,165,233,0.6)]">
+                        Agendar Consultoría
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop" alt="AI Abstract Background" class="w-full h-full object-cover opacity-20">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-darkbg"></div>
-        </div>
+    <!-- Hero Section con Carrusel de Fondo -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Imágenes del carrusel -->
+        <div id="bg-1" class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2000&auto=format&fit=crop');"></div>
+        <div id="bg-2" class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');"></div>
+        <div id="bg-3" class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop');"></div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="fade-up" data-aos-duration="1000">
-            <div class="inline-block bg-slate-800/80 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium text-primary mb-6 border border-slate-700">
-                <i class="fa-solid fa-globe mr-2"></i>Desde Mar del Tuyú, Argentina para el Mundo
+        <div class="bg-overlay"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Text Content -->
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 px-4 py-2 rounded-full text-sm font-medium text-cyan-400 mb-6 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    Lucas Guzmán | Experto en IA & Marketing
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                    Automatiza. <br>
+                    Escala. <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-secondary">Domina tu sector.</span>
+                </h1>
+                <p class="text-xl text-slate-400 mb-10 font-light max-w-lg leading-relaxed">
+                    Ecosistemas digitales ultra-premium, integraciones de inteligencia artificial y desarrollo Micro-SaaS para empresas que no se conforman con lo básico.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/5492257550650" target="_blank" class="bg-primary text-white px-8 py-4 rounded-full font-bold text-center text-lg hover:bg-sky-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)] flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Contacto Directo
+                    </a>
+                    <a href="#casos" class="bg-transparent border-2 border-slate-700 text-white px-8 py-4 rounded-full font-bold text-center text-lg hover:border-primary hover:bg-primary/10 transition-all flex items-center justify-center gap-2">
+                        Ver Casos de Éxito
+                    </a>
+                </div>
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
-                Evoluciona tu negocio con <br class="hidden md:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-300">Inteligencia Artificial</span>
-            </h1>
-            <p class="mt-4 text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light">
-                Soy Lucas Guzmán. Diseñamos ecosistemas digitales ultra premium, apps y automatizaciones para empresas que buscan liderar su sector.
-            </p>
-            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/5492257550650" target="_blank" class="bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-sky-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)]">
-                    Iniciar Proyecto
-                </a>
-                <a href="#servicios" class="bg-slate-800 text-white border border-slate-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-700 transition-all">
-                    Ver Servicios
-                </a>
+
+            <!-- 3D Avatar Simulation -->
+            <div class="hidden lg:block avatar-3d-wrapper relative" data-aos="fade-left" data-aos-duration="1200">
+                <!-- Círculos de fondo brillante -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] -z-10"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-secondary/20 rounded-full blur-[80px] -z-10"></div>
+                
+                <!-- Avatar principal con animación flotante -->
+                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop" alt="AI 3D Avatar Element" class="avatar-3d w-full h-auto object-contain rounded-[3rem] animate-float">
+                
+                <!-- Elementos flotantes secundarios -->
+                <div class="absolute top-10 -left-10 glass-card p-4 rounded-2xl animate-float-delayed">
+                    <i class="fa-solid fa-code text-2xl text-primary"></i>
+                </div>
+                <div class="absolute bottom-20 -right-10 glass-card p-4 rounded-2xl animate-float-delayed" style="animation-delay: 1.5s;">
+                    <i class="fa-solid fa-chart-line text-2xl text-secondary"></i>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Especialidad: Sector Salud -->
-    <section id="salud" class="py-20 bg-slate-900 border-y border-slate-800/50 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Especialistas en el <span class="text-primary">Sector Salud</span></h2>
-                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
-                        Entendemos que los odontólogos, clínicas y profesionales de la salud necesitan herramientas precisas, estéticas y que transmitan confianza absoluta. Desarrollamos mini-apps, calculadoras de presupuestos interactivos y sistemas de agenda exclusivos para transformar la captación de pacientes.
+    <!-- Sección: Acerca de Mí -->
+    <section id="sobre-mi" class="py-24 bg-[#0d131f] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 relative" data-aos="fade-right">
+                    <div class="relative rounded-3xl overflow-hidden border border-slate-800">
+                        <!-- Reemplazar con tu foto real -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Lucas Guzmán" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-2xl shadow-2xl">
+                        <span class="block text-4xl font-bold">100%</span>
+                        <span class="text-sm font-medium">Enfoque a Resultados</span>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-7" data-aos="fade-left">
+                    <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-2">Acerca de Mí</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">Hola, soy <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Lucas Guzmán.</span></h3>
+                    <p class="text-lg text-slate-400 mb-6 leading-relaxed">
+                        Desde Argentina para el mundo, lidero la transformación digital de empresas, emprendedores y clínicas que buscan destacar en un mercado saturado. No hago "simples páginas web"; desarrollo <strong>ecosistemas de venta, mini-aplicaciones e inteligencias artificiales</strong> diseñadas para automatizar procesos y facturar.
                     </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center text-slate-300"><i class="fa-solid fa-check text-primary mr-3"></i> Visualizadores "Antes y Después" Premium</li>
-                        <li class="flex items-center text-slate-300"><i class="fa-solid fa-check text-primary mr-3"></i> Sitios web orientados a turismo médico</li>
-                        <li class="flex items-center text-slate-300"><i class="fa-solid fa-check text-primary mr-3"></i> Automatización de reseñas en Google Maps</li>
-                    </ul>
-                </div>
-                <div class="relative rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" alt="Tecnología en Salud" class="w-full h-auto rounded-2xl object-cover hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-darkbg/80 to-transparent"></div>
+                    <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                        Mi filosofía es simple: <span class="text-white font-medium">Diseño ultra-premium, código impecable y estrategias de marketing global.</span> Manejo infraestructuras de cobro internacionales (USD, EUR, ARS) para facilitar negocios sin fronteras.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-card p-4 rounded-xl">
+                            <i class="fa-solid fa-earth-americas text-primary text-2xl mb-2"></i>
+                            <h4 class="text-white font-bold">Alcance Global</h4>
+                            <p class="text-sm text-slate-500">Clientes en LATAM, Europa y Medio Oriente.</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl">
+                            <i class="fa-solid fa-microchip text-secondary text-2xl mb-2"></i>
+                            <h4 class="text-white font-bold">Experto en IA</h4>
+                            <p class="text-sm text-slate-500">Automatizaciones y flujos inteligentes de datos.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Grilla de Servicios -->
-    <section id="servicios" class="py-24 relative">
+    <!-- Casos de Éxito Globales -->
+    <section id="casos" class="py-24 bg-darkbg relative border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold text-white mb-4">Soluciones Integrales</h2>
-                <p class="text-xl text-slate-400 max-w-2xl mx-auto">Tecnología de vanguardia adaptada a cualquier rubro empresarial e industrial.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Casos de <span class="text-primary">Éxito</span></h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">Soluciones implementadas con impacto medible alrededor del mundo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Caso 1: Turquía -->
+                <div class="glass-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8373?q=80&w=800&auto=format&fit=crop" alt="Hotel Turquía" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur px-3 py-1 rounded-full border border-white/10 flex items-center gap-2">
+                            <img src="https://flagcdn.com/w20/tr.png" alt="Turquía" class="w-4 h-3"> <span class="text-xs text-white">Turquía</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Mimi Hotel Ankara</h3>
+                        <p class="text-primary text-sm font-semibold mb-4">Optimización SEO & App de Reservas</p>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Rediseño de presencia en Google Maps y creación de un sitio web adaptado al mercado europeo, logrando aumentar la tasa de reserva directa automatizada sin depender de OTAs.
+                        </p>
+                        <div class="flex items-center gap-2 text-green-400 text-sm font-bold">
+                            <i class="fa-solid fa-arrow-trend-up"></i> +45% Reservas Directas
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caso 2: México -->
+                <div class="glass-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1560944527-a4a429848866?q=80&w=800&auto=format&fit=crop" alt="Estética México" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur px-3 py-1 rounded-full border border-white/10 flex items-center gap-2">
+                            <img src="https://flagcdn.com/w20/mx.png" alt="México" class="w-4 h-3"> <span class="text-xs text-white">México</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Estética Elite</h3>
+                        <p class="text-secondary text-sm font-semibold mb-4">Mini-SaaS "Antes y Después"</p>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Desarrollo de una herramienta interactiva para que la clínica muestre resultados de pacientes en WhatsApp. Incluyó integraciones de pasarela de pago para señas de turnos.
+                        </p>
+                        <div class="flex items-center gap-2 text-green-400 text-sm font-bold">
+                            <i class="fa-solid fa-arrow-trend-up"></i> +300% ROI en 3 meses
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caso 3: España -->
+                <div class="glass-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop" alt="Clínica España" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur px-3 py-1 rounded-full border border-white/10 flex items-center gap-2">
+                            <img src="https://flagcdn.com/w20/es.png" alt="España" class="w-4 h-3"> <span class="text-xs text-white">España</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">DentalCare Global</h3>
+                        <p class="text-primary text-sm font-semibold mb-4">Automatización & IA</p>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Implementación de un chatbot inteligente para pre-calificar pacientes de implantes dentales 24/7 y agendar citas directamente en el calendario del odontólogo.
+                        </p>
+                        <div class="flex items-center gap-2 text-green-400 text-sm font-bold">
+                            <i class="fa-solid fa-clock"></i> 40hs mensuales ahorradas
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Interactivo -->
+    <footer class="bg-[#05080f] pt-20 pb-10 border-t border-slate-800 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-brain text-primary text-2xl"></i>
+                        <span class="font-extrabold text-2xl text-white">Neural<span class="text-primary">Focus</span>IA</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-md leading-relaxed mb-6">
+                        Creamos tecnología de vanguardia para negocios que buscan escalar sin límites. Desarrollo Web, Mini-Apps, Inteligencia Artificial y Marketing de Alta Conversión.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://tiktok.com/search?q=%23neuralfocusia" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-primary transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://wa.me/5492257550650" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-green-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><a href="#inicio" class="hover:text-primary transition">Inicio</a></li>
+                        <li><a href="#sobre-mi" class="hover:text-primary transition">Acerca de Mí</a></li>
+                        <li><a href="#casos" class="hover:text-primary transition">Casos de Éxito</a></li>
+                        <li><a href="mailto:neuralfocusai@gmail.com" class="hover:text-primary transition">Soporte y Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contacto Directo</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-primary"></i>
+                            <span>Mar del Tuyú, Argentina.<br>Operaciones Globales.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-primary"></i>
+                            <a href="mailto:neuralfocusai@gmail.com" class="hover:text-white">neuralfocusai@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-primary"></i>
+                            <a href="https://wa.me/5492257550650" class="hover:text-white">+54 9 2257 55-0650</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Servicio 1 -->
-                <div class="card-glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-laptop-code text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Desarrollo Web & Apps</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Sitios corporativos, landing pages de alta conversión y aplicaciones móviles nativas o PWA. Arquitectura rápida, segura y escalable.</p>
-                </div>
-
-                <!-- Servicio 2 -->
-                <div class="card-glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-microchip text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Integración de IA</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Chatbots inteligentes, automatización de tareas repetitivas y análisis de datos mediante inteligencia artificial para potenciar tus ventas.</p>
-                </div>
-
-                <!-- Servicio 3 -->
-                <div class="card-glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-bullseye text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Marketing Digital</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Estrategias de posicionamiento global. Publicidad digital de precisión para negocios locales o empresas buscando clientes en el exterior.</p>
-                </div>
-
-                <!-- Servicio 4 -->
-                <div class="card-glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-users-gear text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Consultoría Empresarial</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Asesoría directa para emprendedores y empresas. Evaluamos tu modelo de negocio y trazamos una hoja de ruta tecnológica clara.</p>
-                </div>
-                
-                <!-- Imagen decorativa en grilla -->
-                <div class="card-glass rounded-2xl overflow-hidden col-span-1 md:col-span-2 lg:col-span-2 relative group" data-aos="fade-up" data-aos-delay="500">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Análisis de Datos" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
-                    <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-darkbg w-full">
-                        <h3 class="text-2xl font-bold text-white">Diseños que convierten visitantes en clientes.</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Tarifas Globales -->
-    <section id="tarifas" class="py-20 bg-slate-900 border-t border-slate-800/50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Precios Competitivos a Nivel Global</h2>
-            <p class="text-xl text-slate-400 mb-8">
-                Operamos con una estructura digital ágil que nos permite ofrecer los mejores precios del mercado internacional sin comprometer la calidad premium.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <span class="px-6 py-2 bg-slate-800 rounded-full text-white font-semibold border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-dollar-sign text-green-400"></i> USD Dólares</span>
-                <span class="px-6 py-2 bg-slate-800 rounded-full text-white font-semibold border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-euro-sign text-blue-400"></i> EUR Euros</span>
-                <span class="px-6 py-2 bg-slate-800 rounded-full text-white font-semibold border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-money-bill-wave text-primary"></i> ARS Pesos Argentinos</span>
-            </div>
-            <p class="text-slate-500 text-sm">Facilidades de pago internacionales y presupuestos a medida según la envergadura del proyecto.</p>
-        </div>
-    </section>
-
-    <!-- Footer y Contacto -->
-    <footer class="bg-[#0b1121] py-12 border-t border-slate-800 relative z-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="text-center md:text-left">
-                    <div class="flex items-center gap-2 justify-center md:justify-start mb-4">
-                        <i class="fa-solid fa-brain text-primary text-xl"></i>
-                        <span class="font-bold text-xl text-white">Neural<span class="text-primary">Focus</span>IA</span>
-                    </div>
-                    <p class="text-slate-500 text-sm">© 2026 Lucas Guzmán. Todos los derechos reservados.</p>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row items-center gap-6 text-slate-400">
-                    <a href="mailto:neuralfocusai@gmail.com" class="hover:text-white transition flex items-center gap-2">
-                        <i class="fa-solid fa-envelope"></i> neuralfocusai@gmail.com
-                    </a>
-                    <a href="https://wa.me/5492257550650" target="_blank" class="hover:text-white transition flex items-center gap-2">
-                        <i class="fa-brands fa-whatsapp"></i> +54 9 2257 55-0650
-                    </a>
-                    <a href="https://tiktok.com/search?q=%23neuralfocusia" target="_blank" class="hover:text-white transition flex items-center gap-2">
-                        <i class="fa-brands fa-tiktok"></i> #neuralfocusia
-                    </a>
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>© 2026 Lucas Guzmán | NeuralFocus IA. Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <span>Pagos Seguros Internacionales</span>
+                    <i class="fa-brands fa-cc-visa text-xl"></i>
+                    <i class="fa-brands fa-cc-mastercard text-xl"></i>
+                    <i class="fa-brands fa-cc-stripe text-xl"></i>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/5492257550650" target="_blank" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl pulse-btn hover:bg-[#20bd5a] transition-colors">
+    <!-- Botón Flotante WhatsApp Pulsante -->
+    <a href="https://wa.me/5492257550650" target="_blank" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl animate-pulse-glow hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts para Animaciones -->
+    <!-- Scripts de Animación y Lógica -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicializar animaciones de scroll
+        // Iniciar AOS Animations
         AOS.init({
             once: true,
-            offset: 100,
+            offset: 50,
+            duration: 800
         });
 
-        // Efecto de fondo en el navbar al hacer scroll
+        // Lógica del Navbar Glass Effect al hacer Scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 20) {
-                nav.classList.add('shadow-lg');
-                nav.classList.replace('glass', 'bg-darkbg/95');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-xl');
+                nav.style.background = 'rgba(9, 14, 23, 0.95)';
             } else {
-                nav.classList.remove('shadow-lg');
-                nav.classList.replace('bg-darkbg/95', 'glass');
+                nav.classList.remove('shadow-xl');
+                nav.style.background = 'rgba(9, 14, 23, 0.7)';
             }
+        });
+
+        // Lógica del Carrusel de Fondo (Hero Section)
+        document.addEventListener('DOMContentLoaded', () => {
+            const backgrounds = ['bg-1', 'bg-2', 'bg-3'];
+            let currentIndex = 0;
+
+            setInterval(() => {
+                // Quitar clase activa al actual
+                document.getElementById(backgrounds[currentIndex]).classList.remove('active');
+                
+                // Pasar al siguiente índice
+                currentIndex = (currentIndex + 1) % backgrounds.length;
+                
+                // Añadir clase activa al nuevo
+                document.getElementById(backgrounds[currentIndex]).classList.add('active');
+            }, 5000); // Cambia de imagen cada 5 segundos
         });
     </script>
 </body>
