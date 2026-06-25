@@ -1,507 +1,469 @@
 <!DOCTYPE html>
-<!-- Hreflang por defecto, cambiado dinámicamente por JS -->
-<html lang="es" dir="ltr" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Guzmán | Servicios de Marketing Digital e IA</title>
+    <meta name="description" content="Freelancer de Argentina ofreciendo servicios simples y efectivos de Marketing Digital e Inteligencia Artificial para todo el mundo.">
     
-    <!-- ========================================== -->
-    <!-- ULTRA SEO & META TAGS                      -->
-    <!-- ========================================== -->
-    <title>NeuralFocus IA | Consultoría IA y Marketing Digital por Lucas Guzmán</title>
-    <meta name="description" content="Agencia global de Inteligencia Artificial y Marketing Digital. Soluciones Micro-SaaS, ecosistemas ultra-premium y automatización de procesos liderados por Lucas Guzmán.">
-    <meta name="keywords" content="Inteligencia Artificial, IA, Marketing Digital, Consultoría IA, Automatización de procesos, Desarrollo Micro-SaaS, Agencias de IA, Machine Learning, SEO, NeuralFocus IA, Lucas Guzmán, Ecosistemas Digitales">
-    <meta name="author" content="Lucas Guzmán">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="https://www.neuralfocusia.com/">
-    
-    <!-- Etiquetas Hreflang para SEO Internacional Multilingüe -->
-    <link rel="alternate" hreflang="es" href="https://www.neuralfocusia.com/" />
-    <link rel="alternate" hreflang="en" href="https://www.neuralfocusia.com/en" />
-    <link rel="alternate" hreflang="it" href="https://www.neuralfocusia.com/it" />
-    <link rel="alternate" hreflang="de" href="https://www.neuralfocusia.com/de" />
-    <link rel="alternate" hreflang="fr" href="https://www.neuralfocusia.com/fr" />
-    <link rel="alternate" hreflang="ar" href="https://www.neuralfocusia.com/ar" />
-    <link rel="alternate" hreflang="x-default" href="https://www.neuralfocusia.com/" />
-
-    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
-    <meta property="og:title" content="NeuralFocus IA | Automatiza y Escala con IA">
-    <meta property="og:description" content="Domina tu sector con integraciones de IA, análisis de datos y desarrollo web avanzado.">
-    <meta property="og:url" content="https://www.neuralfocusia.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="NeuralFocus IA">
-    <meta property="og:locale" content="es_ES">
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NeuralFocus IA | Consultoría IA por Lucas Guzmán">
-    <meta name="twitter:description" content="Transformación digital para empresas que no se conforman con lo básico.">
-    <meta name="twitter:creator" content="@neuralfocusia">
-
-    <!-- ========================================== -->
-    <!-- STRUCTURED DATA (JSON-LD) PARA GOOGLE      -->
-    <!-- ========================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://www.neuralfocusia.com/#organization",
-          "name": "NeuralFocus IA",
-          "url": "https://www.neuralfocusia.com",
-          "description": "Agencia especializada en integración de Inteligencia Artificial, automatización de procesos empresariales y marketing digital avanzado.",
-          "founder": {
-            "@type": "Person",
-            "name": "Lucas Guzmán",
-            "jobTitle": "CEO & AI Expert"
-          },
-          "areaServed": "Worldwide",
-          "priceRange": "$$$"
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "¿Qué servicios de Inteligencia Artificial ofrecen?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Desarrollamos ecosistemas digitales, automatizaciones mediante Machine Learning, chatbots avanzados de IA y consultoría especializada en marketing digital para escalar tu facturación."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Para qué tipo de empresas trabajan?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Trabajamos con clínicas de salud, sector inmobiliario, resorts internacionales y empresas corporativas en Europa, LATAM y Medio Oriente que buscan liderar su mercado."
-              }
-            }
-          ]
-        }
-      ]
-    }
-    </script>
-
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS para los estilos -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Config -->
+    <!-- Configuración personalizada de Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0ea5e9',
-                        secondary: '#8b5cf6',
-                        darkbg: '#090e17',
-                        glass: 'rgba(15, 23, 42, 0.6)',
+                        primary: '#2563eb',    /* Azul profesional y confiable */
+                        secondary: '#10b981',  /* Verde para el éxito y crecimiento */
+                        darkbg: '#0f172a',     /* Fondo oscuro elegante */
+                        lightbg: '#f8fafc',    /* Fondo claro limpio */
                     },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-delayed': 'float 6s ease-in-out 3s infinite',
-                        'pulse-glow': 'pulse-glow 2s infinite',
                         'scroll': 'scroll 30s linear infinite',
+                        'bounce-slow': 'bounce 3s infinite',
                     },
                     keyframes: {
-                        float: { '0%, 100%': { transform: 'translateY(0) scale(1)' }, '50%': { transform: 'translateY(-20px) scale(1.02)' }, },
-                        'pulse-glow': { '0%': { boxShadow: '0 0 0 0 rgba(14, 165, 233, 0.7)' }, '70%': { boxShadow: '0 0 0 15px rgba(14, 165, 233, 0)' }, '100%': { boxShadow: '0 0 0 0 rgba(14, 165, 233, 0)' }, },
-                        scroll: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(calc(-300px * 5))' }, }
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(calc(-300px * 5))' },
+                        }
                     }
                 }
             }
         }
     </script>
 
-    <!-- Preconnect & Fonts -->
+    <!-- Fuentes y Recursos de Iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Librería de Animaciones AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- CSS Personalizado Adicional -->
     <style>
-        body { background-color: #090e17; color: #cbd5e1; overflow-x: hidden; scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
         
-        .glass-nav { background: rgba(9, 14, 23, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .glass-card { background: linear-gradient(145deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.4) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s ease; }
-        .glass-card:hover { transform: translateY(-10px); border-color: rgba(14, 165, 233, 0.4); box-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.2); }
-
-        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease-in-out; z-index: 0; }
-        .hero-bg.active { opacity: 0.3; }
-        .bg-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9, 14, 23, 0.3), #090e17); z-index: 1; }
-
-        /* RTL Support Adjustments */
-        html[dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
-        html[dir="rtl"] .mr-2 { margin-left: 0.5rem; margin-right: 0; }
-        html[dir="rtl"] .ml-2 { margin-right: 0.5rem; margin-left: 0; }
-        html[dir="rtl"] .text-left { text-align: right; }
-        html[dir="rtl"] .pl-10 { padding-right: 2.5rem; padding-left: 0; }
-        html[dir="rtl"] .pr-10 { padding-left: 2.5rem; padding-right: 0; }
-        html[dir="rtl"] .animate-scroll { animation: scroll-rtl 30s linear infinite; }
+        /* Fondos con gradientes suaves, sin fotos */
+        .gradient-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        }
         
-        @keyframes scroll-rtl { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(calc(300px * 5))' }, }
+        .gradient-card {
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .gradient-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
 
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Ocultar barra de desplazamiento en el carrusel */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Toast de notificación turco */
+        #turkish-toast {
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 9999;
+        }
     </style>
 </head>
-<body class="antialiased font-sans selection:bg-primary selection:text-white">
+<body class="antialiased">
 
-    <!-- Navbar -->
-    <header>
-        <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar" aria-label="Navegación principal">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-24">
-                    <a href="#inicio" class="flex-shrink-0 flex items-center gap-3 cursor-pointer" aria-label="Ir al inicio NeuralFocus IA">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/30">
-                            <i class="fa-solid fa-brain text-white text-xl" aria-hidden="true"></i>
-                        </div>
-                        <span class="font-extrabold text-2xl tracking-tighter text-white">Neural<span class="text-primary">Focus</span>IA</span>
-                    </a>
-                    
-                    <div class="hidden lg:flex items-center space-x-6 text-sm font-medium">
-                        <a href="#inicio" class="hover:text-white transition" data-translate="nav_home">Inicio</a>
-                        <a href="#sobre-mi" class="hover:text-white transition" data-translate="nav_about">Acerca de Mí</a>
-                        <a href="#servicios" class="hover:text-white transition" data-translate="nav_services">Servicios SEO</a>
-                        
-                        <!-- Selector de Idiomas -->
-                        <div class="relative inline-block text-left group">
-                            <button class="inline-flex justify-center items-center gap-2 rounded-full border border-slate-600 px-4 py-2 bg-slate-800 text-sm font-medium text-white hover:bg-slate-700 transition" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa-solid fa-globe" aria-hidden="true"></i> <span id="current-lang">ES</span>
-                            </button>
-                            <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-xl shadow-lg bg-slate-800 ring-1 ring-black ring-opacity-5 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50 overflow-hidden border border-slate-700">
-                                <div class="py-1 flex flex-col">
-                                    <button onclick="setLanguage('es')" class="px-4 py-2 text-sm text-slate-300 hover:bg-primary hover:text-white text-left transition-colors">🇪🇸 Español</button>
-                                    <button onclick="setLanguage('en')" class="px-4 py-2 text-sm text-slate-300 hover:bg-primary hover:text-white text-left transition-colors">🇬🇧 English</button>
-                                    <button onclick="setLanguage('it')" class="px-4 py-2 text-sm text-slate-300 hover:bg-primary hover:text-white text-left transition-colors">🇮🇹 Italiano</button>
-                                    <button onclick="setLanguage('de')" class="px-4 py-2 text-sm text-slate-300 hover:bg-primary hover:text-white text-left transition-colors">🇩🇪 Deutsch</button>
-                                    <button onclick="setLanguage('fr')" class="px-4 py-2 text-sm text-slate-300 hover:bg-primary hover:text-white text-left transition-colors">🇫🇷 Français</button>
-                                    <button onclick="setLanguage('ar')" class="px-4 py-2 text-sm text-slate-300 hover:bg-primary hover:text-white text-left transition-colors" dir="rtl">🇦🇪 العربية</button>
-                                </div>
-                            </div>
-                        </div>
+    <!-- ========================================== -->
+    <!-- NOTIFICACIÓN DE SALUDO AUTOMÁTICO          -->
+    <!-- ========================================== -->
+    <div id="turkish-toast" class="fixed top-6 left-1/2 transform -translate-x-1/2 -translate-y-[150%] opacity-0 bg-white text-slate-800 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 border-l-4 border-primary">
+        <div class="bg-primary/10 p-3 rounded-full text-primary">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+        <div>
+            <h4 id="toast-title" class="font-bold text-lg"></h4>
+            <p id="toast-sub" class="text-sm text-slate-600"></p>
+        </div>
+        <button onclick="closeToast()" class="ml-4 text-slate-400 hover:text-slate-800">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    </div>
 
-                        <!-- Botón SEO optimizado a mailto: -->
-                        <a href="mailto:neuralfocusai@gmail.com?subject=Solicitud%20de%20Consultoría%20IA" class="bg-white text-darkbg px-6 py-2.5 rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(14,165,233,0.6)]" data-translate="nav_consulting" aria-label="Enviar correo para agendar consultoría">
-                            Agendar Consultoría
-                        </a>
+    <!-- ========================================== -->
+    <!-- NAVEGACIÓN PRINCIPAL                       -->
+    <!-- ========================================== -->
+    <header class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Simple -->
+                <a href="#inicio" class="flex items-center gap-2 cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                        <i class="fa-solid fa-user-astronaut"></i>
                     </div>
-                </div>
+                    <span class="font-bold text-xl text-white">Lucas Guzmán</span>
+                </a>
+                
+                <!-- Menú Desktop -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#inicio" class="text-slate-300 hover:text-white transition">Inicio</a>
+                    <a href="#sobre-mi" class="text-slate-300 hover:text-white transition">Sobre Mí</a>
+                    <a href="#marketing" class="text-slate-300 hover:text-white transition">Marketing</a>
+                    <a href="#inteligencia-artificial" class="text-slate-300 hover:text-white transition">Inteligencia Artificial</a>
+                    <a href="#contacto" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-blue-600 transition shadow-lg">Trabajemos Juntos</a>
+                </nav>
             </div>
-        </nav>
+        </div>
     </header>
 
     <main>
-        <!-- SEO Hero Section -->
-        <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden" aria-labelledby="hero-heading">
-            <div id="bg-1" class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2000&auto=format&fit=crop');" aria-hidden="true"></div>
-            <div id="bg-2" class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');" aria-hidden="true"></div>
-            
-            <div class="bg-overlay"></div>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right" data-aos-duration="1000">
-                    <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 px-4 py-2 rounded-full text-sm font-medium text-cyan-400 mb-6 backdrop-blur-md">
-                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                        <h2 id="hero-heading" class="m-0 text-sm" data-translate="hero_badge">Lucas Guzmán | Consultoría SEO e Inteligencia Artificial</h2>
-                    </div>
-                    <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                        <span data-translate="hero_title_1">Automatiza.</span> <br>
-                        <span data-translate="hero_title_2">Escala.</span> <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-secondary" data-translate="hero_title_3">Domina tu sector web.</span>
-                    </h1>
-                    <p class="text-xl text-slate-400 mb-10 font-light max-w-lg leading-relaxed" data-translate="hero_desc">
-                        Ecosistemas digitales ultra-premium, SEO avanzado, integraciones de IA (Machine Learning) y desarrollo SaaS. Soluciones diseñadas para empresas que buscan el liderazgo digital absoluto.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/5492257550650" target="_blank" rel="noopener noreferrer" class="bg-primary text-white px-8 py-4 rounded-full font-bold text-center text-lg hover:bg-sky-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)] flex items-center justify-center gap-2" aria-label="Contactar por WhatsApp">
-                            <i class="fa-brands fa-whatsapp text-xl" aria-hidden="true"></i> <span data-translate="btn_contact">Contacto Directo</span>
-                        </a>
-                    </div>
+        <!-- ========================================== -->
+        <!-- SECCIÓN HERO (INICIO) SIN FOTOS            -->
+        <!-- ========================================== -->
+        <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 gradient-hero flex items-center min-h-[90vh]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                
+                <div data-aos="fade-down" class="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-sm text-blue-300">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                    </span>
+                    Freelancer desde Argentina para el Mundo
                 </div>
 
-                <div class="hidden lg:block relative" data-aos="fade-left" data-aos-duration="1200">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] -z-10"></div>
-                    
-                    <div class="absolute top-10 -left-10 glass-card p-4 rounded-2xl animate-float-delayed" aria-hidden="true">
-                        <i class="fa-solid fa-code text-2xl text-primary"></i>
-                    </div>
-                    <div class="absolute bottom-20 -right-10 glass-card p-4 rounded-2xl animate-float-delayed" style="animation-delay: 1.5s;" aria-hidden="true">
-                        <i class="fa-solid fa-magnifying-glass-chart text-2xl text-secondary"></i>
-                    </div>
+                <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                    Marketing e Inteligencia Artificial <br class="hidden md:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Explicados de Forma Fácil.</span>
+                </h1>
+                
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+                    Ayudo a negocios de <strong>cualquier rubro</strong> a vender más y trabajar menos usando herramientas modernas. No importa en qué país estés ni qué idioma hables, yo me encargo de todo para que tú solo veas los resultados.
+                </p>
+                
+                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#prueba-gratis" class="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-100 transition shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                        <i class="fa-solid fa-gift text-primary mr-2"></i> Pedir Página Web Gratuita
+                    </a>
+                    <a href="https://wa.me/5492257550650" target="_blank" class="w-full sm:w-auto bg-transparent border-2 border-slate-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:border-white transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-green-400"></i> Hablemos por WhatsApp
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- SEO Carrusel Infinito: Palabras clave en Alt text -->
-        <section class="py-12 bg-[#05080f] border-y border-slate-800 overflow-hidden relative" aria-label="Galería de tecnologías e Inteligencia Artificial">
-            <h2 class="sr-only">Galería de Tecnologías de Marketing y Datos</h2>
-            <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#05080f] to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#05080f] to-transparent z-10 pointer-events-none"></div>
+        <!-- ========================================== -->
+        <!-- CARRUSEL DE IMÁGENES (Únicas fotos)         -->
+        <!-- ========================================== -->
+        <section class="py-10 bg-slate-950 border-y border-slate-800 overflow-hidden relative">
+            <div class="text-center mb-6">
+                <p class="text-sm text-slate-500 font-semibold uppercase tracking-widest">Ejemplos de tecnologías que utilizamos</p>
+            </div>
+            
+            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none mt-10"></div>
+            <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none mt-10"></div>
             
             <div class="flex space-x-6 animate-scroll w-max px-6">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop" alt="Integración de Inteligencia Artificial y Robótica" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Análisis de Datos y Posicionamiento SEO web" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="Redes Neuronales y Machine Learning Avanzado" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="Dashboard de Marketing Digital B2B" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
-                <!-- Duplicados para el efecto visual loop -->
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop" alt="Integración de Inteligencia Artificial y Robótica" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Análisis de Datos y Posicionamiento SEO web" class="w-80 h-48 object-cover rounded-2xl shadow-lg border border-slate-800 opacity-70 hover:opacity-100 transition-opacity" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop" alt="Inteligencia Artificial" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Análisis de Ventas" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="Tecnología" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="Marketing" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
+                <!-- Duplicados para el scroll infinito suave -->
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop" alt="Inteligencia Artificial" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Análisis de Ventas" class="w-72 h-40 object-cover rounded-xl shadow-lg opacity-60 hover:opacity-100 transition-opacity">
             </div>
         </section>
 
-        <!-- Sobre Mí - Optimizado con Microdatos implícitos -->
-        <section id="sobre-mi" class="py-24 bg-[#0d131f] relative" aria-labelledby="about-heading">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5 relative" data-aos="fade-right">
-                        <div class="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-800/30 aspect-square flex items-center justify-center">
-                            <i class="fa-solid fa-microchip text-9xl text-primary/20"></i>
-                            <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent"></div>
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-2xl shadow-2xl">
-                            <span class="block text-4xl font-bold">100%</span>
-                            <span class="text-sm font-medium" data-translate="about_focus">Enfoque a Resultados SEO & ROI</span>
-                        </div>
+        <!-- ========================================== -->
+        <!-- SECCIÓN SOBRE MÍ                           -->
+        <!-- ========================================== -->
+        <section id="sobre-mi" class="py-20 bg-slate-900">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-slate-800/50 rounded-3xl p-8 md:p-12 border border-slate-700 text-center" data-aos="fade-up">
+                    <div class="w-20 h-20 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-handshake text-4xl text-blue-400"></i>
                     </div>
+                    <h2 class="text-3xl font-bold text-white mb-4">¿Quién soy y cómo trabajo?</h2>
+                    <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
+                        Soy un <strong>trabajador independiente (freelancer)</strong> enfocado en hacer que la tecnología trabaje a tu favor. No uso palabras complicadas ni procesos lentos. Me destaco por mi <strong>velocidad de entrega y profesionalismo moderno</strong>. Puedes escribirme en el idioma que desees, respondo de inmediato y aplico soluciones adaptadas a cualquier país o industria.
+                    </p>
                     
-                    <div class="lg:col-span-7" data-aos="fade-left">
-                        <h2 id="about-heading" class="text-sm font-bold text-primary tracking-widest uppercase mb-2" data-translate="about_subtitle">Acerca de Mí</h2>
-                        <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">Liderazgo Digital por <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Lucas Guzmán.</span></h3>
-                        <p class="text-lg text-slate-400 mb-6 leading-relaxed" data-translate="about_p1">
-                            Lidero la transformación digital integral de empresas que buscan destacar en los motores de búsqueda y mercados saturados. Combino <strong>estrategias de SEO técnico</strong>, desarrollo web a medida, integraciones de <strong>IA generativa</strong> y embudos de marketing digital para escalar tu facturación globalmente.
-                        </p>
-                        <div class="grid grid-cols-2 gap-6 mt-8">
-                            <div class="glass-card p-4 rounded-xl">
-                                <i class="fa-solid fa-earth-americas text-primary text-2xl mb-2" aria-hidden="true"></i>
-                                <h4 class="text-white font-bold" data-translate="about_card1_t">Expansión Global SEO</h4>
-                                <p class="text-sm text-slate-500" data-translate="about_card1_p">Servicios optimizados para LATAM, Europa y Medio Oriente.</p>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl">
-                                <i class="fa-solid fa-microchip text-secondary text-2xl mb-2" aria-hidden="true"></i>
-                                <h4 class="text-white font-bold" data-translate="about_card2_t">Consultoría IA Avanzada</h4>
-                                <p class="text-sm text-slate-500" data-translate="about_card2_p">Flujos de datos, automatización CRM y Machine Learning.</p>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mt-10">
+                        <div class="gradient-card p-6 rounded-2xl">
+                            <i class="fa-solid fa-globe text-2xl text-blue-400 mb-3"></i>
+                            <h3 class="text-xl font-bold text-white mb-2">Para Todo el Mundo</h3>
+                            <p class="text-slate-400 text-sm">Hablo tu idioma gracias a herramientas avanzadas. Sin importar dónde estés, tu proyecto será un éxito.</p>
+                        </div>
+                        <div class="gradient-card p-6 rounded-2xl">
+                            <i class="fa-solid fa-credit-card text-2xl text-emerald-400 mb-3"></i>
+                            <h3 class="text-xl font-bold text-white mb-2">Pagos Fáciles</h3>
+                            <p class="text-slate-400 text-sm">Acepto pagos internacionales de forma segura, principalmente en <strong>Dólares (USD)</strong> y <strong>Euros (EUR)</strong>.</p>
+                        </div>
+                        <div class="gradient-card p-6 rounded-2xl">
+                            <i class="fa-solid fa-bolt text-2xl text-yellow-400 mb-3"></i>
+                            <h3 class="text-xl font-bold text-white mb-2">Entregas Ultra Rápidas</h3>
+                            <p class="text-slate-400 text-sm">Al ser un profesional moderno, utilizo métodos que me permiten entregar resultados en tiempo récord.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Nueva Sección de Servicios (Crucial para Ranking SEO) -->
-        <section id="servicios" class="py-24 bg-darkbg relative border-t border-slate-800" aria-labelledby="services-heading">
+        <!-- ========================================== -->
+        <!-- SERVICIOS DE MARKETING DIGITAL             -->
+        <!-- ========================================== -->
+        <section id="marketing" class="py-20 bg-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 id="services-heading" class="text-4xl md:text-5xl font-bold text-white mb-4"><span data-translate="serv_title_1">Servicios de</span> <span class="text-primary" data-translate="serv_title_2">Agencia Digital</span></h2>
-                    <p class="text-xl text-slate-400 max-w-2xl mx-auto" data-translate="serv_subtitle">Soluciones tecnológicas de alto nivel para indexar mejor, vender más y operar inteligentemente.</p>
+                    <span class="text-blue-500 font-bold tracking-wider uppercase text-sm">Crecimiento para tu negocio</span>
+                    <h2 class="text-4xl font-bold text-white mt-2 mb-4">Servicios de Marketing Digital</h2>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">Las 5 estrategias más buscadas en la actualidad para hacer que tu marca sea conocida y atraiga clientes constantemente.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Servicio 1 -->
-                    <article class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6 border border-primary/50">
-                            <i class="fa-solid fa-robot text-2xl text-primary"></i>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Marketing 1 -->
+                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-pink-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-mobile-screen text-2xl text-pink-400"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3" data-translate="serv_1_t">Desarrollo e Integración IA</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed" data-translate="serv_1_p">Implementamos chatbots inteligentes, análisis predictivo y agentes conversacionales para atención al cliente y ventas automáticas 24/7.</p>
-                    </article>
-                    <!-- Servicio 2 -->
-                    <article class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-14 h-14 bg-secondary/20 rounded-xl flex items-center justify-center mb-6 border border-secondary/50">
-                            <i class="fa-solid fa-chart-simple text-2xl text-secondary"></i>
+                        <h3 class="text-xl font-bold text-white mb-3">Videos Verticales (TikTok e Instagram)</h3>
+                        <p class="text-slate-400 text-sm">Creamos videos cortos y llamativos que atrapan la atención de la gente en redes sociales para que conozcan lo que ofreces.</p>
+                    </div>
+
+                    <!-- Marketing 2 -->
+                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-brands fa-google text-2xl text-blue-400"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3" data-translate="serv_2_t">SEO & Marketing Digital</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed" data-translate="serv_2_p">Auditorías técnicas, estrategias de contenido semántico, link building y campañas Ads enfocadas en el Retorno de Inversión (ROI).</p>
-                    </article>
-                    <!-- Servicio 3 -->
-                    <article class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-14 h-14 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/50">
-                            <i class="fa-solid fa-cloud text-2xl text-cyan-400"></i>
+                        <h3 class="text-xl font-bold text-white mb-3">Optimización SEO</h3>
+                        <p class="text-slate-400 text-sm">Ajustamos tu página en internet para que aparezcas de forma gratuita en los primeros resultados cuando alguien busca en Google.</p>
+                    </div>
+
+                    <!-- Marketing 3 -->
+                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-purple-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-bullhorn text-2xl text-purple-400"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3" data-translate="serv_3_t">Sistemas Micro-SaaS</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed" data-translate="serv_3_p">Creamos aplicaciones web progresivas (PWA) e infraestructuras en la nube escalables a medida de las necesidades operativas de tu empresa.</p>
-                    </article>
+                        <h3 class="text-xl font-bold text-white mb-3">Publicidad Directa (Ads)</h3>
+                        <p class="text-slate-400 text-sm">Ponemos anuncios de pago en redes sociales y buscadores para que le aparezcan exactamente a las personas que quieren comprar tus productos.</p>
+                    </div>
+
+                    <!-- Marketing 4 -->
+                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-emerald-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-users text-2xl text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Gestión de Redes Sociales</h3>
+                        <p class="text-slate-400 text-sm">Mantenemos tus perfiles de Facebook o Instagram activos, publicando cosas interesantes para generar confianza en tus clientes.</p>
+                    </div>
+
+                    <!-- Marketing 5 -->
+                    <div class="gradient-card p-8 rounded-2xl lg:col-span-2 lg:w-1/2 lg:mx-auto" data-aos="fade-up" data-aos-delay="500">
+                        <div class="bg-orange-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-envelope-open-text text-2xl text-orange-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Correos que Venden (Email Marketing)</h3>
+                        <p class="text-slate-400 text-sm">Enviamos correos electrónicos automáticos con promociones e información valiosa para que tus clientes te sigan comprando una y otra vez.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ SEO Oculto Visualmente (Mejora el texto para bots sin romper diseño) -->
-        <section class="sr-only" aria-labelledby="faq-heading">
-            <h2 id="faq-heading">Preguntas Frecuentes sobre Consultoría IA y Marketing</h2>
-            <dl>
-                <dt>¿Qué es la consultoría en Inteligencia artificial?</dt>
-                <dd>La consultoría IA ayuda a las empresas a implementar automatizaciones, machine learning y análisis de datos para reducir costes y aumentar ingresos.</dd>
-                <dt>¿Por qué el SEO es clave para agencias y negocios?</dt>
-                <dd>El SEO asegura que tu ecosistema web aparezca primero en Google, atrayendo tráfico cualificado sin pagar por cada clic en publicidad.</dd>
-            </dl>
+        <!-- ========================================== -->
+        <!-- SERVICIOS DE INTELIGENCIA ARTIFICIAL       -->
+        <!-- ========================================== -->
+        <section id="inteligencia-artificial" class="py-20 bg-slate-900 border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-emerald-500 font-bold tracking-wider uppercase text-sm">Ahorra tiempo y dinero</span>
+                    <h2 class="text-4xl font-bold text-white mt-2 mb-4">Servicios de Inteligencia Artificial</h2>
+                    <p class="text-slate-400 text-lg max-w-2xl mx-auto">Las 5 soluciones más útiles en 2026 para que la tecnología haga el trabajo pesado de tu empresa por ti, explicadas sin palabras raras.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- IA 1 -->
+                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-robot text-2xl text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Atención al Cliente Automática</h3>
+                        <p class="text-slate-400 text-sm">Instalamos un robot inteligente que responde las dudas de tus clientes por WhatsApp o en tu página web, a cualquier hora y de forma amable.</p>
+                    </div>
+
+                    <!-- IA 2 -->
+                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-indigo-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-pen-nib text-2xl text-indigo-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Creación de Contenidos Rápida</h3>
+                        <p class="text-slate-400 text-sm">Usamos programas que escriben textos perfectos o crean imágenes de alta calidad para tus publicidades en cuestión de segundos.</p>
+                    </div>
+
+                    <!-- IA 3 -->
+                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-yellow-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-chart-pie text-2xl text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Organización de Datos Sencilla</h3>
+                        <p class="text-slate-400 text-sm">Sistemas que leen la información de tus ventas y te explican, de manera fácil de entender, qué cosas compran más tus clientes.</p>
+                    </div>
+
+                    <!-- IA 4 -->
+                    <div class="gradient-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-red-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-gears text-2xl text-red-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Automatización de Tareas Aburridas</h3>
+                        <p class="text-slate-400 text-sm">Conectamos tus programas para que los trabajos repetitivos (como guardar números en una lista o enviar facturas) se hagan absolutamente solos.</p>
+                    </div>
+
+                    <!-- IA 5 -->
+                    <div class="gradient-card p-8 rounded-2xl lg:col-span-2 lg:w-1/2 lg:mx-auto" data-aos="fade-up" data-aos-delay="500">
+                        <div class="bg-teal-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-language text-2xl text-teal-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Traducción y Adaptación Global</h3>
+                        <p class="text-slate-400 text-sm">Herramientas que traducen lo que ofreces a cualquier idioma al instante, para que puedas venderle a personas de otros países sin saber su idioma.</p>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- ========================================== -->
+        <!-- LEAD MAGNET: PÁGINA WEB GRATUITA           -->
+        <!-- ========================================== -->
+        <section id="prueba-gratis" class="py-24 bg-gradient-to-b from-slate-900 to-blue-900/40 border-t border-slate-800 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+                <div class="inline-block bg-emerald-500/20 border border-emerald-500/50 text-emerald-400 px-6 py-2 rounded-full font-bold mb-6 text-sm">
+                    🎁 Regalo de Bienvenida
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Te diseño una Página Web Gratuita.</h2>
+                <p class="text-xl text-slate-300 mb-10 leading-relaxed">
+                    Quiero demostrarte mi velocidad de trabajo y mi profesionalismo moderno, sin que tengas que gastar un centavo al inicio. Escríbeme pidiéndome tu página web en <strong>el idioma que desees</strong>. Yo te respondo de inmediato y, en cuestión de minutos, te entregaré un diseño listo para que aprecies mi trabajo. <strong>¡Sin compromisos ni letras pequeñas!</strong>
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="https://wa.me/5492257550650?text=Hola%20Lucas,%20quiero%20mi%20página%20web%20gratuita" target="_blank" class="w-full sm:w-auto bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-500 transition shadow-[0_0_20px_rgba(37,211,102,0.4)] flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i> Pedir Gratis por WhatsApp
+                    </a>
+                    <a href="mailto:tuemail@ejemplo.com?subject=Quiero%20mi%20web%20gratuita" class="w-full sm:w-auto bg-slate-800 border border-slate-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-700 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-envelope text-xl"></i> Pedir por Correo
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer SEO Estructurado -->
-    <footer class="bg-[#05080f] py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <span class="font-extrabold text-2xl tracking-tighter text-white mb-4 block">Neural<span class="text-primary">Focus</span>IA</span>
-                <p class="text-sm text-slate-500 mb-4">Agencia global de consultoría tecnológica, IA y marketing digital enfocada en ROI y automatización absoluta.</p>
-                <p class="text-xs text-slate-600">&copy; 2026 NeuralFocus IA - Lucas Guzmán. Todos los derechos reservados.</p>
+    <!-- ========================================== -->
+    <!-- FOOTER SIMPLE Y LIMPIO                     -->
+    <!-- ========================================== -->
+    <footer id="contacto" class="bg-slate-950 py-12 border-t border-slate-800 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <span class="font-bold text-xl text-white">Lucas Guzmán</span>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-4" data-translate="foot_links">Enlaces Rápidos</h4>
-                <ul class="text-sm text-slate-500 space-y-2 flex flex-col">
-                    <li><a href="#inicio" class="hover:text-primary transition">Inicio</a></li>
-                    <li><a href="#servicios" class="hover:text-primary transition">Servicios IA & SEO</a></li>
-                </ul>
+            <p class="text-slate-500 mb-6 text-sm">Freelancer Internacional desde Argentina.<br>Marketing Digital & Inteligencia Artificial para todos.</p>
+            <div class="flex justify-center gap-4 mb-8">
+                <span class="text-slate-400 text-sm"><i class="fa-solid fa-money-bill text-emerald-500 mr-1"></i> Acepto USD</span>
+                <span class="text-slate-400 text-sm"><i class="fa-solid fa-euro-sign text-blue-400 mr-1"></i> Acepto EUR</span>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-4" data-translate="foot_contact">Contacto Legal</h4>
-                <ul class="text-sm text-slate-500 space-y-2 flex flex-col">
-                    <li>CEO: Lucas Guzmán</li>
-                    <li>Email: neuralfocusai@gmail.com</li>
-                    <li>Global Services: LATAM, EU, MENA</li>
-                </ul>
-            </div>
+            <p class="text-xs text-slate-600">&copy; 2026 Lucas Guzmán. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/5492257550650" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="fixed bottom-8 right-8 z-40 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl animate-pulse-glow hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300">
-        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <!-- ========================================== -->
+    <!-- BOTONES FLOTANTES (WHATSAPP Y CORREO)      -->
+    <!-- ========================================== -->
+    
+    <!-- Botón Correo Electrónico -->
+    <a href="mailto:tuemail@ejemplo.com" aria-label="Escribir al Correo" class="fixed bottom-24 right-6 z-40 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-blue-500 hover:scale-110 transition-all duration-300 border-2 border-slate-900">
+        <i class="fa-solid fa-envelope"></i>
     </a>
 
-    <!-- Scripts de Animación, Idiomas y Lógica Multilingüe -->
+    <!-- Botón WhatsApp -->
+    <a href="https://wa.me/5492257550650" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-[#20bd5a] hover:scale-110 transition-all duration-300 border-2 border-slate-900">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- ========================================== -->
+    <!-- SCRIPTS (Animaciones, Lógica y Saludos)    -->
+    <!-- ========================================== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Iniciar Animaciones
+        // Iniciar Animaciones AOS para efectos suaves
         AOS.init({ once: true, offset: 50, duration: 800 });
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(9, 14, 23, 0.98)';
-                nav.classList.add('shadow-lg');
+        // Función para cerrar el Toast manualmente
+        function closeToast() {
+            const toast = document.getElementById('turkish-toast');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('-translate-y-[150%]', 'opacity-0');
+        }
+
+        // Lógica del Saludo Automático en Turco (Basado en la hora del día)
+        window.addEventListener('DOMContentLoaded', () => {
+            const hour = new Date().getHours();
+            let greeting = "";
+            let subGreeting = "";
+
+            // Determinar la hora para el saludo correcto
+            if (hour >= 5 && hour < 12) {
+                greeting = "Günaydın!";
+                subGreeting = "¡Buenos días!";
+            } else if (hour >= 12 && hour < 18) {
+                greeting = "Tünaydın!";
+                subGreeting = "¡Buenas tardes!";
             } else {
-                nav.style.background = 'rgba(9, 14, 23, 0.7)';
-                nav.classList.remove('shadow-lg');
+                greeting = "İyi akşamlar!";
+                subGreeting = "¡Buenas noches!";
             }
+
+            // Inyectar el texto
+            document.getElementById('toast-title').innerText = greeting;
+            document.getElementById('toast-sub').innerText = subGreeting + " Bienvenido a mi web.";
+
+            // Animación de entrada (Aparece a los 1.5 segundos)
+            setTimeout(() => {
+                const toast = document.getElementById('turkish-toast');
+                toast.classList.remove('-translate-y-[150%]', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+            }, 1500);
+
+            // Animación de salida (Se esconde a los 7 segundos automáticamente)
+            setTimeout(() => {
+                closeToast();
+            }, 7000);
         });
 
-        // Hero Background Carousel
-        const bg1 = document.getElementById('bg-1');
-        const bg2 = document.getElementById('bg-2');
-        setInterval(() => {
-            bg1.classList.toggle('active');
-            bg2.classList.toggle('active');
-        }, 6000);
-
-        // =========================================================
-        // SISTEMA MULTI-IDIOMA (i18n) INTEGRAL
-        // =========================================================
-        const translations = {
-            es: {
-                nav_home: "Inicio", nav_about: "Acerca de Mí", nav_services: "Servicios SEO", nav_consulting: "Agendar Consultoría",
-                hero_badge: "Lucas Guzmán | Consultoría SEO e Inteligencia Artificial", hero_title_1: "Automatiza.", hero_title_2: "Escala.", hero_title_3: "Domina tu sector web.",
-                hero_desc: "Ecosistemas digitales ultra-premium, SEO avanzado, integraciones de IA (Machine Learning) y desarrollo SaaS.",
-                btn_contact: "Contacto Directo", about_focus: "Enfoque a Resultados SEO & ROI", about_subtitle: "Acerca de Mí",
-                about_p1: "Lidero la transformación digital integral de empresas que buscan destacar en los motores de búsqueda... combinando SEO técnico, IA generativa y embudos.",
-                about_card1_t: "Expansión Global SEO", about_card1_p: "Servicios optimizados para LATAM, Europa y Medio Oriente.", about_card2_t: "Consultoría IA Avanzada", about_card2_p: "Flujos de datos, automatización CRM y Machine Learning.",
-                serv_title_1: "Servicios de", serv_title_2: "Agencia Digital", serv_subtitle: "Soluciones tecnológicas de alto nivel para indexar mejor, vender más y operar inteligentemente.",
-                serv_1_t: "Desarrollo e Integración IA", serv_1_p: "Implementamos chatbots inteligentes, análisis predictivo y agentes conversacionales...",
-                serv_2_t: "SEO & Marketing Digital", serv_2_p: "Auditorías técnicas, estrategias de contenido semántico, link building y campañas Ads...",
-                serv_3_t: "Sistemas Micro-SaaS", serv_3_p: "Creamos aplicaciones web progresivas e infraestructuras en la nube escalables...",
-                foot_links: "Enlaces Rápidos", foot_contact: "Contacto Legal"
-            },
-            en: {
-                nav_home: "Home", nav_about: "About Me", nav_services: "SEO Services", nav_consulting: "Book Consulting",
-                hero_badge: "Lucas Guzmán | SEO & AI Consulting", hero_title_1: "Automate.", hero_title_2: "Scale.", hero_title_3: "Dominate the Web.",
-                hero_desc: "Ultra-premium digital ecosystems, advanced SEO, AI integrations (Machine Learning), and SaaS development.",
-                btn_contact: "Direct Contact", about_focus: "SEO & ROI Driven", about_subtitle: "About Me",
-                about_p1: "I lead the integral digital transformation of companies seeking to stand out in search engines... combining technical SEO, generative AI, and funnels.",
-                about_card1_t: "Global SEO Expansion", about_card1_p: "Optimized services for LATAM, Europe, and MENA.", about_card2_t: "Advanced AI Consulting", about_card2_p: "Data flows, CRM automation, and Machine Learning.",
-                serv_title_1: "Digital Agency", serv_title_2: "Services", serv_subtitle: "High-level tech solutions to index better, sell more, and operate smartly.",
-                serv_1_t: "AI Development & Integration", serv_1_p: "We implement smart chatbots, predictive analytics, and conversational agents...",
-                serv_2_t: "SEO & Digital Marketing", serv_2_p: "Technical audits, semantic content strategies, link building, and Ads...",
-                serv_3_t: "Micro-SaaS Systems", serv_3_p: "We create progressive web apps and scalable cloud infrastructures...",
-                foot_links: "Quick Links", foot_contact: "Legal Contact"
-            },
-            it: {
-                nav_home: "Home", nav_about: "Su di Me", nav_services: "Servizi SEO", nav_consulting: "Prenota Consulenza",
-                hero_badge: "Lucas Guzmán | Consulenza SEO e IA", hero_title_1: "Automatizza.", hero_title_2: "Scala.", hero_title_3: "Domina il Web.",
-                hero_desc: "Ecosistemi digitali, SEO avanzata, integrazioni IA (Machine Learning) e sviluppo SaaS.",
-                btn_contact: "Contatto Diretto", about_focus: "Orientato al SEO & ROI", about_subtitle: "Su di Me",
-                about_p1: "Guido la trasformazione digitale integrale delle aziende che cercano di distinguersi nei motori di ricerca...",
-                about_card1_t: "Espansione SEO Globale", about_card1_p: "Servizi per LATAM, Europa e MENA.", about_card2_t: "Consulenza IA Avanzata", about_card2_p: "Flussi di dati, automazione CRM e Machine Learning.",
-                serv_title_1: "Servizi", serv_title_2: "Agenzia Digitale", serv_subtitle: "Soluzioni per indicizzare meglio, vendere di più e operare in modo intelligente.",
-                serv_1_t: "Sviluppo IA", serv_1_p: "Implementiamo chatbot intelligenti, analisi predittiva...",
-                serv_2_t: "SEO e Marketing", serv_2_p: "Audit tecnici, strategie di contenuto, link building...",
-                serv_3_t: "Sistemi Micro-SaaS", serv_3_p: "Creiamo app web progressive e infrastrutture cloud...",
-                foot_links: "Link Rapidi", foot_contact: "Contatto Legale"
-            },
-            de: {
-                nav_home: "Startseite", nav_about: "Über Mich", nav_services: "SEO-Dienste", nav_consulting: "Beratung",
-                hero_badge: "Lucas Guzmán | SEO & KI Beratung", hero_title_1: "Automatisieren.", hero_title_2: "Skalieren.", hero_title_3: "Das Web dominieren.",
-                hero_desc: "Digitale Ökosysteme, erweitertes SEO, KI-Integrationen und SaaS-Entwicklung.",
-                btn_contact: "Direktkontakt", about_focus: "SEO & ROI Gesteuert", about_subtitle: "Über Mich",
-                about_p1: "Ich leite die digitale Transformation von Unternehmen, die in Suchmaschinen auffallen wollen...",
-                about_card1_t: "Globale SEO-Expansion", about_card1_p: "Für LATAM, Europa und MENA.", about_card2_t: "KI-Beratung", about_card2_p: "Datenflüsse, CRM-Automatisierung und ML.",
-                serv_title_1: "Agentur", serv_title_2: "Dienstleistungen", serv_subtitle: "Lösungen, um besser zu indexieren, mehr zu verkaufen.",
-                serv_1_t: "KI-Entwicklung", serv_1_p: "Intelligente Chatbots, prädiktive Analytik...",
-                serv_2_t: "SEO & Marketing", serv_2_p: "Technische Audits, Linkbuilding, Ads...",
-                serv_3_t: "Micro-SaaS Systeme", serv_3_p: "Web-Apps und Cloud-Infrastrukturen...",
-                foot_links: "Schnelllinks", foot_contact: "Rechtlicher Kontakt"
-            },
-            fr: {
-                nav_home: "Accueil", nav_about: "À Propos", nav_services: "Services SEO", nav_consulting: "Consultation",
-                hero_badge: "Lucas Guzmán | Conseil SEO & IA", hero_title_1: "Automatisez.", hero_title_2: "Évoluez.", hero_title_3: "Dominez le Web.",
-                hero_desc: "Écosystèmes numériques, SEO avancé, intégrations IA und développement SaaS.",
-                btn_contact: "Contact Direct", about_focus: "Axé sur le SEO & ROI", about_subtitle: "À Propos",
-                about_p1: "Je dirige la transformation numérique des entreprises cherchant à se démarquer sur les moteurs de recherche...",
-                about_card1_t: "Expansion SEO Globale", about_card1_p: "Services pour LATAM, Europe et MENA.", about_card2_t: "Conseil IA Avancé", about_card2_p: "Flux de données, automatisation CRM.",
-                serv_title_1: "Services", serv_title_2: "d'Agence", serv_subtitle: "Solutions pour mieux indexer, vendre plus et opérer intelligemment.",
-                serv_1_t: "Développement IA", serv_1_p: "Nous implémentons des chatbots intelligents...",
-                serv_2_t: "SEO & Marketing", serv_2_p: "Audits techniques, stratégies sémantiques...",
-                serv_3_t: "Systèmes Micro-SaaS", serv_3_p: "Applications web et infrastructures cloud...",
-                foot_links: "Liens Rapides", foot_contact: "Contact Légal"
-            },
-            ar: {
-                nav_home: "الرئيسية", nav_about: "من أنا", nav_services: "خدمات تحسين محركات البحث", nav_consulting: "حجز استشارة",
-                hero_badge: "لوكاس جوزمان | استشارات الذكاء الاصطناعي و SEO", hero_title_1: "أتمتة.", hero_title_2: "توسع.", hero_title_3: "سيطر على الويب.",
-                hero_desc: "أنظمة بيئية رقمية، SEO متقدم، تكامل الذكاء الاصطناعي وتطوير SaaS.",
-                btn_contact: "اتصال مباشر", about_focus: "يركز على SEO و ROI", about_subtitle: "من أنا",
-                about_p1: "أقود التحول الرقمي للشركات التي تتطلع إلى التميز في محركات البحث...",
-                about_card1_t: "توسع عالمي", about_card1_p: "خدمات لأمريكا اللاتينية وأوروبا والشرق الأوسط.", about_card2_t: "استشارات ذكاء اصطناعي", about_card2_p: "تدفق البيانات وأتمتة CRM.",
-                serv_title_1: "خدمات", serv_title_2: "الوكالة الرقمية", serv_subtitle: "حلول للفهرسة بشكل أفضل وزيادة المبيعات.",
-                serv_1_t: "تطوير الذكاء الاصطناعي", serv_1_p: "روبوتات محادثة ذكية، تحليلات تنبؤية...",
-                serv_2_t: "SEO والتسويق", serv_2_p: "تدقيق فني، بناء روابط، إعلانات...",
-                serv_3_t: "أنظمة Micro-SaaS", serv_3_p: "تطبيقات الويب والبنية التحتية السحابية...",
-                foot_links: "روابط سريعة", foot_contact: "الاتصال القانوني"
-            }
-        };
-
-        function setLanguage(langCode) {
-            document.getElementById('current-lang').innerText = langCode.toUpperCase();
-            document.documentElement.setAttribute('lang', langCode);
-            
-            // Actualización dinámica de SEO Hreflang logic (simulada en frontend)
-            const canonicalUrl = document.querySelector('link[rel="canonical"]');
-            if(canonicalUrl) { canonicalUrl.href = langCode === 'es' ? "https://www.neuralfocusia.com/" : `https://www.neuralfocusia.com/${langCode}`; }
-            
-            if(langCode === 'ar') {
-                document.documentElement.setAttribute('dir', 'rtl');
+        // Efecto visual en la barra de navegación al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-xl', 'bg-slate-900');
+                header.classList.remove('bg-slate-900/90');
             } else {
-                document.documentElement.setAttribute('dir', 'ltr');
+                header.classList.remove('shadow-xl', 'bg-slate-900');
+                header.classList.add('bg-slate-900/90');
             }
-
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if(translations[langCode] && translations[langCode][key]) {
-                    el.innerText = translations[langCode][key];
-                }
-            });
-        }
+        });
     </script>
 </body>
 </html>
