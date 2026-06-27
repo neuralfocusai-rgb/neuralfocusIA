@@ -1,155 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zobozdravstvo Surina | Premium Concierge</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Anuncio Profesional - Casino 132</title>
     <style>
-        :root { 
-            --primary: #0A192F; 
-            --gold: #D4AF37; 
-            --light-bg: #F8F9FA; 
-            --white: #FFFFFF;
-            --text: #333333;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Black', sans-serif;
         }
-        * { box-sizing: border-box; font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; }
-        body { background-color: var(--light-bg); color: var(--text); padding-bottom: 90px; }
-        
-        header { background: var(--primary); color: var(--white); padding: 25px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 100; }
-        .logo-area h1 { font-size: 18px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-        .logo-area span { color: var(--gold); font-weight: 300; font-size: 12px; letter-spacing: 2px; }
-        
-        .lang-switch { display: flex; gap: 8px; }
-        .lang-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 5px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; transition: all 0.3s ease; }
-        .lang-btn:hover, .lang-btn.active { background: var(--gold); color: var(--primary); font-weight: bold; }
 
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        
-        .card { background: var(--white); border-radius: 16px; padding: 25px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.02); }
-        .card-header { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        
-        .hero { text-align: center; }
-        .hero h2 { font-size: 22px; color: var(--primary); margin-bottom: 10px; }
-        .hero p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; }
-        
-        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .service-item { background: var(--light-bg); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #eee; transition: transform 0.3s; }
-        .service-icon { font-size: 24px; margin-bottom: 8px; }
-        .service-title { font-size: 12px; font-weight: 600; color: var(--primary); }
-        
-        .price-compare { width: 100%; border-collapse: collapse; }
-        .price-compare th, .price-compare td { padding: 15px 10px; text-align: left; border-bottom: 1px solid #eee; font-size: 13px; }
-        .price-compare th { color: #888; font-weight: 400; text-transform: uppercase; font-size: 11px; }
-        .our-price { font-weight: 700; color: var(--gold); font-size: 15px; }
-        .eu-price { text-decoration: line-through; color: #aaa; }
-        
-        /* Enlaces estilizados como botones */
-        .btn-link { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; }
-        .btn-primary { background: var(--primary); color: var(--white); }
-        .btn-gold { background: var(--gold); color: var(--primary); }
-        
-        .floating-action { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); padding: 15px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); display: flex; justify-content: center; z-index: 100; }
-        .btn-whatsapp { background: #25D366; color: white; border: none; padding: 15px 30px; border-radius: 30px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; max-width: 600px; display: flex; justify-content: center; align-items: center; gap: 10px; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.3); }
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Contenedor formato celular (9:16) profesional */
+        .anuncio-container {
+            width: 100vw;
+            height: 100vh;
+            max-width: 450px;
+            max-height: 800px;
+            position: relative;
+            background: radial-gradient(circle, #002f13 0%, #000000 100%); /* Fondo verde casino profundo */
+            overflow: hidden;
+            border: 4px solid #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* --- EFECTO: TORMENTA DE BILLETES Y LLUVIA DE MONEDAS --- */
+        .lluvia-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .particula {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            opacity: 0.85;
+            animation: caer linear infinite;
+        }
+
+        @keyframes caer {
+            0% {
+                transform: translateY(0) rotate(0deg) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(850px) rotate(720deg) translateX(50px);
+                opacity: 0.3;
+            }
+        }
+
+        /* --- DISEÑO: MARCO DE SUPERPOSICIÓN PARA CAPCUT --- */
+        /* Este recuadro actúa como marcador de posición transparente o Chroma Key */
+        .marco-superposicion {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: 40%;
+            border: 5px solid #00ffcc;
+            box-shadow: 0 0 20px #00ffcc;
+            border-radius: 12px;
+            background: #00ff00; /* Fondo verde puro para usar como Chroma Key si lo deseas, o dejarlo vacío */
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .marco-label {
+            color: #000;
+            background: #00ffcc;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* --- PERSONAJE: AVATAR BAILANDO --- */
+        .avatar-container {
+            position: absolute;
+            bottom: 15%;
+            right: 5%;
+            width: 160px;
+            height: 160px;
+            z-index: 4;
+            filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.7));
+            animation: ritmoCumbia 0.6s infinite alternate ease-in-out;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes ritmoCumbia {
+            0% { transform: translateY(0) rotate(-3deg) scale(1); }
+            100% { transform: translateY(-8px) rotate(3deg) scale(1.05); }
+        }
+
+        /* --- TEXTOS COMERCIALES PROFESIONALES --- */
+        .header-anuncio {
+            position: absolute;
+            top: 4%;
+            width: 100%;
+            text-align: center;
+            z-index: 5;
+            padding: 0 10px;
+        }
+
+        .titulo-casino {
+            font-size: 2.2rem;
+            color: #fff;
+            text-shadow: 0 0 10px #ffd700, 0 0 20px #ff8800;
+            letter-spacing: 2px;
+        }
+
+        .subtitulo-casino {
+            font-size: 1.2rem;
+            color: #ffd700;
+            text-shadow: 0 0 5px #000;
+            margin-top: 2px;
+        }
+
+        .footer-anuncio {
+            position: absolute;
+            bottom: 4%;
+            width: 90%;
+            left: 5%;
+            z-index: 5;
+        }
+
+        .banner-abigail {
+            background: linear-gradient(90deg, #ff0055, #990022);
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(255,0,85,0.4);
+            border: 2px solid #ff0055;
+            letter-spacing: 0.5px;
+            animation: pulsoTexto 1.5s infinite alternate;
+        }
+
+        @keyframes pulsoTexto {
+            0% { transform: scale(0.98); box-shadow: 0 4px 10px rgba(255,0,85,0.4); }
+            100% { transform: scale(1.02); box-shadow: 0 4px 20px rgba(255,0,85,0.8); }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-area">
-        <h1>SURINA</h1>
-        <span>Dental Clinic</span>
-    </div>
-    <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('it')">IT</button>
-        <button class="lang-btn" onclick="setLang('fr')">FR</button>
-        <button class="lang-btn" onclick="setLang('de')">DE</button>
-    </div>
-</header>
+    <div class="anuncio-container">
+        <!-- Contenedor de la tormenta de dinero generada por JS -->
+        <div class="lluvia-container" id="lluvia"></div>
 
-<div class="container">
-    <div class="card hero">
-        <h2 id="hero-title">Excellence in Digital Dentistry</h2>
-        <p id="hero-desc">Advanced implantology and 3D diagnostics in Ilirska Bistrica. Premium dental care at a fraction of Western European costs.</p>
-    </div>
+        <!-- Encabezado del Anuncio -->
+        <div class="header-anuncio">
+            <h1 class="titulo-casino">CASINO 132</h1>
+            <p class="subtitulo-casino">¡VENÍ A GANAR, NO PIERDAS ESTA OPORTUNIDAD!</p>
+        </div>
 
-    <div class="card">
-        <div class="card-header" id="services-title">Our Expertise</div>
-        <div class="services-grid">
-            <div class="service-item"><div class="service-icon">💎</div><div class="service-title" id="srv-1">Straumann Implants</div></div>
-            <div class="service-item"><div class="service-icon">🔬</div><div class="service-title" id="srv-2">3D CBCT Diagnostics</div></div>
-            <div class="service-item"><div class="service-icon">🦷</div><div class="service-title" id="srv-3">Oral Surgery</div></div>
-            <div class="service-item"><div class="service-icon">✨</div><div class="service-title" id="srv-4">Aesthetic Prosthetics</div></div>
+        <!-- Marco de Superposición para CapCut -->
+        <div class="marco-superposicion">
+            <span class="marco-label">Tu video aquí</span>
+        </div>
+
+        <!-- Avatar Animado (Famoso/Dibujo con Camiseta de Argentina) -->
+        <div class="avatar-container">
+            <!-- REEMPLAZA ESTA URL POR EL GIF DE TU AVATAR BAILANDO -->
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms1eWR5eW15bXN0NXg0bmN6M3M4Z3R5Y3I4ZndvN3R0ZzVwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/39GAXp1VCPhx6/giphy.gif" alt="Avatar Bailando">
+        </div>
+
+        <!-- Banner Inferior Dinámico -->
+        <div class="footer-anuncio">
+            <div class="banner-abigail">
+                💥 LOS PANELES DE ABIGAIL EXPLOTAN TODOS LOS DÍAS 💥
+            </div>
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-header" id="price-title">Transparent Value</div>
-        <table class="price-compare">
-            <tr><th id="th-treatment">Treatment</th><th id="th-eu">Avg. Europe</th><th id="th-clinic">Our Clinic</th></tr>
-            <tr><td id="td-implant">Premium Implant (Straumann)</td><td class="eu-price">€ 2,500+</td><td class="our-price" id="td-save1">Save up to 50%</td></tr>
-            <tr><td id="td-allon4">Full Arch Reconstruction</td><td class="eu-price">€ 15,000+</td><td class="our-price" id="td-save2">Save up to 60%</td></tr>
-        </table>
-    </div>
+    <!-- Script para generar la tormenta continua de billetes y monedas -->
+    <script>
+        const lluviaContainer = document.getElementById('lluvia');
+        const elementos = ['💵', '💰', '🪙', '✨'];
 
-    <div class="card">
-        <div class="card-header" id="travel-title">Your Trip to Ilirska Bistrica</div>
-        
-        <!-- FUNCIONAL: Abre el cliente de correo del usuario para enviar la radiografía -->
-        <a href="mailto:AQUI_CORREO_REAL?subject=3D Scan / X-Ray Upload - Consultation&body=Hello Dr. Surina, attached is my X-Ray for evaluation." class="btn-link btn-gold" id="link-upload">
-            <span>📥</span> <span id="btn-upload">Upload 3D Scan / X-Ray</span>
-        </a>
-        
-        <!-- FUNCIONAL: Abre Google Maps con la ubicación exacta de la clínica -->
-        <a href="https://maps.google.com/?q=Zobozdravstvo+Surina,+Ilirska+Bistrica" target="_blank" class="btn-link btn-primary" id="link-route">
-            <span>🗺️</span> <span id="btn-route">View Route & Accommodations</span>
-        </a>
-    </div>
-</div>
+        function crearParticula() {
+            const particula = document.createElement('div');
+            particula.classList.add('particula');
+            
+            // Selecciona un elemento al azar (billete, bolsa o moneda)
+            particula.innerText = elementos[Math.floor(Math.random() * elementos.length)];
+            
+            // Posición horizontal aleatoria
+            particula.style.left = Math.random() * 100 + '%';
+            
+            // Tamaño y velocidad aleatoria para simular profundidad 3D
+            const tamaño = Math.random() * (30 - 15) + 15;
+            particula.style.fontSize = tamaño + 'px';
+            
+            const duracion = Math.random() * (4 - 2) + 2; // Entre 2 y 4 segundos
+            particula.style.animationDuration = duracion + 's';
+            
+            lluviaContainer.appendChild(particula);
 
-<!-- FUNCIONAL: Abre WhatsApp directamente con un mensaje predeterminado -->
-<div class="floating-action">
-    <a href="https://wa.me/AQUI_NUMERO_REAL?text=Hello,%20I%20am%20interested%20in%20a%20dental%20consultation." target="_blank" class="btn-whatsapp" id="link-wa">
-        <span>💬</span> <span id="wa-text">Chat with our Coordinator</span>
-    </a>
-</div>
-
-<script>
-    // Variables para que insertes los datos reales fácilmente
-    const CLINIC_EMAIL = "correo@zobozdravstvosurina.si"; // REEMPLAZAR AQUÍ
-    const CLINIC_PHONE = "386XXXXXXXX"; // REEMPLAZAR AQUÍ (Código de país + número, sin el símbolo +)
-
-    const dictionary = {
-        en: {
-            heroTitle: "Excellence in Digital Dentistry", heroDesc: "Advanced implantology and 3D diagnostics in Ilirska Bistrica. Premium dental care at a fraction of Western European costs.", servicesTitle: "Our Expertise", srv1: "Straumann Implants", srv2: "3D CBCT Diagnostics", srv3: "Oral Surgery", srv4: "Aesthetic Prosthetics", priceTitle: "Transparent Value", thTreatment: "Treatment", thEu: "Avg. Europe", thClinic: "Our Clinic", tdImplant: "Premium Implant (Straumann)", tdSave1: "Save up to 50%", tdAllon4: "Full Arch Reconstruction", tdSave2: "Save up to 60%", travelTitle: "Your Trip to Ilirska Bistrica", btnUpload: "Upload 3D Scan / X-Ray", btnRoute: "View Route & Accommodations", waText: "Chat with our Coordinator",
-            waMsg: "Hello, I am interested in a dental consultation.", mailSubject: "3D Scan / X-Ray Upload - Consultation"
-        },
-        it: {
-            heroTitle: "Eccellenza nell'Odontoiatria Digitale", heroDesc: "Implantologia avanzata e diagnostica 3D a Ilirska Bistrica. Cure dentistiche premium a una frazione dei costi italiani.", servicesTitle: "Le Nostre Specialità", srv1: "Impianti Straumann", srv2: "Diagnostica 3D CBCT", srv3: "Chirurgia Orale", srv4: "Protesi Estetica", priceTitle: "Valore Trasparente", thTreatment: "Trattamento", thEu: "Media in Italia", thClinic: "Nostra Clinica", tdImplant: "Impianto Premium (Straumann)", tdSave1: "Risparmia fino al 50%", tdAllon4: "Ricostruzione Arcata Completa", tdSave2: "Risparmia fino al 60%", travelTitle: "Il Tuo Viaggio a Ilirska Bistrica", btnUpload: "Carica Panoramica / TAC 3D", btnRoute: "Vedi Percorso e Alloggi", waText: "Parla con il Coordinatore",
-            waMsg: "Salve, sono interessato a una consulenza dentistica.", mailSubject: "Invio Panoramica / TAC 3D - Consulenza"
-        },
-        fr: {
-            heroTitle: "L'Excellence en Dentisterie Numérique", heroDesc: "Implantologie avancée et diagnostic 3D à Ilirska Bistrica. Des soins premium à une fraction des coûts français.", servicesTitle: "Notre Expertise", srv1: "Implants Straumann", srv2: "Diagnostic 3D CBCT", srv3: "Chirurgie Buccale", srv4: "Prothèses Esthétiques", priceTitle: "Valeur Transparente", thTreatment: "Traitement", thEu: "Moyenne en France", thClinic: "Notre Clinique", tdImplant: "Implant Premium (Straumann)", tdSave1: "Économisez jusqu'à 50%", tdAllon4: "Reconstruction Arcade Complète", tdSave2: "Économisez jusqu'à 60%", travelTitle: "Votre Voyage à Ilirska Bistrica", btnUpload: "Charger Radio / Scanner 3D", btnRoute: "Voir Itinéraire & Hôtels", waText: "Discutez avec le Coordinateur",
-            waMsg: "Bonjour, je suis intéressé par une consultation dentaire.", mailSubject: "Envoi Radio / Scanner 3D - Consultation"
-        },
-        de: {
-            heroTitle: "Exzellenz in der digitalen Zahnmedizin", heroDesc: "Fortschrittliche Implantologie und 3D-Diagnostik in Ilirska Bistrica. Premium-Zahnpflege zu einem Bruchteil der westeuropäischen Kosten.", servicesTitle: "Unsere Expertise", srv1: "Straumann Implantate", srv2: "3D CBCT Diagnostik", srv3: "Oralchirurgie", srv4: "Ästhetische Prothetik", priceTitle: "Transparente Preise", thTreatment: "Behandlung", thEu: "Durchschnitt DE/AT", thClinic: "Unsere Klinik", tdImplant: "Premium Implantat (Straumann)", tdSave1: "Bis zu 50% sparen", tdAllon4: "Komplette Kieferrekonstruktion", tdSave2: "Bis zu 60% sparen", travelTitle: "Ihre Reise nach Ilirska Bistrica", btnUpload: "3D-Scan / Röntgenbild hochladen", btnRoute: "Route & Unterkünfte ansehen", waText: "Mit Koordinator chatten",
-            waMsg: "Hallo, ich bin an einer zahnärztlichen Beratung interessiert.", mailSubject: "3D-Scan / Röntgenbild hochladen - Beratung"
+            // Elimina el elemento cuando termina de caer para no saturar el navegador
+            setTimeout(() => {
+                particula.remove();
+            }, duracion * 1000);
         }
-    };
 
-    function setLang(lang) {
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-
-        const t = dictionary[lang];
-        
-        // Actualizar textos
-        document.getElementById('hero-title').innerText = t.heroTitle;
-        document.getElementById('hero-desc').innerText = t.heroDesc;
-        document.getElementById('services-title').innerText = t.servicesTitle;
-        document.getElementById('srv-1').innerText = t.srv1;
-        document.getElementById('srv-2').innerText = t.srv2;
-        document.getElementById('srv-3').innerText = t.srv3;
-        document.getElementById('srvNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+        // Genera una nueva moneda o billete cada 100 milisegundos (Tormenta continua)
+        setInterval(crearParticula, 100);
+    </script>
+</body>
+</html>
