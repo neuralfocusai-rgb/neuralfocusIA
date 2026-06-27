@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuncio Premium - Casino 132</title>
+    <title>Anuncio Extremo - Casino 132</title>
     <style>
         * {
             margin: 0;
@@ -21,33 +21,30 @@
             overflow: hidden;
         }
 
-        /* Contenedor formato celular (9:16) */
+        /* Contenedor principal */
         .anuncio-container {
             width: 100vw;
             height: 100vh;
             max-width: 450px;
             max-height: 800px;
             position: relative;
-            background: radial-gradient(circle, #0a3318 0%, #000000 100%);
+            background: radial-gradient(circle, #1a0000 0%, #000000 100%);
             overflow: hidden;
             border: 4px solid #ffd700;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
         }
 
         /* --- FONDO DE CASINO: RULETA GIRANDO --- */
         .ruleta-fondo {
             position: absolute;
-            top: 5%;
-            left: -30%;
-            width: 400px;
-            height: 400px;
-            /* Usamos un SVG transparente de una ruleta */
+            top: 10%;
+            left: -50%;
+            width: 600px; /* Ruleta más grande */
+            height: 600px;
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Roulette_wheel.svg/1024px-Roulette_wheel.svg.png') no-repeat center;
             background-size: contain;
-            opacity: 0.25;
-            animation: girarRuleta 15s linear infinite;
+            opacity: 0.3;
+            animation: girarRuleta 20s linear infinite;
             z-index: 1;
-            pointer-events: none;
         }
 
         @keyframes girarRuleta {
@@ -55,7 +52,78 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* --- EFECTO: TORMENTA DE BILLETES --- */
+        /* --- AVATARES GIGANTES --- */
+        .avatar {
+            position: absolute;
+            bottom: 5%; /* Apoyados casi abajo */
+            height: 70%; /* GIGANTES: ocupan el 70% de la altura de la pantalla */
+            z-index: 2; /* Detrás de la lluvia y del recuadro de video */
+            filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.9));
+        }
+
+        /* Avatar Izquierdo */
+        .avatar-izq {
+            left: -15%; /* Se sale un poco de la pantalla para dar efecto de tamaño */
+            animation: baileIzq 0.6s infinite alternate ease-in-out;
+        }
+
+        /* Avatar Derecho */
+        .avatar-der {
+            right: -15%;
+            transform: scaleX(-1); /* Lo invertimos para que mire al centro */
+            animation: baileDer 0.7s infinite alternate ease-in-out;
+        }
+
+        @keyframes baileIzq {
+            0% { transform: translateY(0) rotate(-2deg) scale(1); }
+            100% { transform: translateY(-20px) rotate(3deg) scale(1.05); }
+        }
+
+        @keyframes baileDer {
+            0% { transform: scaleX(-1) translateY(0) rotate(2deg) scale(1); }
+            100% { transform: scaleX(-1) translateY(-15px) rotate(-3deg) scale(1.05); }
+        }
+
+        /* --- TÍTULO QUE SE MUEVE POR TODA LA PANTALLA --- */
+        .titulo-flotante {
+            position: absolute;
+            font-size: 3rem;
+            color: #fff;
+            white-space: nowrap;
+            text-shadow: 0 0 15px #ffd700, 0 0 30px #ff0000, 5px 5px 10px rgba(0,0,0,1);
+            z-index: 6; /* Por encima de todo */
+            pointer-events: none;
+            /* Esta animación hace que viaje por los bordes y el centro */
+            animation: volarPantalla 8s linear infinite alternate;
+        }
+
+        @keyframes volarPantalla {
+            0%   { top: 5%;  left: -10%; transform: scale(0.8) rotate(-10deg); }
+            25%  { top: 75%; left: 30%;  transform: scale(1.2) rotate(15deg); }
+            50%  { top: 20%; left: 60%;  transform: scale(0.9) rotate(-5deg); }
+            75%  { top: 60%; left: -5%;  transform: scale(1.1) rotate(10deg); }
+            100% { top: 10%; left: 50%;  transform: scale(1) rotate(0deg); }
+        }
+
+        /* --- MARCO PARA TU VIDEO EN CAPCUT --- */
+        .marco-superposicion {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 40%;
+            border: 6px solid #00ffcc;
+            box-shadow: 0 0 30px #00ffcc, inset 0 0 20px rgba(0, 255, 204, 0.7);
+            border-radius: 15px;
+            background: #00ff00; /* Verde puro para borrarlo en CapCut (Chroma Key) */
+            z-index: 4; /* Delante de los avatares, detrás del texto */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- LLUVIA EXTREMA --- */
         .lluvia-container {
             position: absolute;
             width: 100%;
@@ -63,159 +131,46 @@
             top: 0;
             left: 0;
             pointer-events: none;
-            z-index: 2;
+            z-index: 3; /* Delante de los avatares para que los cubra */
         }
 
         .particula {
             position: absolute;
-            top: -50px;
-            opacity: 0.9;
+            top: -100px;
             animation: caer linear infinite;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.8));
         }
 
         @keyframes caer {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(850px) rotate(720deg); opacity: 0; }
-        }
-
-        /* --- TEXTOS ANIMADOS (CASINO 132 Y JACKPOT) --- */
-        .header-anuncio {
-            position: absolute;
-            top: 3%;
-            width: 100%;
-            text-align: center;
-            z-index: 5;
-            padding: 0 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Contador estilo Slots */
-        .jackpot-container {
-            background: rgba(0, 0, 0, 0.7);
-            border: 2px solid #00ffcc;
-            padding: 5px 15px;
-            border-radius: 20px;
-            color: #00ffcc;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            box-shadow: 0 0 10px #00ffcc;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-        }
-
-        /* Título con movimiento 3D y brillo */
-        .titulo-casino {
-            font-size: 2.5rem;
-            color: #fff;
-            letter-spacing: 2px;
-            animation: movimientoTitulo 2s infinite alternate ease-in-out;
-        }
-
-        @keyframes movimientoTitulo {
-            0% { 
-                transform: perspective(400px) rotateY(-10deg) scale(1); 
-                text-shadow: 0 0 10px #ffd700, 0 5px 5px rgba(0,0,0,0.8); 
-            }
-            100% { 
-                transform: perspective(400px) rotateY(10deg) scale(1.05); 
-                text-shadow: 0 0 25px #ff0055, 0 0 40px #ffd700, 0 5px 5px rgba(0,0,0,0.8); 
-            }
-        }
-
-        /* --- MARCO DE SUPERPOSICIÓN PARA CAPCUT --- */
-        .marco-superposicion {
-            position: absolute;
-            top: 42%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 85%;
-            height: 38%;
-            border: 5px solid #00ffcc;
-            box-shadow: 0 0 20px #00ffcc, inset 0 0 15px rgba(0,255,204,0.5);
-            border-radius: 12px;
-            background: #00ff00; /* Fondo verde Chroma Key */
-            z-index: 3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .marco-label {
-            color: #000;
-            background: #00ffcc;
-            padding: 8px 15px;
-            font-size: 1rem;
-            border-radius: 6px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        /* --- LOS DOS AVATARES REALISTAS --- */
-        .avatar {
-            position: absolute;
-            bottom: 12%;
-            width: 150px;
-            height: 180px;
-            z-index: 6;
-            filter: drop-shadow(5px 10px 15px rgba(0,0,0,0.9));
-        }
-
-        /* Avatar Izquierdo */
-        .avatar-izq {
-            left: 2%;
-            animation: baileIzq 0.7s infinite alternate ease-in-out;
-        }
-
-        /* Avatar Derecho */
-        .avatar-der {
-            right: 2%;
-            animation: baileDer 0.8s infinite alternate ease-in-out;
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        @keyframes baileIzq {
-            0% { transform: translateY(0) rotate(-4deg); }
-            100% { transform: translateY(-12px) rotate(2deg); }
-        }
-
-        @keyframes baileDer {
-            0% { transform: translateY(-5px) rotate(4deg); }
-            100% { transform: translateY(-15px) rotate(-2deg); }
+            100% { transform: translateY(900px) rotate(720deg); opacity: 0; }
         }
 
         /* --- BANNER INFERIOR --- */
         .footer-anuncio {
             position: absolute;
-            bottom: 3%;
+            bottom: 2%;
             width: 96%;
             left: 2%;
             z-index: 5;
         }
 
         .banner-abigail {
-            background: linear-gradient(90deg, #ff0055, #990022);
+            background: linear-gradient(90deg, #ff0000, #ff8800);
             color: #fff;
-            padding: 12px;
+            padding: 15px;
             text-align: center;
-            font-size: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(255,0,85,0.6);
-            border: 2px solid #fff;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #ff0000;
+            border: 3px solid #fff;
             text-transform: uppercase;
-            animation: pulsoTexto 1s infinite alternate;
+            animation: pulsoTexto 0.5s infinite alternate;
         }
 
         @keyframes pulsoTexto {
-            0% { transform: scale(0.98); }
-            100% { transform: scale(1.02); }
+            0% { transform: scale(0.95); }
+            100% { transform: scale(1.05); }
         }
     </style>
 </head>
@@ -224,26 +179,14 @@
     <div class="anuncio-container">
         <div class="ruleta-fondo"></div>
 
+        <img class="avatar avatar-izq" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png" alt="Avatar Gigante Izquierda">
+        <img class="avatar avatar-der" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png" alt="Avatar Gigante Derecha">
+
         <div class="lluvia-container" id="lluvia"></div>
 
-        <div class="header-anuncio">
-            <div class="jackpot-container">
-                🎰 POZO ACUMULADO: $<span id="slot-counter">1,250,000</span>
-            </div>
-            <h1 class="titulo-casino">CASINO 132</h1>
-        </div>
+        <div class="marco-superposicion"></div>
 
-        <div class="marco-superposicion">
-            <span class="marco-label">Espacio Video</span>
-        </div>
-
-        <div class="avatar avatar-izq">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms1eWR5eW15bXN0NXg0bmN6M3M4Z3R5Y3I4ZndvN3R0ZzVwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/39GAXp1VCPhx6/giphy.gif" alt="Avatar Izquierda">
-        </div>
-
-        <div class="avatar avatar-der">
-            <img src="https://media.giphy.com/media/l41Yh18f5TbiWHE0o/giphy.gif" alt="Avatar Derecha">
-        </div>
+        <h1 class="titulo-flotante">CASINO 132</h1>
 
         <div class="footer-anuncio">
             <div class="banner-abigail">
@@ -253,20 +196,24 @@
     </div>
 
     <script>
-        // 1. Lluvia de Billetes y Monedas
         const lluviaContainer = document.getElementById('lluvia');
-        const elementos = ['💵', '💸', '🪙', '💎']; // Agregamos diamantes
+        // Agregamos máquinas tragamonedas, bolsas, monedas y billetes
+        const elementos = ['💵', '💸', '💰', '🪙', '🎰', '💲']; 
 
         function crearParticula() {
             const particula = document.createElement('div');
             particula.classList.add('particula');
             particula.innerText = elementos[Math.floor(Math.random() * elementos.length)];
             
-            // Posición, tamaño y duración aleatorias para efecto 3D
-            particula.style.left = Math.random() * 100 + '%';
-            const tamaño = Math.random() * (35 - 15) + 15;
+            // Posición horizontal
+            particula.style.left = Math.random() * 110 - 5 + '%'; 
+            
+            // Tamaños brutales y variados (entre 20px y 60px) para dar perspectiva
+            const tamaño = Math.random() * (60 - 20) + 20;
             particula.style.fontSize = tamaño + 'px';
-            const duracion = Math.random() * (4 - 2) + 2;
+            
+            // Caen más rápido y a diferentes velocidades (entre 1.5 y 3.5 segundos)
+            const duracion = Math.random() * (3.5 - 1.5) + 1.5;
             particula.style.animationDuration = duracion + 's';
             
             lluviaContainer.appendChild(particula);
@@ -276,19 +223,12 @@
             }, duracion * 1000);
         }
 
-        // Genera partículas continuamente
-        setInterval(crearParticula, 120);
-
-        // 2. Contador de Slots en vivo (Pozo acumulado)
-        let pozo = 1250000;
-        const contadorElemento = document.getElementById('slot-counter');
-
+        // Genera 3 partículas a la vez cada 50 milisegundos = ¡Tormenta brutal!
         setInterval(() => {
-            // Suma montos aleatorios rápidos para simular una maquinita tragamonedas
-            pozo += Math.floor(Math.random() * 1500) + 100;
-            // Formatea el número con puntos (ej: 1.250.500)
-            contadorElemento.innerText = pozo.toLocaleString('es-AR');
-        }, 150);
+            crearParticula();
+            crearParticula();
+            crearParticula();
+        }, 50);
     </script>
 </body>
 </html>
