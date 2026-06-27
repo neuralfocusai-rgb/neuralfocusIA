@@ -3,162 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Focus | Premium Tech Agency</title>
+    <title>Neural Focus | Ultra-Futuristic Agency</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fuentes Premium -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #030303;
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #050505;
             color: #ffffff;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        h1, h2, h3, .jakarta {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+
+        /* Carrusel de Fondo Ultra Futurista (Efecto Ken Burns) */
+        .hero-carousel {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            z-index: -1;
+            background-color: #000;
         }
+        .slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0;
+            background-size: cover;
+            background-position: center;
+            animation: kenburns 24s infinite;
+        }
+        .slide:nth-child(1) {
+            background-image: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');
+            animation-delay: 0s;
+        }
+        .slide:nth-child(2) {
+            background-image: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop');
+            animation-delay: 8s;
+        }
+        .slide:nth-child(3) {
+            background-image: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop');
+            animation-delay: 16s;
+        }
+        @keyframes kenburns {
+            0% { opacity: 0; transform: scale(1); }
+            10% { opacity: 0.6; }
+            25% { opacity: 0.6; }
+            33% { opacity: 0; transform: scale(1.1); }
+            100% { opacity: 0; transform: scale(1.1); }
+        }
+
+        /* Tarjetas Glassmorphism */
         .glass-card {
-            background: rgba(15, 15, 15, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
+            background: rgba(20, 20, 25, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(255, 255, 255, 0.05);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
         }
+
+        /* Textos y Efectos Neón */
         .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #71717a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .text-gradient-blue {
-            background: linear-gradient(to right, #60A5FA, #818CF8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .neon-text {
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
         }
+
         /* Scrollbar Premium */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #030303; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
     </style>
 </head>
-<body class="min-h-screen relative overflow-x-hidden selection:bg-blue-500/30 text-gray-300">
+<body class="relative min-h-screen selection:bg-blue-500/30">
 
-    <!-- Language Selector -->
-    <div class="absolute top-6 right-6 md:right-10 z-30">
-        <button onclick="toggleLanguage()" class="glass-card px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-colors">
-            <span id="lang-btn">EN / English</span>
-        </button>
+    <!-- Carrusel Animado de Fondo -->
+    <div class="hero-carousel">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="max-w-4xl mx-auto px-6 pt-32 pb-20 text-center relative z-10">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+    <!-- Contenido Principal -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-10">
         
-        <div id="t-heroBadge" class="inline-block mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-gray-300 text-xs font-semibold tracking-widest uppercase">
-            Agencia Neural Focus
+        <!-- Selector de Idioma -->
+        <div class="flex justify-end mb-16">
+            <button onclick="toggleLanguage()" class="glass-card px-5 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                <span id="lang-btn">EN / English</span>
+            </button>
         </div>
-        <h1 id="t-heroTitle" class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tighter text-gradient leading-tight">
-            Elevando marcas con <span class="text-gradient-blue">élite digital</span>
-        </h1>
-        <p id="t-heroDesc" class="text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed text-gray-400">
-            Soy <strong class="text-white font-medium">Lucas Guzmán</strong>, freelancer digital de Argentina. Construyo infraestructuras digitales premium —desde landing pages hasta campañas publicitarias— diseñadas para escalar tu negocio a nivel mundial.
-        </p>
-    </section>
 
-    <!-- Services Grid -->
-    <section class="max-w-7xl mx-auto px-6 pb-20 relative z-10">
-        <h2 id="t-servicesTitle" class="text-2xl font-bold mb-10 text-white jakarta tracking-wide">Selecciona un Servicio</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" id="services-grid">
-            <!-- Renderizado dinámico por JS -->
-        </div>
-    </section>
-
-    <!-- Footer Persuasivo -->
-    <footer class="border-t border-white/5 bg-[#080808] py-12 relative z-10">
-        <div class="max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
-            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 border border-white/10">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <!-- Header Hero -->
+        <header class="text-center mb-24">
+            <div id="t-heroBadge" class="inline-block mb-6 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                Agencia Neural Focus
             </div>
-            <p id="t-footerText" class="text-gray-400 text-sm md:text-base font-light leading-relaxed max-w-3xl">
-                Neural Focus es el canal ideal para tener contacto directo con Lucas Guzmán. Su respuesta puede ser en el idioma que desee y a la hora que necesite, ya que obtendrá atención personalizada las 24 horas del día, los 7 días de la semana.
+            <h1 id="t-heroTitle" class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tighter text-gradient leading-tight">
+                NEURAL FOCUS
+            </h1>
+            <p id="t-heroDesc" class="text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed text-gray-300">
+                Soy <strong class="text-white neon-text font-medium">Lucas Guzmán</strong>. Construyo infraestructuras digitales premium diseñadas para escalar tu negocio a nivel mundial.
             </p>
-        </div>
-    </footer>
+        </header>
 
-    <!-- Modal 1: Service Details -->
-    <div id="details-modal" class="fixed inset-0 z-40 hidden bg-black/80 backdrop-blur-md overflow-y-auto pt-10 pb-20 px-4 flex justify-center items-start">
-        <div class="glass-card rounded-3xl w-full max-w-4xl p-6 md:p-10 relative mt-10 shadow-2xl">
-            <button onclick="closeDetailsModal()" class="absolute top-6 right-6 text-gray-500 hover:text-white text-3xl transition-colors">&times;</button>
+        <!-- Grilla de Servicios -->
+        <section class="mb-24">
+            <h2 id="t-servicesTitle" class="text-2xl md:text-3xl font-bold mb-10 text-white tracking-wide text-center">Selecciona un Servicio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="services-grid">
+                <!-- Renderizado por JS -->
+            </div>
+        </section>
+
+        <!-- Botones de Contacto (LinkedIn, TikTok, Email) -->
+        <section class="py-12 border-t border-white/10 mb-12">
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://www.linkedin.com/in/lucas-guzm%C3%A1n-1a694a418" target="_blank" class="glass-card px-8 py-4 rounded-full border border-blue-500/50 hover:bg-blue-600/20 text-white font-medium flex items-center gap-3 transition-all">
+                    <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://www.tiktok.com/@neuralfocus.2026" target="_blank" class="glass-card px-8 py-4 rounded-full border border-purple-500/50 hover:bg-purple-600/20 text-white font-medium flex items-center gap-3 transition-all">
+                    <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    TikTok
+                </a>
+                <a href="mailto:neuralfocusai@gmail.com" class="glass-card px-8 py-4 rounded-full border border-emerald-500/50 hover:bg-emerald-600/20 text-white font-medium flex items-center gap-3 transition-all">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Email
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer Persuasivo -->
+        <footer class="text-center pb-12">
+            <p id="t-footerText" class="text-gray-400 text-sm md:text-base font-light leading-relaxed max-w-4xl mx-auto p-6 glass-card rounded-2xl">
+                Neural Focus es el canal ideal para tener contacto directo con Lucas Guzmán. Su respuesta puede ser en el idioma que desee y a la hora que necesite, ya que obtendrá atención personalizada las 24 horas del día, los 7 días de la semana, en cualquier idioma.
+            </p>
+        </footer>
+    </div>
+
+    <!-- MODAL 1: Detalles del Servicio -->
+    <div id="details-modal" class="fixed inset-0 z-40 hidden bg-black/90 backdrop-blur-xl overflow-y-auto pt-10 pb-20 px-4 flex justify-center items-start">
+        <div class="glass-card rounded-3xl w-full max-w-4xl p-6 md:p-10 relative mt-10 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10">
+            <button onclick="closeDetailsModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-4xl transition-colors">&times;</button>
             
-            <h3 id="detail-title" class="text-3xl md:text-4xl font-bold mb-4 jakarta text-white"></h3>
-            <div class="flex gap-4 mb-8">
-                <span id="detail-usd" class="text-blue-400 font-bold text-xl bg-blue-500/10 px-3 py-1 rounded-lg"></span>
-                <span id="detail-eur" class="text-gray-400 font-medium text-xl px-3 py-1"></span>
+            <h3 id="detail-title" class="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight"></h3>
+            
+            <div class="flex flex-wrap gap-4 mb-10">
+                <span id="detail-usd" class="text-blue-400 font-bold text-xl bg-blue-500/10 border border-blue-500/30 px-4 py-2 rounded-xl"></span>
+                <span id="detail-eur" class="text-purple-400 font-bold text-xl bg-purple-500/10 border border-purple-500/30 px-4 py-2 rounded-xl"></span>
             </div>
 
             <!-- Fotos Reales -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                <img id="detail-img1" src="" alt="Ejemplo 1" class="rounded-2xl w-full h-64 object-cover border border-white/10 shadow-lg">
-                <img id="detail-img2" src="" alt="Ejemplo 2" class="rounded-2xl w-full h-64 object-cover border border-white/10 shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <img id="detail-img1" src="" alt="Ejemplo 1" class="rounded-2xl w-full h-72 object-cover border border-white/10 shadow-2xl">
+                <img id="detail-img2" src="" alt="Ejemplo 2" class="rounded-2xl w-full h-72 object-cover border border-white/10 shadow-2xl">
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
-                <div>
-                    <h4 id="t-modalWhatIs" class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-3">¿Qué es exactamente?</h4>
-                    <p id="detail-desc" class="text-gray-300 font-light leading-relaxed text-sm md:text-base"></p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+                    <h4 id="t-modalWhatIs" class="text-xs uppercase tracking-widest text-gray-400 font-bold mb-3">¿Qué es exactamente?</h4>
+                    <p id="detail-desc" class="text-gray-300 font-light leading-relaxed text-base"></p>
                 </div>
-                <div>
+                <div class="bg-blue-900/10 p-6 rounded-2xl border border-blue-500/20">
                     <h4 id="t-modalScale" class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-3">¿Cómo potencia su marca?</h4>
-                    <p id="detail-scale" class="text-gray-300 font-light leading-relaxed text-sm md:text-base"></p>
+                    <p id="detail-scale" class="text-gray-300 font-light leading-relaxed text-base"></p>
                 </div>
             </div>
 
-            <button onclick="openFormModal()" id="t-btnChoose" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-4 rounded-2xl transition-all text-lg flex justify-center items-center gap-2">
+            <button onclick="openFormModal()" id="t-btnChoose" class="w-full bg-white hover:bg-gray-200 text-black font-bold py-5 rounded-2xl transition-all text-xl flex justify-center items-center gap-3">
                 Elegir este servicio
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </button>
         </div>
     </div>
 
-    <!-- Modal 2: Contact Form -->
-    <div id="form-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-xl flex items-center justify-center p-4">
-        <div class="glass-card rounded-3xl w-full max-w-md p-8 relative border border-white/10 shadow-2xl">
-            <button onclick="closeFormModal()" class="absolute top-5 right-6 text-gray-500 hover:text-white text-3xl transition-colors">&times;</button>
+    <!-- MODAL 2: Formulario de Contacto (WhatsApp) -->
+    <div id="form-modal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4">
+        <div class="glass-card rounded-3xl w-full max-w-lg p-8 md:p-10 relative border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)]">
+            <button onclick="closeFormModal()" class="absolute top-5 right-6 text-gray-400 hover:text-white text-4xl transition-colors">&times;</button>
             
-            <h3 id="t-modalFinal" class="text-2xl font-bold mb-2 jakarta text-white">Paso Final</h3>
-            <p class="text-gray-400 text-sm mb-8"><span id="t-modalService">Servicio:</span> <strong id="form-service-name" class="text-blue-400 font-medium"></strong></p>
+            <h3 id="t-modalFinal" class="text-3xl font-bold mb-2 text-white tracking-tight">Paso Final</h3>
+            <p class="text-gray-400 text-sm mb-8"><span id="t-modalService">Servicio:</span> <strong id="form-service-name" class="text-blue-400 font-medium text-lg ml-1"></strong></p>
             
             <form onsubmit="submitToWhatsApp(event)">
-                <div class="mb-5">
-                    <label id="t-labelCompany" class="block text-xs uppercase tracking-widest text-gray-500 font-bold mb-2">Nombre de la Empresa</label>
-                    <input type="text" id="company-name" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Ej. Clínica Dental Acme">
+                <div class="mb-6">
+                    <label id="t-labelCompany" class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-3">Nombre de la Empresa</label>
+                    <input type="text" id="company-name" required class="w-full bg-black/60 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-gray-600" placeholder="Ej. Clínica Dental Acme">
                 </div>
                 
-                <div class="mb-8">
-                    <label id="t-labelDesc" class="block text-xs uppercase tracking-widest text-gray-500 font-bold mb-2">Descripción del Proyecto</label>
-                    <textarea id="project-desc" required rows="4" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none" placeholder="Describa su negocio y lo que necesita..."></textarea>
+                <div class="mb-10">
+                    <label id="t-labelDesc" class="block text-xs uppercase tracking-widest text-gray-400 font-bold mb-3">Descripción del Proyecto</label>
+                    <textarea id="project-desc" required rows="4" class="w-full bg-black/60 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none placeholder-gray-600" placeholder="Describa su negocio y lo que necesita..."></textarea>
                 </div>
                 
-                <button type="submit" id="t-btnSubmit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-4 rounded-xl transition-all text-base flex justify-center items-center gap-3 shadow-lg shadow-blue-900/20">
+                <button type="submit" id="t-btnSubmit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-5 rounded-2xl transition-all text-lg flex justify-center items-center gap-3 shadow-[0_0_20px_rgba(59,130,246,0.4)]">
                     Enviar a WhatsApp
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 </button>
             </form>
         </div>
     </div>
 
+    <!-- LOGICA Y TRADUCCIONES -->
     <script>
-        // Diccionario de Traducción y Base de Datos de Servicios
         const i18n = {
             es: {
                 heroBadge: "Agencia Neural Focus",
-                heroTitle: "Elevando marcas con <span class='text-gradient-blue'>élite digital</span>",
-                heroDesc: "Soy <strong class='text-white font-medium'>Lucas Guzmán</strong>, freelancer digital de Argentina. Construyo infraestructuras digitales premium —desde landing pages hasta campañas publicitarias— diseñadas para escalar tu negocio a nivel mundial.",
+                heroTitle: "NEURAL FOCUS",
+                heroDesc: "Soy <strong class='text-white neon-text font-medium'>Lucas Guzmán</strong>. Construyo infraestructuras digitales premium diseñadas para escalar tu negocio a nivel mundial.",
                 servicesTitle: "Selecciona un Servicio",
-                footerText: "Neural Focus es el canal ideal para tener contacto directo con Lucas Guzmán. Su respuesta puede ser en el idioma que desee y a la hora que necesite, ya que obtendrá atención personalizada las 24 horas del día, los 7 días de la semana.",
+                footerText: "Neural Focus es el canal ideal para tener contacto directo con Lucas Guzmán. Su respuesta puede ser en el idioma que desee y a la hora que necesite, ya que obtendrá atención personalizada las 24 horas del día, los 7 días de la semana, en cualquier idioma.",
                 btnDetails: "Ver detalles &rarr;",
                 modalWhatIs: "¿Qué es exactamente?",
                 modalScale: "¿Cómo potencia su marca?",
@@ -173,39 +233,53 @@
                 msgBase: "¡Hola Lucas! Me comunico desde Neural Focus.\n\n*Servicio Seleccionado:* {service}\n*Empresa:* {company}\n*Detalles del Proyecto:* {desc}",
                 services: [
                     { id: 1, title: "Landing Page", priceUSD: 150, priceEUR: 140, 
-                      desc: "Una página web de una sola sección, con un diseño ultra moderno y enfocada en un solo objetivo: captar clientes. Incluye botones de contacto directo y testimonios.", 
+                      desc: "Una página web de una sola sección, con un diseño ultra moderno y enfocada en un solo objetivo: captar clientes. Incluye botones de contacto directo y testimonios reales.", 
                       scale: "Elimina las distracciones. Al entrar, el cliente solo tiene la opción de contactarlo a usted, aumentando masivamente la cantidad de mensajes que recibe en su WhatsApp.",
                       img1: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1522542565365-c504bd96c706?auto=format&fit=crop&w=800&q=80" },
                     { id: 2, title: "Mini Aplicación", priceUSD: 250, priceEUR: 230, 
-                      desc: "Una aplicación web ligera y rápida diseñada a medida para funciones específicas, como un sistema de reservas de turnos, calculadoras de presupuestos o paneles para sus clientes.", 
-                      scale: "Le brinda a su empresa un estatus corporativo de alto nivel. Sus clientes sentirán que interactúan con una gran marca al usar una herramienta premium desde su celular." },
+                      desc: "Una aplicación web ligera y rápida diseñada a medida para funciones específicas, como un sistema de reservas de turnos, calculadoras de presupuestos o paneles para clientes.", 
+                      scale: "Le brinda a su empresa un estatus corporativo de alto nivel. Sus clientes sentirán que interactúan con una gran marca al usar una herramienta premium desde su celular.",
+                      img1: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=80" },
                     { id: 3, title: "Aplicación Web", priceUSD: 600, priceEUR: 550, 
                       desc: "Un sistema digital completo y complejo. Incluye bases de datos, registro de usuarios y funciones avanzadas creadas exclusivamente para el funcionamiento interno de su empresa.", 
-                      scale: "Automatiza procesos que antes tomaban horas. Centraliza el control de su negocio en una plataforma segura, ahorrando dinero a largo plazo." },
+                      scale: "Automatiza procesos que antes tomaban horas. Centraliza el control de su negocio en una plataforma segura, ahorrando dinero a largo plazo.",
+                      img1: "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" },
                     { id: 4, title: "Sitio Web Complejo", priceUSD: 350, priceEUR: 325, 
-                      desc: "Su sede digital completa en internet. Múltiples páginas detallando sus servicios, sección de 'Quiénes Somos', portafolio de trabajos, ubicación en mapa y formularios de contacto.", 
-                      scale: "Genera máxima confianza en clientes de alto poder adquisitivo. Un sitio web completo transmite autoridad absoluta frente a su competencia." },
+                      desc: "Su sede digital completa en internet. Múltiples páginas detallando sus servicios, sección de 'Quiénes Somos', portafolio de trabajos, ubicación en mapa y formularios.", 
+                      scale: "Genera máxima confianza en clientes de alto poder adquisitivo. Un sitio web completo transmite autoridad absoluta frente a su competencia.",
+                      img1: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1481481600674-e9a117b38d33?auto=format&fit=crop&w=800&q=80" },
                     { id: 5, title: "Optimización SEO", priceUSD: 120, priceEUR: 110, 
                       desc: "Configuración técnica y de palabras clave para que su negocio aparezca en los primeros lugares de Google cuando la gente busca sus servicios en su ciudad.", 
-                      scale: "Le consigue tráfico de clientes las 24 horas del día de manera totalmente gratuita (orgánica), sin tener que pagar publicidad mes a mes." },
+                      scale: "Le consigue tráfico de clientes las 24 horas del día de manera totalmente gratuita (orgánica), sin tener que pagar publicidad mes a mes.",
+                      img1: "https://images.unsplash.com/photo-1432888117426-115f08ac9c5c?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" },
                     { id: 6, title: "Campañas Meta Ads", priceUSD: 180, priceEUR: 165, 
                       desc: "Creación y gestión profesional de anuncios de pago en Instagram y Facebook, segmentados matemáticamente para llegar solo a las personas que necesitan su servicio.", 
-                      scale: "Es la forma más rápida de facturar. Ponemos sus ofertas directamente en el teléfono de clientes que están listos para comprar hoy mismo." },
+                      scale: "Es la forma más rápida de facturar. Ponemos sus ofertas directamente en el teléfono de clientes que están listos para comprar hoy mismo.",
+                      img1: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" },
                     { id: 7, title: "Marketing de Contenido", priceUSD: 200, priceEUR: 185, 
                       desc: "Creación de guiones, estrategia y edición experta para videos verticales cortos (Reels, TikTok) enfocados en demostrar el valor y conocimiento de su marca.", 
-                      scale: "El video corto crea un vínculo de confianza personal con el cliente antes de que lo conozca. Hace que su marca sea reconocida y deseada a nivel local." },
+                      scale: "El video corto crea un vínculo de confianza personal con el cliente antes de que lo conozca. Hace que su marca sea reconocida y deseada a nivel local.",
+                      img1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" },
                     { id: 8, title: "Branding Redes Sociales", priceUSD: 100, priceEUR: 90, 
                       desc: "Diseño de una identidad visual cohesiva, premium y elegante para sus redes sociales. Incluye portadas, paletas de colores y plantillas estéticas.", 
-                      scale: "La primera impresión lo es todo. Un perfil de Instagram limpio y estético convence inmediatamente al cliente de que sus servicios son de calidad premium." }
+                      scale: "La primera impresión lo es todo. Un perfil de Instagram limpio y estético convence inmediatamente al cliente de que sus servicios son de calidad premium.",
+                      img1: "https://images.unsplash.com/photo-1613909207039-6b173b755cc1?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" }
                 ]
             },
             en: {
                 heroBadge: "Neural Focus Agency",
-                heroTitle: "Elevating brands with <span class='text-gradient-blue'>digital elite</span>",
-                heroDesc: "I'm <strong class='text-white font-medium'>Lucas Guzmán</strong>, a digital freelancer from Argentina. I build premium, high-converting digital infrastructures—from custom mini-apps to powerful ad campaigns—designed to scale your business worldwide.",
+                heroTitle: "NEURAL FOCUS",
+                heroDesc: "I am <strong class='text-white neon-text font-medium'>Lucas Guzmán</strong>. I build premium digital infrastructures designed to scale your business worldwide.",
                 servicesTitle: "Select a Service",
-                footerText: "Neural Focus is the ideal channel for direct contact with Lucas Guzmán. Get 24/7 personalized responses in any language you prefer to meet your business needs globally.",
+                footerText: "Neural Focus is the ideal channel for direct contact with Lucas Guzmán. You will receive personalized attention 24/7 in any language, ensuring your business needs are met globally.",
                 btnDetails: "View details &rarr;",
                 modalWhatIs: "What exactly is it?",
                 modalScale: "How it scales your brand?",
@@ -220,40 +294,48 @@
                 msgBase: "Hello Lucas! I am reaching out from Neural Focus.\n\n*Selected Service:* {service}\n*Company:* {company}\n*Project Details:* {desc}",
                 services: [
                     { id: 1, title: "Landing Page", priceUSD: 150, priceEUR: 140, 
-                      desc: "A single, ultra-optimized webpage designed with one clear goal: capturing clients. Includes direct contact buttons and customer testimonials.", 
+                      desc: "A single, ultra-optimized webpage designed with one clear goal: capturing clients. Includes direct contact buttons and real customer testimonials.", 
                       scale: "Eliminates distractions. Visitors only have the option to contact you, massively increasing the amount of direct inquiries to your WhatsApp.",
                       img1: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1522542565365-c504bd96c706?auto=format&fit=crop&w=800&q=80" },
                     { id: 2, title: "Mini Application", priceUSD: 250, priceEUR: 230, 
                       desc: "A lightweight, custom web application tailored for specific tasks, such as booking systems, quote calculators, or client dashboards.", 
-                      scale: "Gives your business a high-level corporate status. Clients will feel they are interacting with a top-tier brand when using a premium tool on their phones." },
+                      scale: "Gives your business a high-level corporate status. Clients will feel they are interacting with a top-tier brand when using a premium tool on their phones.",
+                      img1: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=80" },
                     { id: 3, title: "Web Application", priceUSD: 600, priceEUR: 550, 
                       desc: "A complete and complex digital system. Includes databases, user registration, and advanced features built exclusively for your internal business operations.", 
-                      scale: "Automates processes that used to take hours. Centralizes your business control in a secure platform, saving you time and money in the long run." },
+                      scale: "Automates processes that used to take hours. Centralizes your business control in a secure platform, saving you time and money in the long run.",
+                      img1: "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" },
                     { id: 4, title: "Complex Website", priceUSD: 350, priceEUR: 325, 
                       desc: "Your complete digital headquarters. Multiple pages detailing your services, 'About Us' section, portfolio, map location, and contact forms.", 
-                      scale: "Generates maximum trust with high-end clients. A full website transmits absolute authority against your local competitors." },
+                      scale: "Generates maximum trust with high-end clients. A full website transmits absolute authority against your local competitors.",
+                      img1: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1481481600674-e9a117b38d33?auto=format&fit=crop&w=800&q=80" },
                     { id: 5, title: "SEO Optimization", priceUSD: 120, priceEUR: 110, 
                       desc: "Technical and keyword configuration to make your business appear at the top of Google when people search for your services in your city.", 
-                      scale: "Drives free, organic client traffic 24 hours a day, without the need to pay for continuous monthly advertising." },
+                      scale: "Drives free, organic client traffic 24 hours a day, without the need to pay for continuous monthly advertising.",
+                      img1: "https://images.unsplash.com/photo-1432888117426-115f08ac9c5c?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" },
                     { id: 6, title: "Meta Ads Campaigns", priceUSD: 180, priceEUR: 165, 
                       desc: "Professional setup and management of paid ads on Instagram and Facebook, mathematically targeted to reach only the people who need your service.", 
-                      scale: "The fastest way to generate revenue. We put your offers directly in the phones of clients who are ready to buy today." },
+                      scale: "The fastest way to generate revenue. We put your offers directly in the phones of clients who are ready to buy today.",
+                      img1: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" },
                     { id: 7, title: "Content Marketing", priceUSD: 200, priceEUR: 185, 
                       desc: "Scripting, strategy, and expert editing for short-form vertical videos (Reels, TikTok) focused on showcasing your brand's value and expertise.", 
-                      scale: "Short video creates a bond of personal trust with the client before they even meet you. Makes your brand highly recognized locally." },
+                      scale: "Short video creates a bond of personal trust with the client before they even meet you. Makes your brand highly recognized locally.",
+                      img1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" },
                     { id: 8, title: "Social Media Branding", priceUSD: 100, priceEUR: 90, 
                       desc: "Design of a cohesive, premium, and elegant visual identity for your social networks. Includes covers, color palettes, and aesthetic templates.", 
-                      scale: "First impressions are everything. A clean, aesthetic Instagram profile immediately convinces clients that your services are premium quality." }
+                      scale: "First impressions are everything. A clean, aesthetic Instagram profile immediately convinces clients that your services are premium quality.",
+                      img1: "https://images.unsplash.com/photo-1613909207039-6b173b755cc1?auto=format&fit=crop&w=800&q=80",
+                      img2: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" }
                 ]
             }
         };
-
-        // Asignación de imágenes por defecto para los que no tienen imágenes personalizadas
-        const defaultImages = [
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80"
-        ];
 
         let currentLang = 'es';
         let currentService = null;
@@ -262,8 +344,14 @@
             currentLang = currentLang === 'es' ? 'en' : 'es';
             document.getElementById('lang-btn').innerText = currentLang === 'es' ? 'EN / English' : 'ES / Español';
             renderContent();
+            
+            // Refrescar modal si está abierto
             if(!document.getElementById('details-modal').classList.contains('hidden') && currentService) {
-                openDetailsModal(currentService.id); // Refrescar modal si está abierto
+                openDetailsModal(currentService.id); 
+            }
+            if(!document.getElementById('form-modal').classList.contains('hidden') && currentService) {
+                const data = i18n[currentLang];
+                document.getElementById('form-service-name').innerText = data.services.find(s => s.id === currentService.id).title;
             }
         }
 
@@ -272,30 +360,45 @@
             
             // Actualizar textos estáticos
             document.getElementById('t-heroBadge').innerText = data.heroBadge;
-            document.getElementById('t-heroTitle').innerHTML = data.heroTitle;
+            document.getElementById('t-heroTitle').innerText = data.heroTitle;
             document.getElementById('t-heroDesc').innerHTML = data.heroDesc;
             document.getElementById('t-servicesTitle').innerText = data.servicesTitle;
             document.getElementById('t-footerText').innerText = data.footerText;
             document.getElementById('t-modalWhatIs').innerText = data.modalWhatIs;
             document.getElementById('t-modalScale').innerText = data.modalScale;
-            document.getElementById('t-btnChoose').innerText = data.btnChoose;
+            
+            // Botón de elegir en modal de detalles
+            document.getElementById('t-btnChoose').innerHTML = `
+                ${data.btnChoose}
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            `;
+            
+            // Textos del formulario
             document.getElementById('t-modalFinal').innerText = data.modalFinal;
             document.getElementById('t-modalService').innerText = data.modalService;
             document.getElementById('t-labelCompany').innerText = data.labelCompany;
             document.getElementById('t-labelDesc').innerText = data.labelDesc;
-            document.getElementById('t-btnSubmit').innerHTML = `${data.btnSubmit} <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
             document.getElementById('company-name').placeholder = data.phCompany;
             document.getElementById('project-desc').placeholder = data.phDesc;
+            
+            // Botón de submit
+            document.getElementById('t-btnSubmit').innerHTML = `
+                ${data.btnSubmit}
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            `;
 
             // Renderizar Grilla de Servicios
             const grid = document.getElementById('services-grid');
             grid.innerHTML = data.services.map(s => `
-                <div onclick="openDetailsModal(${s.id})" class="glass-card rounded-3xl p-6 cursor-pointer flex flex-col h-full group">
-                    <h3 class="text-xl font-bold mb-1 text-white">${s.title}</h3>
-                    <p class="text-blue-400 font-bold mb-4">$${s.priceUSD}</p>
+                <div onclick="openDetailsModal(${s.id})" class="glass-card rounded-3xl p-8 cursor-pointer flex flex-col h-full group">
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">${s.title}</h3>
+                    <div class="flex flex-col gap-1 mb-5">
+                        <span class="text-blue-400 font-bold text-lg">$${s.priceUSD} USD</span>
+                        <span class="text-purple-400 font-medium text-sm">€${s.priceEUR} EUR</span>
+                    </div>
                     <p class="text-gray-400 text-sm font-light line-clamp-3 mb-6 leading-relaxed">${s.desc}</p>
-                    <div class="mt-auto pt-4 border-t border-white/10">
-                        <span class="text-xs font-semibold uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors flex items-center justify-between">
+                    <div class="mt-auto pt-5 border-t border-white/10">
+                        <span class="text-xs font-bold uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors flex items-center justify-between">
                             ${data.btnDetails}
                         </span>
                     </div>
@@ -313,23 +416,31 @@
             document.getElementById('detail-desc').innerText = currentService.desc;
             document.getElementById('detail-scale').innerText = currentService.scale;
             
-            document.getElementById('detail-img1').src = currentService.img1 || defaultImages[0];
-            document.getElementById('detail-img2').src = currentService.img2 || defaultImages[1];
+            document.getElementById('detail-img1').src = currentService.img1;
+            document.getElementById('detail-img2').src = currentService.img2;
             
+            document.body.style.overflow = 'hidden';
             document.getElementById('details-modal').classList.remove('hidden');
         }
 
         function closeDetailsModal() {
+            document.body.style.overflow = 'auto';
             document.getElementById('details-modal').classList.add('hidden');
         }
 
         function openFormModal() {
             closeDetailsModal();
-            document.getElementById('form-service-name').innerText = currentService.title;
+            const data = i18n[currentLang];
+            // Asegurar que el nombre del servicio se muestre en el idioma actual
+            const translatedService = data.services.find(s => s.id === currentService.id).title;
+            document.getElementById('form-service-name').innerText = translatedService;
+            
+            document.body.style.overflow = 'hidden';
             document.getElementById('form-modal').classList.remove('hidden');
         }
 
         function closeFormModal() {
+            document.body.style.overflow = 'auto';
             document.getElementById('form-modal').classList.add('hidden');
         }
 
@@ -338,11 +449,12 @@
             const company = document.getElementById('company-name').value;
             const desc = document.getElementById('project-desc').value;
             const data = i18n[currentLang];
+            const translatedService = data.services.find(s => s.id === currentService.id).title;
             
-            const phone = "5492257550650";
+            const phone = "5492257550650"; // Tu número
             
             let message = data.msgBase
-                .replace('{service}', currentService.title)
+                .replace('{service}', translatedService)
                 .replace('{company}', company)
                 .replace('{desc}', desc);
                             
@@ -351,7 +463,15 @@
             closeFormModal();
         }
 
-        // Inicializar
+        // Cerrar modales al hacer clic afuera
+        document.getElementById('details-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeDetailsModal();
+        });
+        document.getElementById('form-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeFormModal();
+        });
+
+        // Inicializar la aplicación
         renderContent();
     </script>
 </body>
