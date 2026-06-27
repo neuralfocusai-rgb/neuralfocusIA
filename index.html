@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuncio Profesional - Casino 132</title>
+    <title>Anuncio Premium - Casino 132</title>
     <style>
         * {
             margin: 0;
@@ -21,20 +21,41 @@
             overflow: hidden;
         }
 
-        /* Contenedor formato celular (9:16) profesional */
+        /* Contenedor formato celular (9:16) */
         .anuncio-container {
             width: 100vw;
             height: 100vh;
             max-width: 450px;
             max-height: 800px;
             position: relative;
-            background: radial-gradient(circle, #002f13 0%, #000000 100%); /* Fondo verde casino profundo */
+            background: radial-gradient(circle, #0a3318 0%, #000000 100%);
             overflow: hidden;
             border: 4px solid #ffd700;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
         }
 
-        /* --- EFECTO: TORMENTA DE BILLETES Y LLUVIA DE MONEDAS --- */
+        /* --- FONDO DE CASINO: RULETA GIRANDO --- */
+        .ruleta-fondo {
+            position: absolute;
+            top: 5%;
+            left: -30%;
+            width: 400px;
+            height: 400px;
+            /* Usamos un SVG transparente de una ruleta */
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Roulette_wheel.svg/1024px-Roulette_wheel.svg.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.25;
+            animation: girarRuleta 15s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes girarRuleta {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- EFECTO: TORMENTA DE BILLETES --- */
         .lluvia-container {
             position: absolute;
             width: 100%;
@@ -48,35 +69,74 @@
         .particula {
             position: absolute;
             top: -50px;
-            font-size: 24px;
-            opacity: 0.85;
+            opacity: 0.9;
             animation: caer linear infinite;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8));
         }
 
         @keyframes caer {
-            0% {
-                transform: translateY(0) rotate(0deg) translateX(0);
-                opacity: 1;
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(850px) rotate(720deg); opacity: 0; }
+        }
+
+        /* --- TEXTOS ANIMADOS (CASINO 132 Y JACKPOT) --- */
+        .header-anuncio {
+            position: absolute;
+            top: 3%;
+            width: 100%;
+            text-align: center;
+            z-index: 5;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Contador estilo Slots */
+        .jackpot-container {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ffcc;
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: #00ffcc;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            box-shadow: 0 0 10px #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        /* Título con movimiento 3D y brillo */
+        .titulo-casino {
+            font-size: 2.5rem;
+            color: #fff;
+            letter-spacing: 2px;
+            animation: movimientoTitulo 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes movimientoTitulo {
+            0% { 
+                transform: perspective(400px) rotateY(-10deg) scale(1); 
+                text-shadow: 0 0 10px #ffd700, 0 5px 5px rgba(0,0,0,0.8); 
             }
-            100% {
-                transform: translateY(850px) rotate(720deg) translateX(50px);
-                opacity: 0.3;
+            100% { 
+                transform: perspective(400px) rotateY(10deg) scale(1.05); 
+                text-shadow: 0 0 25px #ff0055, 0 0 40px #ffd700, 0 5px 5px rgba(0,0,0,0.8); 
             }
         }
 
-        /* --- DISEÑO: MARCO DE SUPERPOSICIÓN PARA CAPCUT --- */
-        /* Este recuadro actúa como marcador de posición transparente o Chroma Key */
+        /* --- MARCO DE SUPERPOSICIÓN PARA CAPCUT --- */
         .marco-superposicion {
             position: absolute;
-            top: 35%;
+            top: 42%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 85%;
-            height: 40%;
+            height: 38%;
             border: 5px solid #00ffcc;
-            box-shadow: 0 0 20px #00ffcc;
+            box-shadow: 0 0 20px #00ffcc, inset 0 0 15px rgba(0,255,204,0.5);
             border-radius: 12px;
-            background: #00ff00; /* Fondo verde puro para usar como Chroma Key si lo deseas, o dejarlo vacío */
+            background: #00ff00; /* Fondo verde Chroma Key */
             z-index: 3;
             display: flex;
             justify-content: center;
@@ -86,64 +146,57 @@
         .marco-label {
             color: #000;
             background: #00ffcc;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            border-radius: 4px;
+            padding: 8px 15px;
+            font-size: 1rem;
+            border-radius: 6px;
             text-transform: uppercase;
+            font-weight: bold;
         }
 
-        /* --- PERSONAJE: AVATAR BAILANDO --- */
-        .avatar-container {
+        /* --- LOS DOS AVATARES REALISTAS --- */
+        .avatar {
             position: absolute;
-            bottom: 15%;
-            right: 5%;
-            width: 160px;
-            height: 160px;
-            z-index: 4;
-            filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.7));
-            animation: ritmoCumbia 0.6s infinite alternate ease-in-out;
+            bottom: 12%;
+            width: 150px;
+            height: 180px;
+            z-index: 6;
+            filter: drop-shadow(5px 10px 15px rgba(0,0,0,0.9));
         }
 
-        .avatar-container img {
+        /* Avatar Izquierdo */
+        .avatar-izq {
+            left: 2%;
+            animation: baileIzq 0.7s infinite alternate ease-in-out;
+        }
+
+        /* Avatar Derecho */
+        .avatar-der {
+            right: 2%;
+            animation: baileDer 0.8s infinite alternate ease-in-out;
+        }
+
+        .avatar img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
 
-        @keyframes ritmoCumbia {
-            0% { transform: translateY(0) rotate(-3deg) scale(1); }
-            100% { transform: translateY(-8px) rotate(3deg) scale(1.05); }
+        @keyframes baileIzq {
+            0% { transform: translateY(0) rotate(-4deg); }
+            100% { transform: translateY(-12px) rotate(2deg); }
         }
 
-        /* --- TEXTOS COMERCIALES PROFESIONALES --- */
-        .header-anuncio {
-            position: absolute;
-            top: 4%;
-            width: 100%;
-            text-align: center;
-            z-index: 5;
-            padding: 0 10px;
+        @keyframes baileDer {
+            0% { transform: translateY(-5px) rotate(4deg); }
+            100% { transform: translateY(-15px) rotate(-2deg); }
         }
 
-        .titulo-casino {
-            font-size: 2.2rem;
-            color: #fff;
-            text-shadow: 0 0 10px #ffd700, 0 0 20px #ff8800;
-            letter-spacing: 2px;
-        }
-
-        .subtitulo-casino {
-            font-size: 1.2rem;
-            color: #ffd700;
-            text-shadow: 0 0 5px #000;
-            margin-top: 2px;
-        }
-
+        /* --- BANNER INFERIOR --- */
         .footer-anuncio {
             position: absolute;
-            bottom: 4%;
-            width: 90%;
-            left: 5%;
+            bottom: 3%;
+            width: 96%;
+            left: 2%;
             z-index: 5;
         }
 
@@ -152,83 +205,90 @@
             color: #fff;
             padding: 12px;
             text-align: center;
-            font-size: 0.95rem;
+            font-size: 1rem;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(255,0,85,0.4);
-            border: 2px solid #ff0055;
-            letter-spacing: 0.5px;
-            animation: pulsoTexto 1.5s infinite alternate;
+            box-shadow: 0 4px 15px rgba(255,0,85,0.6);
+            border: 2px solid #fff;
+            text-transform: uppercase;
+            animation: pulsoTexto 1s infinite alternate;
         }
 
         @keyframes pulsoTexto {
-            0% { transform: scale(0.98); box-shadow: 0 4px 10px rgba(255,0,85,0.4); }
-            100% { transform: scale(1.02); box-shadow: 0 4px 20px rgba(255,0,85,0.8); }
+            0% { transform: scale(0.98); }
+            100% { transform: scale(1.02); }
         }
     </style>
 </head>
 <body>
 
     <div class="anuncio-container">
-        <!-- Contenedor de la tormenta de dinero generada por JS -->
+        <div class="ruleta-fondo"></div>
+
         <div class="lluvia-container" id="lluvia"></div>
 
-        <!-- Encabezado del Anuncio -->
         <div class="header-anuncio">
+            <div class="jackpot-container">
+                🎰 POZO ACUMULADO: $<span id="slot-counter">1,250,000</span>
+            </div>
             <h1 class="titulo-casino">CASINO 132</h1>
-            <p class="subtitulo-casino">¡VENÍ A GANAR, NO PIERDAS ESTA OPORTUNIDAD!</p>
         </div>
 
-        <!-- Marco de Superposición para CapCut -->
         <div class="marco-superposicion">
-            <span class="marco-label">Tu video aquí</span>
+            <span class="marco-label">Espacio Video</span>
         </div>
 
-        <!-- Avatar Animado (Famoso/Dibujo con Camiseta de Argentina) -->
-        <div class="avatar-container">
-            <!-- REEMPLAZA ESTA URL POR EL GIF DE TU AVATAR BAILANDO -->
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms1eWR5eW15bXN0NXg0bmN6M3M4Z3R5Y3I4ZndvN3R0ZzVwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/39GAXp1VCPhx6/giphy.gif" alt="Avatar Bailando">
+        <div class="avatar avatar-izq">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms1eWR5eW15bXN0NXg0bmN6M3M4Z3R5Y3I4ZndvN3R0ZzVwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/39GAXp1VCPhx6/giphy.gif" alt="Avatar Izquierda">
         </div>
 
-        <!-- Banner Inferior Dinámico -->
+        <div class="avatar avatar-der">
+            <img src="https://media.giphy.com/media/l41Yh18f5TbiWHE0o/giphy.gif" alt="Avatar Derecha">
+        </div>
+
         <div class="footer-anuncio">
             <div class="banner-abigail">
-                💥 LOS PANELES DE ABIGAIL EXPLOTAN TODOS LOS DÍAS 💥
+                🔥 ¡Los paneles de Abigail explotan! 🔥
             </div>
         </div>
     </div>
 
-    <!-- Script para generar la tormenta continua de billetes y monedas -->
     <script>
+        // 1. Lluvia de Billetes y Monedas
         const lluviaContainer = document.getElementById('lluvia');
-        const elementos = ['💵', '💰', '🪙', '✨'];
+        const elementos = ['💵', '💸', '🪙', '💎']; // Agregamos diamantes
 
         function crearParticula() {
             const particula = document.createElement('div');
             particula.classList.add('particula');
-            
-            // Selecciona un elemento al azar (billete, bolsa o moneda)
             particula.innerText = elementos[Math.floor(Math.random() * elementos.length)];
             
-            // Posición horizontal aleatoria
+            // Posición, tamaño y duración aleatorias para efecto 3D
             particula.style.left = Math.random() * 100 + '%';
-            
-            // Tamaño y velocidad aleatoria para simular profundidad 3D
-            const tamaño = Math.random() * (30 - 15) + 15;
+            const tamaño = Math.random() * (35 - 15) + 15;
             particula.style.fontSize = tamaño + 'px';
-            
-            const duracion = Math.random() * (4 - 2) + 2; // Entre 2 y 4 segundos
+            const duracion = Math.random() * (4 - 2) + 2;
             particula.style.animationDuration = duracion + 's';
             
             lluviaContainer.appendChild(particula);
 
-            // Elimina el elemento cuando termina de caer para no saturar el navegador
             setTimeout(() => {
                 particula.remove();
             }, duracion * 1000);
         }
 
-        // Genera una nueva moneda o billete cada 100 milisegundos (Tormenta continua)
-        setInterval(crearParticula, 100);
+        // Genera partículas continuamente
+        setInterval(crearParticula, 120);
+
+        // 2. Contador de Slots en vivo (Pozo acumulado)
+        let pozo = 1250000;
+        const contadorElemento = document.getElementById('slot-counter');
+
+        setInterval(() => {
+            // Suma montos aleatorios rápidos para simular una maquinita tragamonedas
+            pozo += Math.floor(Math.random() * 1500) + 100;
+            // Formatea el número con puntos (ej: 1.250.500)
+            contadorElemento.innerText = pozo.toLocaleString('es-AR');
+        }, 150);
     </script>
 </body>
 </html>
