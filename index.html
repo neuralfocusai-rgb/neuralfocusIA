@@ -11,18 +11,18 @@
     <style>
         body {
             font-family: 'Space Grotesk', sans-serif;
-            background-color: #050505;
+            background-color: #f8fafc; /* Fondo claro de base por si tardan en cargar las imágenes */
             color: #ffffff;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Carrusel de Fondo Ultra Futurista (Efecto Ken Burns) */
+        /* Carrusel de Fondo de Clínicas Médicas (Efecto Ken Burns) - SIN OSCURECER */
         .hero-carousel {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100vh;
             z-index: -1;
-            background-color: #000;
+            background-color: #ffffff;
         }
         .slide {
             position: absolute;
@@ -32,47 +32,56 @@
             background-position: center;
             animation: kenburns 24s infinite;
         }
+        /* Imágenes claras de tecnología médica y clínicas */
         .slide:nth-child(1) {
-            background-image: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop');
             animation-delay: 0s;
         }
         .slide:nth-child(2) {
-            background-image: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81896894?q=80&w=2000&auto=format&fit=crop');
             animation-delay: 8s;
         }
         .slide:nth-child(3) {
-            background-image: linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=2000&auto=format&fit=crop');
             animation-delay: 16s;
         }
         @keyframes kenburns {
             0% { opacity: 0; transform: scale(1); }
-            10% { opacity: 0.6; }
-            25% { opacity: 0.6; }
+            10% { opacity: 1; }
+            25% { opacity: 1; }
             33% { opacity: 0; transform: scale(1.1); }
             100% { opacity: 0; transform: scale(1.1); }
         }
 
-        /* Tarjetas Glassmorphism */
+        /* Tarjetas Glassmorphism adaptadas para fondos claros */
         .glass-card {
-            background: rgba(20, 20, 25, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
+            /* Fondo oscuro translúcido más fuerte para contrastar con la imagen de fondo clara */
+            background: rgba(15, 15, 20, 0.75); 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
         .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.5);
+            border-color: rgba(59, 130, 246, 0.6);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 15px 40px -10px rgba(59, 130, 246, 0.4);
         }
 
         /* Textos y Efectos Neón */
         .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #71717a 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .neon-text {
-            text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.8);
+        }
+
+        /* Sombra especial para textos sobre fondos claros */
+        .text-shadow-strong {
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0,0,0,0.6);
         }
 
         /* Scrollbar Premium */
@@ -83,7 +92,7 @@
 </head>
 <body class="relative min-h-screen selection:bg-blue-500/30">
 
-    <!-- Carrusel Animado de Fondo -->
+    <!-- Carrusel Animado de Fondo (Clínicas y Tech Médica) -->
     <div class="hero-carousel">
         <div class="slide"></div>
         <div class="slide"></div>
@@ -95,44 +104,51 @@
         
         <!-- Selector de Idioma -->
         <div class="flex justify-end mb-16">
-            <button onclick="toggleLanguage()" class="glass-card px-5 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            <button onclick="toggleLanguage()" class="glass-card px-5 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300">
                 <span id="lang-btn">EN / English</span>
             </button>
         </div>
 
         <!-- Header Hero -->
-        <header class="text-center mb-24">
-            <div id="t-heroBadge" class="inline-block mb-6 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+        <header class="text-center mb-24 relative">
+            <!-- Resplandor sutil detrás del texto para garantizar lectura en fotos blancas -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-3/4 h-full bg-black/50 blur-[60px] -z-10 rounded-[100%] pointer-events-none"></div>
+            
+            <div id="t-heroBadge" class="inline-block mb-6 px-5 py-2 rounded-full border border-blue-400/50 bg-blue-900/60 backdrop-blur-md text-blue-200 text-xs font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(59,130,246,0.4)]">
                 Agencia Neural Focus
             </div>
-            <h1 id="t-heroTitle" class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tighter text-gradient leading-tight">
+            <h1 id="t-heroTitle" class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tighter text-white text-shadow-strong leading-tight">
                 NEURAL FOCUS
             </h1>
-            <p id="t-heroDesc" class="text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed text-gray-300">
-                Soy <strong class="text-white neon-text font-medium">Lucas Guzmán</strong>. Construyo infraestructuras digitales premium diseñadas para escalar tu negocio a nivel mundial.
+            <p id="t-heroDesc" class="text-xl md:text-2xl font-medium max-w-3xl mx-auto leading-relaxed text-gray-100 text-shadow-strong">
+                Soy <strong class="text-white neon-text font-bold">Lucas Guzmán</strong>. Construyo infraestructuras digitales premium diseñadas para escalar tu negocio a nivel mundial.
             </p>
         </header>
 
         <!-- Grilla de Servicios -->
         <section class="mb-24">
-            <h2 id="t-servicesTitle" class="text-2xl md:text-3xl font-bold mb-10 text-white tracking-wide text-center">Selecciona un Servicio</h2>
+            <!-- Fondo oscuro difuminado detrás del título de servicios -->
+            <div class="inline-block bg-black/60 backdrop-blur-md px-8 py-3 rounded-2xl mb-10 mx-auto w-full text-center border border-white/10">
+                <h2 id="t-servicesTitle" class="text-2xl md:text-3xl font-bold text-white tracking-wide">Selecciona un Servicio</h2>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="services-grid">
                 <!-- Renderizado por JS -->
             </div>
         </section>
 
         <!-- Botones de Contacto (LinkedIn, TikTok, Email) -->
-        <section class="py-12 border-t border-white/10 mb-12">
+        <section class="py-12 border-t border-white/20 mb-12 bg-black/20 backdrop-blur-sm rounded-3xl mt-10">
             <div class="flex flex-wrap justify-center gap-6">
-                <a href="https://www.linkedin.com/in/lucas-guzm%C3%A1n-1a694a418" target="_blank" class="glass-card px-8 py-4 rounded-full border border-blue-500/50 hover:bg-blue-600/20 text-white font-medium flex items-center gap-3 transition-all">
+                <a href="https://www.linkedin.com/in/lucas-guzm%C3%A1n-1a694a418" target="_blank" class="glass-card px-8 py-4 rounded-full border border-blue-500/50 hover:bg-blue-600/30 text-white font-medium flex items-center gap-3 transition-all">
                     <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                 </a>
-                <a href="https://www.tiktok.com/@neuralfocus.2026" target="_blank" class="glass-card px-8 py-4 rounded-full border border-purple-500/50 hover:bg-purple-600/20 text-white font-medium flex items-center gap-3 transition-all">
+                <a href="https://www.tiktok.com/@neuralfocus.2026" target="_blank" class="glass-card px-8 py-4 rounded-full border border-purple-500/50 hover:bg-purple-600/30 text-white font-medium flex items-center gap-3 transition-all">
                     <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
                     TikTok
                 </a>
-                <a href="mailto:neuralfocusai@gmail.com" class="glass-card px-8 py-4 rounded-full border border-emerald-500/50 hover:bg-emerald-600/20 text-white font-medium flex items-center gap-3 transition-all">
+                <a href="mailto:neuralfocusai@gmail.com" class="glass-card px-8 py-4 rounded-full border border-emerald-500/50 hover:bg-emerald-600/30 text-white font-medium flex items-center gap-3 transition-all">
                     <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     Email
                 </a>
@@ -141,7 +157,7 @@
 
         <!-- Footer Persuasivo -->
         <footer class="text-center pb-12">
-            <p id="t-footerText" class="text-gray-400 text-sm md:text-base font-light leading-relaxed max-w-4xl mx-auto p-6 glass-card rounded-2xl">
+            <p id="t-footerText" class="text-gray-200 text-sm md:text-base font-light leading-relaxed max-w-4xl mx-auto p-6 glass-card rounded-2xl">
                 Neural Focus es el canal ideal para tener contacto directo con Lucas Guzmán. Su respuesta puede ser en el idioma que desee y a la hora que necesite, ya que obtendrá atención personalizada las 24 horas del día, los 7 días de la semana, en cualquier idioma.
             </p>
         </footer>
@@ -149,7 +165,7 @@
 
     <!-- MODAL 1: Detalles del Servicio -->
     <div id="details-modal" class="fixed inset-0 z-40 hidden bg-black/90 backdrop-blur-xl overflow-y-auto pt-10 pb-20 px-4 flex justify-center items-start">
-        <div class="glass-card rounded-3xl w-full max-w-4xl p-6 md:p-10 relative mt-10 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10">
+        <div class="glass-card !bg-gray-900/90 rounded-3xl w-full max-w-4xl p-6 md:p-10 relative mt-10 shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10">
             <button onclick="closeDetailsModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-4xl transition-colors">&times;</button>
             
             <h3 id="detail-title" class="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight"></h3>
@@ -185,7 +201,7 @@
 
     <!-- MODAL 2: Formulario de Contacto (WhatsApp) -->
     <div id="form-modal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4">
-        <div class="glass-card rounded-3xl w-full max-w-lg p-8 md:p-10 relative border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.15)]">
+        <div class="glass-card !bg-gray-900/95 rounded-3xl w-full max-w-lg p-8 md:p-10 relative border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.2)]">
             <button onclick="closeFormModal()" class="absolute top-5 right-6 text-gray-400 hover:text-white text-4xl transition-colors">&times;</button>
             
             <h3 id="t-modalFinal" class="text-3xl font-bold mb-2 text-white tracking-tight">Paso Final</h3>
@@ -216,7 +232,7 @@
             es: {
                 heroBadge: "Agencia Neural Focus",
                 heroTitle: "NEURAL FOCUS",
-                heroDesc: "Soy <strong class='text-white neon-text font-medium'>Lucas Guzmán</strong>. Construyo infraestructuras digitales premium diseñadas para escalar tu negocio a nivel mundial.",
+                heroDesc: "Soy <strong class='text-white neon-text font-bold'>Lucas Guzmán</strong>. Construyo infraestructuras digitales premium diseñadas para escalar tu clínica o negocio a nivel mundial.",
                 servicesTitle: "Selecciona un Servicio",
                 footerText: "Neural Focus es el canal ideal para tener contacto directo con Lucas Guzmán. Su respuesta puede ser en el idioma que desee y a la hora que necesite, ya que obtendrá atención personalizada las 24 horas del día, los 7 días de la semana, en cualquier idioma.",
                 btnDetails: "Ver detalles &rarr;",
@@ -225,51 +241,51 @@
                 btnChoose: "Elegir este servicio",
                 modalFinal: "Paso Final",
                 modalService: "Servicio:",
-                labelCompany: "Nombre de la Empresa",
-                phCompany: "Ej. Clínica Dental Acme",
+                labelCompany: "Nombre de la Clínica/Empresa",
+                phCompany: "Ej. Clínica Médica o Consultorio",
                 labelDesc: "Descripción del Proyecto",
                 phDesc: "Describa su negocio y lo que necesita...",
                 btnSubmit: "Enviar a WhatsApp",
                 msgBase: "¡Hola Lucas! Me comunico desde Neural Focus.\n\n*Servicio Seleccionado:* {service}\n*Empresa:* {company}\n*Detalles del Proyecto:* {desc}",
                 services: [
                     { id: 1, title: "Landing Page", priceUSD: 150, priceEUR: 140, 
-                      desc: "Una página web de una sola sección, con un diseño ultra moderno y enfocada en un solo objetivo: captar clientes. Incluye botones de contacto directo y testimonios reales.", 
+                      desc: "Una página web de una sola sección, con un diseño ultra moderno y enfocada en un solo objetivo: captar pacientes o clientes. Incluye botones de contacto directo y testimonios reales.", 
                       scale: "Elimina las distracciones. Al entrar, el cliente solo tiene la opción de contactarlo a usted, aumentando masivamente la cantidad de mensajes que recibe en su WhatsApp.",
                       img1: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1522542565365-c504bd96c706?auto=format&fit=crop&w=800&q=80" },
                     { id: 2, title: "Mini Aplicación", priceUSD: 250, priceEUR: 230, 
-                      desc: "Una aplicación web ligera y rápida diseñada a medida para funciones específicas, como un sistema de reservas de turnos, calculadoras de presupuestos o paneles para clientes.", 
-                      scale: "Le brinda a su empresa un estatus corporativo de alto nivel. Sus clientes sentirán que interactúan con una gran marca al usar una herramienta premium desde su celular.",
+                      desc: "Una aplicación web ligera y rápida diseñada a medida para funciones específicas, como un sistema de reservas de turnos médicos, calculadoras o paneles de pacientes.", 
+                      scale: "Le brinda a su clínica un estatus corporativo de alto nivel. Sus pacientes sentirán que interactúan con una gran marca al usar una herramienta premium desde su celular.",
                       img1: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-                      img2: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=80" },
+                      img2: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" },
                     { id: 3, title: "Aplicación Web", priceUSD: 600, priceEUR: 550, 
-                      desc: "Un sistema digital completo y complejo. Incluye bases de datos, registro de usuarios y funciones avanzadas creadas exclusivamente para el funcionamiento interno de su empresa.", 
-                      scale: "Automatiza procesos que antes tomaban horas. Centraliza el control de su negocio en una plataforma segura, ahorrando dinero a largo plazo.",
+                      desc: "Un sistema digital completo y complejo. Incluye bases de datos, historias clínicas digitales, registro de usuarios y funciones avanzadas creadas exclusivamente para su funcionamiento interno.", 
+                      scale: "Automatiza procesos que antes tomaban horas. Centraliza el control de su clínica en una plataforma segura, ahorrando dinero a largo plazo.",
                       img1: "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" },
                     { id: 4, title: "Sitio Web Complejo", priceUSD: 350, priceEUR: 325, 
-                      desc: "Su sede digital completa en internet. Múltiples páginas detallando sus servicios, sección de 'Quiénes Somos', portafolio de trabajos, ubicación en mapa y formularios.", 
-                      scale: "Genera máxima confianza en clientes de alto poder adquisitivo. Un sitio web completo transmite autoridad absoluta frente a su competencia.",
+                      desc: "Su sede digital completa en internet. Múltiples páginas detallando sus especialidades médicas, profesionales, ubicación en mapa e integración de turnos.", 
+                      scale: "Genera máxima confianza en pacientes de alto poder adquisitivo. Un sitio web completo transmite autoridad absoluta frente a otros profesionales de su zona.",
                       img1: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1481481600674-e9a117b38d33?auto=format&fit=crop&w=800&q=80" },
                     { id: 5, title: "Optimización SEO", priceUSD: 120, priceEUR: 110, 
-                      desc: "Configuración técnica y de palabras clave para que su negocio aparezca en los primeros lugares de Google cuando la gente busca sus servicios en su ciudad.", 
-                      scale: "Le consigue tráfico de clientes las 24 horas del día de manera totalmente gratuita (orgánica), sin tener que pagar publicidad mes a mes.",
+                      desc: "Configuración técnica y de palabras clave para que su consultorio o clínica aparezca en los primeros lugares de Google cuando la gente busca especialistas en su ciudad.", 
+                      scale: "Le consigue tráfico de pacientes las 24 horas del día de manera totalmente gratuita (orgánica), sin tener que pagar publicidad mes a mes.",
                       img1: "https://images.unsplash.com/photo-1432888117426-115f08ac9c5c?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" },
                     { id: 6, title: "Campañas Meta Ads", priceUSD: 180, priceEUR: 165, 
-                      desc: "Creación y gestión profesional de anuncios de pago en Instagram y Facebook, segmentados matemáticamente para llegar solo a las personas que necesitan su servicio.", 
-                      scale: "Es la forma más rápida de facturar. Ponemos sus ofertas directamente en el teléfono de clientes que están listos para comprar hoy mismo.",
+                      desc: "Creación y gestión profesional de anuncios en Instagram y Facebook, segmentados matemáticamente para llegar solo a las personas que necesitan su atención médica o servicio.", 
+                      scale: "Es la forma más rápida de llenar su agenda. Ponemos sus servicios directamente en el teléfono de pacientes que están buscando atención hoy mismo.",
                       img1: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" },
                     { id: 7, title: "Marketing de Contenido", priceUSD: 200, priceEUR: 185, 
-                      desc: "Creación de guiones, estrategia y edición experta para videos verticales cortos (Reels, TikTok) enfocados en demostrar el valor y conocimiento de su marca.", 
-                      scale: "El video corto crea un vínculo de confianza personal con el cliente antes de que lo conozca. Hace que su marca sea reconocida y deseada a nivel local.",
+                      desc: "Creación de guiones, estrategia y edición experta para videos verticales cortos (Reels, TikTok) enfocados en demostrar el valor y conocimiento médico de su marca.", 
+                      scale: "El video corto crea un vínculo de confianza personal con el paciente antes de que llegue a la consulta. Hace que su nombre sea reconocido a nivel local.",
                       img1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" },
                     { id: 8, title: "Branding Redes Sociales", priceUSD: 100, priceEUR: 90, 
-                      desc: "Diseño de una identidad visual cohesiva, premium y elegante para sus redes sociales. Incluye portadas, paletas de colores y plantillas estéticas.", 
-                      scale: "La primera impresión lo es todo. Un perfil de Instagram limpio y estético convence inmediatamente al cliente de que sus servicios son de calidad premium.",
+                      desc: "Diseño de una identidad visual cohesiva, premium y elegante para sus redes sociales profesionales. Incluye portadas, paletas de colores y plantillas estéticas.", 
+                      scale: "La primera impresión lo es todo. Un perfil de Instagram limpio y estético convence inmediatamente al paciente de que su atención es de calidad premium.",
                       img1: "https://images.unsplash.com/photo-1613909207039-6b173b755cc1?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" }
                 ]
@@ -277,60 +293,60 @@
             en: {
                 heroBadge: "Neural Focus Agency",
                 heroTitle: "NEURAL FOCUS",
-                heroDesc: "I am <strong class='text-white neon-text font-medium'>Lucas Guzmán</strong>. I build premium digital infrastructures designed to scale your business worldwide.",
+                heroDesc: "I am <strong class='text-white neon-text font-bold'>Lucas Guzmán</strong>. I build premium digital infrastructures designed to scale your clinic or business worldwide.",
                 servicesTitle: "Select a Service",
-                footerText: "Neural Focus is the ideal channel for direct contact with Lucas Guzmán. You will receive personalized attention 24/7 in any language, ensuring your business needs are met globally.",
+                footerText: "Neural Focus is the ideal channel for direct contact with Lucas Guzmán. You will receive personalized attention 24/7 in any language, ensuring your medical business needs are met globally.",
                 btnDetails: "View details &rarr;",
                 modalWhatIs: "What exactly is it?",
                 modalScale: "How it scales your brand?",
                 btnChoose: "Choose this service",
                 modalFinal: "Final Step",
                 modalService: "Service:",
-                labelCompany: "Company Name",
-                phCompany: "e.g. Acme Dental Clinic",
+                labelCompany: "Clinic / Company Name",
+                phCompany: "e.g. Acme Medical Clinic",
                 labelDesc: "Project Description",
                 phDesc: "Describe your business and what you need...",
                 btnSubmit: "Submit to WhatsApp",
                 msgBase: "Hello Lucas! I am reaching out from Neural Focus.\n\n*Selected Service:* {service}\n*Company:* {company}\n*Project Details:* {desc}",
                 services: [
                     { id: 1, title: "Landing Page", priceUSD: 150, priceEUR: 140, 
-                      desc: "A single, ultra-optimized webpage designed with one clear goal: capturing clients. Includes direct contact buttons and real customer testimonials.", 
+                      desc: "A single, ultra-optimized webpage designed with one clear goal: capturing patients. Includes direct contact buttons and real customer testimonials.", 
                       scale: "Eliminates distractions. Visitors only have the option to contact you, massively increasing the amount of direct inquiries to your WhatsApp.",
                       img1: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1522542565365-c504bd96c706?auto=format&fit=crop&w=800&q=80" },
                     { id: 2, title: "Mini Application", priceUSD: 250, priceEUR: 230, 
-                      desc: "A lightweight, custom web application tailored for specific tasks, such as booking systems, quote calculators, or client dashboards.", 
-                      scale: "Gives your business a high-level corporate status. Clients will feel they are interacting with a top-tier brand when using a premium tool on their phones.",
+                      desc: "A lightweight, custom web application tailored for specific tasks, such as patient booking systems, medical quote calculators, or client dashboards.", 
+                      scale: "Gives your clinic a high-level corporate status. Patients will feel they are interacting with a top-tier healthcare brand when using a premium tool on their phones.",
                       img1: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-                      img2: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=80" },
+                      img2: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" },
                     { id: 3, title: "Web Application", priceUSD: 600, priceEUR: 550, 
-                      desc: "A complete and complex digital system. Includes databases, user registration, and advanced features built exclusively for your internal business operations.", 
-                      scale: "Automates processes that used to take hours. Centralizes your business control in a secure platform, saving you time and money in the long run.",
+                      desc: "A complete and complex digital system. Includes databases, digital medical records, user registration, and advanced features built exclusively for your internal operations.", 
+                      scale: "Automates processes that used to take hours. Centralizes your clinic's control in a secure platform, saving you time and money in the long run.",
                       img1: "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" },
                     { id: 4, title: "Complex Website", priceUSD: 350, priceEUR: 325, 
-                      desc: "Your complete digital headquarters. Multiple pages detailing your services, 'About Us' section, portfolio, map location, and contact forms.", 
-                      scale: "Generates maximum trust with high-end clients. A full website transmits absolute authority against your local competitors.",
+                      desc: "Your complete digital headquarters. Multiple pages detailing your medical specialties, staff, map location, and appointment integrations.", 
+                      scale: "Generates maximum trust with high-end patients. A full website transmits absolute authority against your local medical competitors.",
                       img1: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1481481600674-e9a117b38d33?auto=format&fit=crop&w=800&q=80" },
                     { id: 5, title: "SEO Optimization", priceUSD: 120, priceEUR: 110, 
-                      desc: "Technical and keyword configuration to make your business appear at the top of Google when people search for your services in your city.", 
-                      scale: "Drives free, organic client traffic 24 hours a day, without the need to pay for continuous monthly advertising.",
+                      desc: "Technical and keyword configuration to make your clinic appear at the top of Google when people search for medical specialists in your city.", 
+                      scale: "Drives free, organic patient traffic 24 hours a day, without the need to pay for continuous monthly advertising.",
                       img1: "https://images.unsplash.com/photo-1432888117426-115f08ac9c5c?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" },
                     { id: 6, title: "Meta Ads Campaigns", priceUSD: 180, priceEUR: 165, 
-                      desc: "Professional setup and management of paid ads on Instagram and Facebook, mathematically targeted to reach only the people who need your service.", 
-                      scale: "The fastest way to generate revenue. We put your offers directly in the phones of clients who are ready to buy today.",
+                      desc: "Professional setup and management of paid ads on Instagram and Facebook, mathematically targeted to reach only the people who need your healthcare services.", 
+                      scale: "The fastest way to fill your schedule. We put your services directly in the phones of patients who are seeking care today.",
                       img1: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=80" },
                     { id: 7, title: "Content Marketing", priceUSD: 200, priceEUR: 185, 
-                      desc: "Scripting, strategy, and expert editing for short-form vertical videos (Reels, TikTok) focused on showcasing your brand's value and expertise.", 
-                      scale: "Short video creates a bond of personal trust with the client before they even meet you. Makes your brand highly recognized locally.",
+                      desc: "Scripting, strategy, and expert editing for short-form vertical videos (Reels, TikTok) focused on showcasing your medical expertise and brand value.", 
+                      scale: "Short video creates a bond of personal trust with the patient before they even arrive at the clinic. Makes your name highly recognized locally.",
                       img1: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" },
                     { id: 8, title: "Social Media Branding", priceUSD: 100, priceEUR: 90, 
-                      desc: "Design of a cohesive, premium, and elegant visual identity for your social networks. Includes covers, color palettes, and aesthetic templates.", 
-                      scale: "First impressions are everything. A clean, aesthetic Instagram profile immediately convinces clients that your services are premium quality.",
+                      desc: "Design of a cohesive, premium, and elegant visual identity for your professional social networks. Includes covers, color palettes, and aesthetic templates.", 
+                      scale: "First impressions are everything. A clean, aesthetic Instagram profile immediately convinces patients that your care is premium quality.",
                       img1: "https://images.unsplash.com/photo-1613909207039-6b173b755cc1?auto=format&fit=crop&w=800&q=80",
                       img2: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" }
                 ]
@@ -393,12 +409,12 @@
                 <div onclick="openDetailsModal(${s.id})" class="glass-card rounded-3xl p-8 cursor-pointer flex flex-col h-full group">
                     <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">${s.title}</h3>
                     <div class="flex flex-col gap-1 mb-5">
-                        <span class="text-blue-400 font-bold text-lg">$${s.priceUSD} USD</span>
-                        <span class="text-purple-400 font-medium text-sm">€${s.priceEUR} EUR</span>
+                        <span class="text-blue-400 font-bold text-lg text-shadow-strong">$${s.priceUSD} USD</span>
+                        <span class="text-purple-400 font-medium text-sm text-shadow-strong">€${s.priceEUR} EUR</span>
                     </div>
-                    <p class="text-gray-400 text-sm font-light line-clamp-3 mb-6 leading-relaxed">${s.desc}</p>
+                    <p class="text-gray-200 text-sm font-light line-clamp-3 mb-6 leading-relaxed">${s.desc}</p>
                     <div class="mt-auto pt-5 border-t border-white/10">
-                        <span class="text-xs font-bold uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-widest text-gray-300 group-hover:text-white transition-colors flex items-center justify-between">
                             ${data.btnDetails}
                         </span>
                     </div>
@@ -431,7 +447,6 @@
         function openFormModal() {
             closeDetailsModal();
             const data = i18n[currentLang];
-            // Asegurar que el nombre del servicio se muestre en el idioma actual
             const translatedService = data.services.find(s => s.id === currentService.id).title;
             document.getElementById('form-service-name').innerText = translatedService;
             
@@ -451,7 +466,7 @@
             const data = i18n[currentLang];
             const translatedService = data.services.find(s => s.id === currentService.id).title;
             
-            const phone = "5492257550650"; // Tu número
+            const phone = "5492257550650";
             
             let message = data.msgBase
                 .replace('{service}', translatedService)
